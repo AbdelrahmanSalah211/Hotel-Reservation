@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+             * {
+                margin: 0;
+                padding: 0;
+                box-sizing: border-box;
+                font-family: poppins, sans-serif;
+            }
+            body {
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                height: 100vh;
+            }
+            form{
+                display: flex;
+                flex-direction: column;
+                gap: 30px;
+                align-items: center;
+                justify-content: space-between;
+                
+            }
+    </style>
+</head>
+
+<body>
+    <form action="">
+        <my-input input-id="password"  label-name="my-password" label-for="my-password" type="password" placeholder="Enter your password">
+      
+        </my-input>
+
+        <my-input input-id="email"  label-name="my-email" label-for="my-email" type="email" placeholder="Enter your password">
+    
+        </my-input>
+
+        <my-input input-id="user-name"  label-name="my-name" label-for="my-email" type="text" placeholder="Enter your password">
+    
+        </my-input>
+    
+        
+    </form>
+    </body>
+<script src="./script.js" type="module"></script>
+</html>
