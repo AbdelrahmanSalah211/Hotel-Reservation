@@ -12,11 +12,12 @@ class NavBar extends HTMLElement {
     }
 
     getListitems() {
-        return Array.from(this.getElementsByClassName('nav-item'));
+        console.log(Array.from(this.children).filter((child) => child.classList.contains('nav-item')))
+        return Array.from(this.children).filter((child) => child.classList.contains('nav-item'));
     }
 
     getLogo() {
-        return Array.from(this.getElementsByClassName('nav-logo'));
+        return Array.from(this.children).filter((child) => child.classList.contains('nav-logo'));
     }
 
     connectedCallback() {
@@ -38,12 +39,22 @@ class NavBar extends HTMLElement {
         this.removeAttribute('class');
 
         const listItems = this.getListitems();
+        console.log(listItems);
         listItems.forEach((item) => {
-            this.querySelector('.nav-list').appendChild(item);
+            const navItem = document.createElement('li');
+            navItem.classList.add("nav-item-container");
+
+            item.classList.remove('nav-item');
+            navItem.appendChild(item);
+
+            this.querySelector('.nav-list').appendChild(navItem);
         })
 
         const logos = this.getLogo();
         this.querySelector('.nav-logo-container').appendChild(this.getLogo()[logos.length - 1]);
+        for(let i = 0; i < logos.length - 1; i++){
+            logos[i].remove();
+        }
 
 
         function embed(mutationList, observer) {
@@ -59,8 +70,11 @@ class NavBar extends HTMLElement {
                                     node.remove();
                                     this.querySelector('.nav-logo-container').appendChild(node);
                                 }else if(node.classList.contains('nav-item')){
+                                    const navItem = document.createElement('li');
+                                    navItem.classList.add('nav-item-container');
                                     node.remove();
-                                    this.querySelector('.nav-list').appendChild(node);
+                                    navItem.appendChild(node);
+                                    this.querySelector('.nav-list').appendChild(navItem);
                                 }
                             }
                         }
