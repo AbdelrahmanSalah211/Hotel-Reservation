@@ -22,4 +22,8 @@
     --font-size-400: 2.5rem;
     --font-size-500: 3.25rem;
     --font-size-600: 4.25rem;
+    /* screen size for media query */
+    --screen-mobile: 576px;
+    --screen-tablet: 768px;
+    --screen-desktop: 992px;
 }
