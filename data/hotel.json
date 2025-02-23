@@ -1,0 +1,124 @@
+{
+    "branches": [
+      {
+        "branch_id": "HB201",
+        "name": "Ocean Breeze Hotel - Alexandria",
+        "location": {
+          "address": "1 AboQeer St",
+          "city": "Alexandria",
+          "state": "AlIskandria",
+          "zip_code": "30303",
+          "country": "Egypt"
+        },
+        "contact": {
+          "phone": "+20-212-555-7890",
+          "email": "ny@oceanbreezehotel.com",
+          "website": "https://www.oceanbreezehotel.com/alex"
+        },
+        "rooms": [
+          {"room_number": 101, "type": "Single", "price_per_night": 120},
+          {"room_number": 102, "type": "Double", "price_per_night": 150},
+          {"room_number": 103, "type": "Suite", "price_per_night": 250}
+        ],
+        "employees": [
+          {"id": "E001", "name": "Embaby Doe", "role": "Manager"},
+          {"id": "E002", "name": "Sahar Smith", "role": "Receptionist"},
+          {"id": "E003", "name": "Ramez El-Dakkak", "role": "Housekeeping"},
+          {"id": "E004", "name": "Ahmed Salah", "role": "Housekeeping"}
+        ],
+        "amenities": ["Free Wi-Fi", "Gym", "Restaurant", "Conference Rooms", "Parking"],
+        "ratings": {"average_rating": 4.4, "reviews_count": 3890}
+      },
+      {
+        "branch_id": "HB202",
+        "name": "Ocean Breeze Hotel - New York",
+        "location": {
+          "address": "500 5th Avenue",
+          "city": "New York",
+          "state": "NY",
+          "zip_code": "10018",
+          "country": "USA"
+        },
+        "contact": {
+          "phone": "+1-212-555-7890",
+          "email": "ny@oceanbreezehotel.com",
+          "website": "https://www.oceanbreezehotel.com/ny"
+        },
+        "rooms": [
+          {"room_number": 101, "type": "Single Room", "price_per_night": 120},
+          {"room_number": 102, "type": "Double Room", "price_per_night": 150},
+          {"room_number": 103, "type": "Suite", "price_per_night": 250},
+          {"room_number": 201, "type": "Queen Room", "price_per_night": 140},
+          {"room_number": 202, "type": "King Room", "price_per_night": 170}
+        ],
+        "employees": [
+          {"id": "E001", "name": "John Doe", "role": "Manager"},
+          {"id": "E002", "name": "Jane Smith", "role": "Receptionist"},
+          {"id": "E003", "name": "Carlos Martinez", "role": "Housekeeping"}
+        ],
+        "amenities": ["Free Wi-Fi", "Gym", "Restaurant", "Conference Rooms", "Parking"],
+        "ratings": {"average_rating": 4.3, "reviews_count": 1890}
+      },
+      {
+        "branch_id": "HB203",
+        "name": "Ocean Breeze Hotel - Los Angeles",
+        "location": {
+          "address": "789 Sunset Boulevard",
+          "city": "Los Angeles",
+          "state": "CA",
+          "zip_code": "90028",
+          "country": "USA"
+        },
+        "contact": {
+          "phone": "+1-323-555-4567",
+          "email": "la@oceanbreezehotel.com",
+          "website": "https://www.oceanbreezehotel.com/la"
+        },
+        "rooms": [
+          {"room_number": 101, "type": "Single Room", "price_per_night": 130},
+          {"room_number": 102, "type": "Double Room", "price_per_night": 170},
+          {"room_number": 201, "type": "Twin Room", "price_per_night": 160},
+          {"room_number": 202, "type": "Studio Room", "price_per_night": 180},
+          {"room_number": 301, "type": "Suite", "price_per_night": 1300}
+        ],
+        "employees": [
+          {"id": "E101", "name": "Sarah Lee", "role": "Manager"},
+          {"id": "E102", "name": "Mike Brown", "role": "Receptionist"},
+          {"id": "E103", "name": "Emily Davis", "role": "Housekeeping"}
+        ],
+        "amenities": ["Luxury Spa", "Rooftop Pool", "Fine Dining", "Valet Parking", "Fitness Center"],
+        "ratings": {"average_rating": 4.8, "reviews_count": 2500}
+      },
+      {
+        "branch_id": "HB204",
+        "name": "Ocean Breeze Hotel - Chicago",
+        "location": {
+          "address": "300 Magnificent Mile",
+          "city": "Chicago",
+          "state": "IL",
+          "zip_code": "60611",
+          "country": "USA"
+        },
+        "contact": {
+          "phone": "+1-312-555-1234",
+          "email": "chicago@oceanbreezehotel.com",
+          "website": "https://www.oceanbreezehotel.com/chicago"
+        },
+        "rooms": [
+          {"room_number": 101, "type": "Single Room", "price_per_night": 110},
+          {"room_number": 102, "type": "Double Room", "price_per_night": 160},
+          {"room_number": 103, "type": "Suite", "price_per_night": 280},
+          {"room_number": 201, "type": "Master Suite", "price_per_night": 350},
+          {"room_number": 301, "type": "Presidential Suite", "price_per_night": 500}
+        ],
+        "employees": [
+          {"id": "E201", "name": "Robert White", "role": "Manager"},
+          {"id": "E202", "name": "Lisa Green", "role": "Receptionist"},
+          {"id": "E203", "name": "James Wilson", "role": "Housekeeping"}
+        ],
+        "amenities": ["Business Center", "Meeting Rooms", "Bar & Lounge", "Fitness Center"],
+        "ratings": {"average_rating": 4.5, "reviews_count": 1700}
+      }
+    ]
+  }
+  
