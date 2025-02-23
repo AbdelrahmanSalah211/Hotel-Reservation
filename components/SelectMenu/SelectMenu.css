@@ -1,0 +1,25 @@
+.select-menu-container{
+  display: flex;
+  flex-direction: column;
+  width: 400px;
+  height: 68px;
+  border: 1px;
+  font-size: 20px;
+  font-family: poppins;
+  justify-content: space-between;
+}
+
+
+.custom-select {
+  font-size: 20px;
+  font-family: poppins;
+  padding-bottom: 4px;
+  background-color:rgb(255, 255, 255);
+  appearance: none;
+  background-image: url(./resource/down-arrow.png);
+  background-repeat: no-repeat;
+  background-position: calc(100% - 5px) calc(100% - 4px);
+  background-size: 25px;
+  outline: none;
+  border-width: 0 0 1px 0;
+}
