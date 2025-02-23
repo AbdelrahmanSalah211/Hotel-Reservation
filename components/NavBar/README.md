@@ -35,3 +35,16 @@ If multiple instances of "nav-logo" exist, nav-bar will take the last instance i
     </nav>
 </nav-bar>
 ```
+
+## To remove nav-bar children in different screen sizes you can use 'rm-tablet' and 'rm-mobile'
+
+```HTML
+<nav-bar>
+    <p class="nav-logo rm-tablet">ITI<br>Hotels</p>
+    <p class="nav-item rm-tablet">Home</p>
+    <p class="nav-item rm-tablet">Rooms</p>
+    <p class="nav-item rm-tablet">Contact Us</p>
+    <p class="nav-item rm-mobile">Book Now</p>
+    <button type="button" class="nav-item">Logout</button>
+</nav-bar>
+```
