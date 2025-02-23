@@ -6,9 +6,11 @@ Like any other HTML element
 </room-card>
 
 # How to use it in JS
+```javascript
 const myCard = document.createElement("room-card");
 myCard.appendChild(YourImg);
 myCard.appendChild(YourElemnts);
+```
 
 #Note
 - Image will always pop in its place no matter the order of HTML tag placement
