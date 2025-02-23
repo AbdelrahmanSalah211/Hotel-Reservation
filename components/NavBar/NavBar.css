@@ -60,3 +60,15 @@
 .nav-bar .nav-list .nav-item-container:last-child button:hover {
     background-color: hsl(var(--gray-100));
 }
+
+@media screen and (max-width: 768px) {
+    .nav-bar .nav-list .nav-item-container .rm-tablet {
+        display: none;
+    }
+}
+
+@media screen and (max-width: 576px) {
+    .nav-bar .nav-list .nav-item-container .rm-mobile {
+        display: none;
+    }
+}

@@ -26,7 +26,7 @@ class NavBar extends HTMLElement {
 
     render(){
         this.innerHTML += `
-            <nav class=${this.classList}>
+            <nav class="${this.classList} nav-bar">
                 <div class="nav-logo-container">
 
                 </div>
