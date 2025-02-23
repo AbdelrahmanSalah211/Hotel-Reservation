@@ -12,7 +12,7 @@ myCard.appendChild(YourImg);
 myCard.appendChild(YourElemnts);
 ```
 
-#Note
+## Note
 - Image will always pop in its place no matter the order of HTML tag placement
 - only one image (the last image) will be rendered
 - you can append to the text body of the card freely any element but images
