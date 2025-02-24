@@ -1,0 +1,98 @@
+body{
+    background-color: black;
+}
+room-card{
+    /* font-size: large; */
+    /* position: relative; */
+    /* display: block; */
+    /* box-sizing: border-box; */
+    /* width: 100%; */
+    font-family: sans-serif;
+}
+
+room-card .cntnr {
+    /* position: relative; */
+    width: 100%; /* he setted px width */
+    height: auto;
+    
+    /* for children */
+    display: flex;
+    flex-direction: row;
+    align-items: stretch; /* Ensure children stretch to the same height */
+}
+
+room-card .imgCntnr {
+    /* position: relative; */
+    flex-grow: 1;
+    /*width: auto;/*35%; 555px 35rem*/
+    /*height: auto; /* Adjust height to content */
+    background-color: white;
+
+
+    /* for chidren */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+room-card .bodyCntnr {
+    /* position: relative; */
+    flex-grow: 1;
+    /* width: 65%; */
+    /* width: auto; */
+    /* min-width: 70rem; */
+    height: auto; /* Adjust height to content */
+    
+    box-sizing: border-box;
+    padding: min(2.5rem, 8%); /*40px*/
+    background-color: white;
+    /* font-size: 100%; */
+
+    /* for children */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+    align-content: stretch;
+}
+
+room-card .imgCntnr img {
+    /* width: 35rem; */
+    height: auto;
+    /* aspect-ratio: 16/9; */
+    /* object-fit: contain;*/
+    background-color: red;
+}
+
+room-card .bodyCntnr .textBody{
+    /* background-color: aqua; */
+    width: 100%;
+}
+
+@media (max-width: 768px) {
+    room-card .cntnr {
+        flex-direction: column;
+        width: 100%;
+    }
+    room-card .imgCntnr {
+        width: 100%;
+        height: auto;
+    }
+    room-card .bodyCntnr {
+        width: 100%;
+        flex-grow: 0;
+    }
+
+    room-card .imgCntnr img {
+        width: 100%;
+    }
+
+}
+
+room-card button {
+    /* margin-bottom: 1.5rem; */
+    background-color: black;
+    color: white;
+    border-radius: 0.25rem;
+    border-style: solid;
+}
