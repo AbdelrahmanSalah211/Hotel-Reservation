@@ -5,157 +5,28 @@
         "first_name": "John",
         "last_name": "Doe",
         "email": "john.doe@example.com",
-        "phone": "+1-555-123-4567",
-        "address": {
-          "street": "123 Main St",
-          "city": "Anytown",
-          "state": "Anystate",
-          "zip_code": "12345",
-          "country": "USA"
-        },
-        "date_of_birth": "1985-05-15",
-        "gender": "Male",
-        "loyalty_program": {
-          "membership_id": "L123456789",
-          "tier": "Gold",
-          "points": 15000
-        },
-        "preferences": {
-          "room_type": "King Room",
-          "bed_type": "King",
-          "smoking": false,
-          "special_requests": ["Late check-in", "Extra pillows"]
-        },
-        "past_stays": [
-          {
-            "hotel_branch": "Ocean Breeze Hotel - New York",
-            "room_number": 101,
-            "check_in": "2024-06-01",
-            "check_out": "2024-06-05",
-            "total_amount": 800.00,
-            "payment_method": "Credit Card"
-          }
-        ],
-        "upcoming_reservations": [],
-        "notes": "Prefers quiet rooms away from the elevator."
+        "password": "password123"
       },
       {
         "guest_id": "G002",
         "first_name": "Jane",
         "last_name": "Smith",
         "email": "jane.smith@example.com",
-        "phone": "+1-555-987-6543",
-        "address": {
-          "street": "456 Elm St",
-          "city": "Othertown",
-          "state": "Otherstate",
-          "zip_code": "67890",
-          "country": "USA"
-        },
-        "date_of_birth": "1990-08-25",
-        "gender": "Female",
-        "loyalty_program": {
-          "membership_id": "L987654321",
-          "tier": "Platinum",
-          "points": 30000
-        },
-        "preferences": {
-          "room_type": "Suite",
-          "bed_type": "Queen",
-          "smoking": false,
-          "special_requests": ["High floor", "Late check-out"]
-        },
-        "past_stays": [
-          {
-            "hotel_branch": "Ocean Breeze Hotel - Orlando",
-            "room_number": 405,
-            "check_in": "2024-11-10",
-            "check_out": "2024-11-15",
-            "total_amount": 1500.00,
-            "payment_method": "Debit Card"
-          }
-        ],
-        "upcoming_reservations": [],
-        "notes": "Allergic to feather pillows."
+        "password": "password123"
       },
       {
         "guest_id": "G003",
         "first_name": "Michael",
         "last_name": "Johnson",
         "email": "michael.johnson@example.com",
-        "phone": "+1-555-111-2222",
-        "address": {
-          "street": "789 Oak St",
-          "city": "Springfield",
-          "state": "Illinois",
-          "zip_code": "62704",
-          "country": "USA"
-        },
-        "date_of_birth": "1980-12-30",
-        "gender": "Male",
-        "loyalty_program": {
-          "membership_id": "L111223344",
-          "tier": "Silver",
-          "points": 7000
-        },
-        "preferences": {
-          "room_type": "Twin Room",
-          "bed_type": "Twin",
-          "smoking": true,
-          "special_requests": ["Smoking room", "Extra towels"]
-        },
-        "past_stays": [],
-        "upcoming_reservations": [
-          {
-            "hotel_branch": "Ocean Breeze Hotel - Chicago",
-            "room_number": 204,
-            "check_in": "2025-04-01",
-            "check_out": "2025-04-05",
-            "total_amount": 600.00,
-            "payment_method": "Credit Card"
-          }
-        ],
-        "notes": "Prefers a room with a view."
+        "password": "password123"
       },
       {
         "guest_id": "G004",
         "first_name": "Emily",
         "last_name": "Davis",
         "email": "emily.davis@example.com",
-        "phone": "+1-555-333-4444",
-        "address": {
-          "street": "101 Pine St",
-          "city": "Los Angeles",
-          "state": "California",
-          "zip_code": "90001",
-          "country": "USA"
-        },
-        "date_of_birth": "1995-03-14",
-        "gender": "Female",
-        "loyalty_program": {
-          "membership_id": "L555666777",
-          "tier": "Gold",
-          "points": 20000
-        },
-        "preferences": {
-          "room_type": "Double Room",
-          "bed_type": "Double",
-          "smoking": false,
-          "special_requests": ["Extra blankets", "Ocean view"]
-        },
-        "past_stays": [
-          {
-            "hotel_branch": "Ocean Breeze Hotel - Miami",
-            "room_number": 302,
-            "check_in": "2023-07-10",
-            "check_out": "2023-07-15",
-            "total_amount": 900.00,
-            "payment_method": "Credit Card"
-          }
-        ],
-        "upcoming_reservations": [],
-        "notes": "Enjoys spa treatments."
+        "password": "password123"
       }
     ]
   }
-  

@@ -22,7 +22,7 @@ class RoomCard extends HTMLElement {
 
         //* initial styling
         const style     = document.createElement("link")
-        style.href      = "room-card.css";
+        style.href      = "RoomCard.css";
         style.rel       = "stylesheet";
         document.head.prepend(style);
 
@@ -98,7 +98,10 @@ class RoomCard extends HTMLElement {
             () =>{
                 console.log("clicked");
                 // let roomCard fire the book event
-                this.dispatchEvent(new Event("book"));
+                if(this.onBook instanceof Function){
+
+                    this.dispatchEvent(new Event("book"));
+                }
                 
                 
             }
