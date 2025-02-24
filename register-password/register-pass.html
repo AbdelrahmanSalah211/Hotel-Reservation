@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Register</title>
+    <link rel="stylesheet" href="../components/InputLabel/InputLabel.css">
+    <link rel="stylesheet" href="register-pass.css">
+    
+</head>
+
+<body>
+
+    
+        <div class="main-container">
+            <div class="container">
+                <form id="password-form">
+                    <h1>Register</h1>
+                    <my-input  input-name="password" input-id="password" label_name="Password" label-for="my-password" type="password"
+                        >
+                    </my-input>
+                   
+                  
+                    <my-input  input-name="confirm_password" input-id="confirm_password" label_name="Confirm Password" label-for="my-password" type="password"
+                    >
+                </my-input>
+                <div class="error-message">
+                </div>
+                    <div class="button">
+                        <button>
+                            Signup
+                        </button>
+                    </div>
+                </form>
+            </div>
+        </div>
+</body>
+<script src="../components/InputLabel/InputLabel.js" type="module"></script>
+<script src="./password.js" type="module"></script>
+
+</html>
