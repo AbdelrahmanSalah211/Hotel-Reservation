@@ -7,8 +7,10 @@ const routes = {
     "/notfound": "../notfound/notfound.html"
 };
 
-function navigate(path) {
-    history.pushState({}, "", path);
+function navigate(path, data={}) {
+    const queryString = new URLSearchParams(data).toString();
+    const fullPath = queryString ? `${path}?${queryString}` : path;
+    history.pushState({}, "", fullPath);
     window.location.href = routes[path];
 }
 
