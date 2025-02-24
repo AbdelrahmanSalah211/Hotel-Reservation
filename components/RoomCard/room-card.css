@@ -1,0 +1,62 @@
+/* 
+//this.style.display      = "block";
+//this.style.boxSizing    = "border-box"
+//this.style.width        = "100%";
+
+// the container
+//this.querySelector(".cntnr").style.display       = "flex";
+//this.querySelector(".cntnr").style.flexDirection = "row";
+//this.querySelector(".cntnr").style.width         = "100%";
+
+// the image
+//this.querySelector(".imgCntnr").style.width      = "35%";
+//imgNode.style.display                            = "block";
+//this.querySelector("img").style.width            = "100%";
+
+// 
+//this.querySelector(".bodyCntnr").style.display          = "flex";
+//this.querySelector(".bodyCntnr").style.flexDirection    = "column";
+//this.querySelector(".bodyCntnr").style.justifyContent   = "space-between";
+//this.querySelector(".bodyCntnr").style.width            = "65%";
+//this.querySelector(".bodyCntnr").style.paddingLeft      = "5%";
+
+// the button
+//bookBtn.style.marginBottom = "24px"; 
+*/
+
+room-card{
+    /* font-size: large; */
+    display: block;
+    box-sizing: border-box;
+    width: 100%;
+    font-family: sans-serif;
+}
+
+room-card .cntnr {
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+
+}
+
+room-card .imgCntnr {
+    width: 35%;
+
+}
+
+room-card .imgCntnr img {
+    display: block;
+    width: 100%;
+}
+
+room-card .bodyCntnr {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    width: 65%;
+    padding-left: 5%;
+}
+
+room-card button {
+    margin-bottom: 1.5rem;
+}

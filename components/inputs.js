@@ -11,11 +11,11 @@ class MyInput extends HTMLElement {
 
 
     get labelName() {
-        return this.getAttribute('label-name');
+        return this.getAttribute('label_name');
     }
 
     set labelName(val) {
-        this.setAttribute("label-name", val);
+        this.setAttribute("label_name", val);
     }
 
     get labelFor() {
@@ -53,6 +53,24 @@ class MyInput extends HTMLElement {
     }
 
 
+    get forLabel() {
+        return this.getAttribute('label-for');
+    }
+    set forLabel(val) {
+        this.getAttribute('label-for', val);
+    }
+
+
+
+    get inputName() {
+        return this.getAttribute('input-name');
+    }
+    set inputName(val) {
+        this.getAttribute('input-name', val);
+    }
+
+
+
     handleInput(event) {
         this.dispatchEvent(new CustomEvent("onClick-inputs", {
             detail: event.target.value,
@@ -73,18 +91,26 @@ class MyInput extends HTMLElement {
 
     getIcon() {
 
-        return `<img class="icon" id="toggle-password" src=${this.isPasswordVisible ? "./imgs/eye.png" : "./imgs/eye-close-up.png"}>`
+        return `<img class="icon" id="toggle-password" src=${this.isPasswordVisible ? "../Icons/imgs/eye.png" : "../Icons/imgs/eye-close-up.png"}>`
 
     }
 
 
 
     togglePasswordVisibility() {
+
+
+
+
         this.isPasswordVisible = !this.isPasswordVisible;
-        const input = this.querySelector("#password");
+        const input = this.querySelector(`#${this.inputId}`);
+        console.log(input);
+
+        // console.log();
         input.type = this.isPasswordVisible ? "text" : "password";
         this.querySelector("#toggle-password").outerHTML = this.getIcon();
         this.querySelector("#toggle-password").addEventListener('click', this.togglePasswordVisibility.bind(this));
+
     }
 
 
@@ -113,13 +139,14 @@ class MyInput extends HTMLElement {
         container.innerHTML = `
             <div class="input-container">
                 <div class="input-wrapper">
-                    <input id="${this.inputId}" type="${this.type}" placeholder=" ">
-                    <label for="${this.inputId}">${this.labelName}</label>
+                    <input name=${this.inputName} id="${this.inputId}" type="${this.type}" placeholder=" ">
+                    <label for=${this.forLabel} for="${this.inputId}">${this.labelName}</label>
                     ${this.type === "password" ? this.getIcon() : ""}
                 </div>
         </div>
         `;
 
+        ;
 
 
 
@@ -128,6 +155,7 @@ class MyInput extends HTMLElement {
         this.querySelector("input").addEventListener("input", this.handleInput.bind(this));
 
         if (this.type === "password") {
+
             this.querySelector("#toggle-password").addEventListener("click", this.togglePasswordVisibility.bind(this));
         }
 

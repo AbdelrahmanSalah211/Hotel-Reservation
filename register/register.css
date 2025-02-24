@@ -25,13 +25,14 @@ body {
 form {
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
+  /* justify-content: space-between; */
   gap: 3rem;
   padding: 0 2rem;
 }
 
-span {
+.is-Invalid {
   color: hsl(var(--red-100));
+  display: none;
 }
 .input-container {
   display: flex;
@@ -82,7 +83,7 @@ input:not(:placeholder-shown) + label {
 .button button {
   width: 100%;
   padding: 0.8rem;
-  background-color: hsl(var(--background-button));
+  background-color: hsl(var(--gray-100));
   color: hsl(var(--white));
   border: none;
   border-radius: var(--radius-200);
@@ -115,7 +116,6 @@ input:not(:placeholder-shown) + label {
     flex-direction: column;
     box-shadow: 0 0 1rem rgba(155, 155, 155, 0.2);
     border-radius: 0.5rem;
-
     padding: 2rem;
     width: 60%;
     height: 55%;
@@ -163,7 +163,7 @@ input:not(:placeholder-shown) + label {
     padding: 1rem;
     color: hsl(var(--white));
     border: none;
-    background-color: hsl(var(--background-button));
+    background-color: hsl(var(--gray-100));
     font-size: var(--font-size-100);
     border-radius: var(--radius-200);
     cursor: pointer;

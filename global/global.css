@@ -12,7 +12,6 @@
     --turquoise-100: 170, 78%, 44%;
     --red-100: 0, 100%, 51%;
     --white: 0, 0%, 100%;
-    --background-button:0, 0%, 22%, 1;
     /* border radius */
     --radius-100: 0.3125rem;
     --radius-200: 0.625rem;
@@ -23,8 +22,9 @@
     --font-size-400: 2.5rem;
     --font-size-500: 3.25rem;
     --font-size-600: 4.25rem;
+    
     /* screen size for media query */
-    --screen-mobile: 520px;
+    --screen-mobile: 576px;
     --screen-tablet: 768px;
     --screen-desktop: 992px;
 }

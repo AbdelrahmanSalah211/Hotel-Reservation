@@ -11,27 +11,27 @@
 
 <body>
 
-
+<!-- px / 16 -->
         <div class="main-container">
-            <div class="container">
-                <form action="">
+            <div class="container"> 
+                <form id="my-form" novalidate>
                     <h1>Register</h1>
-                    <my-input onchange="" input-id="email" label-name="Email" label-for="my-email" type="email"
+                    <my-input input-name="email" label-for="email" onchange="" input-id="email" label_name="Email" label-for="my-email" type="email"
                         >
                     </my-input>
-                    <span>Error</span>
-                    <my-input onchange="" input-id="firstName" label-name="First Name" label-for="firstName"
+                    <span class="is-Invalid">Error</span>
+                    <my-input onchange="" input-name="firstName" label-for="firstName" input-id="firstName" label_name="First Name" label-for="firstName"
                         type="text">
                     </my-input>
 
-                    <span>Error</span>
+                    <span class="is-Invalid">Error</span>
 
 
-                    <my-input onchange="" input-id="secondName" label-name="Second Name" label-for="secondName"
+                    <my-input onchange="" input-name="secondName" label-for="secondName" input-id="secondName" label_name="Second Name" label-for="secondName"
                         type="text">
                     </my-input>
 
-                    <span>Error</span>
+                    <span class="is-Invalid">Error</span>
 
                     <div class="button">
                         <button>
@@ -42,6 +42,7 @@
             </div>
         </div>
 </body>
-<script src="./components.js" type="module"></script>
+<script src="../components/inputs.js" type="module"></script>
+<script src="./register.js" type="module"></script>
 
 </html>

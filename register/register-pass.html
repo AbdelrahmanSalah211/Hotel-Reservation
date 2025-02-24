@@ -14,17 +14,17 @@
 
         <div class="main-container">
             <div class="container">
-                <form action="">
+                <form id="password-form">
                     <h1>Register</h1>
-                    <my-input onchange="" input-id="password" label-name="Password" label-for="my-password" type="password"
+                    <my-input onchange="" input-name="password" input-id="password" label_name="Password" label-for="my-password" type="password"
                         placeholder="Enter your password">
                     </my-input>
-                    <span>password doesnot match</span>
-                    <my-input onchange="" input-id="password" label-name="Confirm Password" label-for="my-password"
-                        type="password" placeholder="Enter your password">
-                    </my-input>
-
-                    <span>password doesnot match</span>
+                    <span class="is-Invalid">password doesnot match</span>
+                  
+                    <my-input onchange="" input-name="confirm_password" input-id="confirm_password" label_name="Confirm Password" label-for="my-password" type="password"
+                    placeholder="Enter your password">
+                </my-input>
+                    <span class="is-Invalid">password doesnot match</span>
                     <div class="button">
                         <button>
                             Signup
@@ -34,6 +34,7 @@
             </div>
         </div>
 </body>
-<script src="./components.js" type="module"></script>
+<script src="../components/inputs.js" type="module"></script>
+<script src="./password.js" type="module"></script>
 
 </html>

@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+        <link rel="stylesheet" href="login.css">
+</head>
+<body>
+    <div class="main-container">
+        <div class="container">
+            <form id="password-form">
+                <h1>Login</h1>
+                
+                <my-input onchange="" input-name="Email" input-id="Email" label_name="Email" label-for="my-Email" type="text"
+                >
+                </my-input>
+                <span class="is-Invalid">incorrect email</span>
+              
+                <my-input onchange="" input-name="password" input-id="password" label_name="Password" label-for="my-password" type="password"
+                placeholder="Enter your password">
+            </my-input>
+                <span class="is-Invalid">Wrong password</span>
+                <div class="button">
+                    <button>
+                        Signup
+                    </button>
+                </div>
+            </form>
+        </div>
+    </div>
+</body>
+<script src="../components/inputs.js" type="module"></script>
+
+</html>
