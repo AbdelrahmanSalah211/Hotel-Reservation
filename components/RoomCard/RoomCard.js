@@ -9,7 +9,7 @@ class RoomCard extends HTMLElement {
         this.innerHTML  = `
             <div class="cntnr card">
                 <div class="imgCntnr">
-                    <img src="room1.jpg" alt="room1Img">
+                    <img src="./images/room1.jpg" alt="roomImg">
                 </div>
                 <div class="bodyCntnr">
                     <div class="textBody">
@@ -21,10 +21,14 @@ class RoomCard extends HTMLElement {
         `;
 
         //* initial styling
-        const style     = document.createElement("link")
-        style.href      = "RoomCard.css";
-        style.rel       = "stylesheet";
-        document.head.prepend(style);
+        if(!document.getElementById("Room-card-style")){
+
+            const style     = document.createElement("link")
+            style.href      = "RoomCard.css";
+            style.rel       = "stylesheet";
+            style.id        = "Room-card-style";
+            document.head.prepend(style);
+        }
 
         //* elements refs
         this.bookBtn           = this.querySelector(".bookBtn");
