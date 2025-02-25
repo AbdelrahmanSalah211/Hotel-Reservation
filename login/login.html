@@ -5,32 +5,33 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
         <link rel="stylesheet" href="login.css">
+        <link rel="stylesheet" href="../components/InputLabel/InputLabel.css">
 </head>
 <body>
     <div class="main-container">
         <div class="container">
-            <form id="password-form">
+            <form id="form">
                 <h1>Login</h1>
                 
-                <my-input onchange="" input-name="Email" input-id="Email" label_name="Email" label-for="my-Email" type="text"
+                <my-input onchange="" input-name="email" input-id="Email" label_name="Email" label-for="my-Email" type="text"
                 >
                 </my-input>
-                <span class="is-Invalid">incorrect email</span>
               
                 <my-input onchange="" input-name="password" input-id="password" label_name="Password" label-for="my-password" type="password"
                 placeholder="Enter your password">
             </my-input>
-                <span class="is-Invalid">Wrong password</span>
-                <div class="button">
+                <div class="error-message"></div>
+            <div class="button">
                     <button>
                         Signup
                     </button>
                 </div>
+                <p class="redirect-message">Do not have an account? <span><a href="../register-info/register-info.html">Register</a></span></p>
             </form>
         </div>
     </div>
 </body>
 <script src="../components/InputLabel/InputLabel.js" type="module"></script>
-<script src="./scripts.js" type="module"></script>
+<script src="./login.js" type="module"></script>
 
 </html>
