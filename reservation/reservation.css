@@ -60,6 +60,12 @@ span {
   color: hsl(var(--gray-200));
 }
 
+.error-message {
+  display: none;
+  align-self: center;
+  padding-left: 2.5rem;
+  padding-bottom: 1.5rem;
+}
 
 @media(min-width: 768px){
   .container {
@@ -85,8 +91,5 @@ span {
 
 }
 
-.error-message {
-  display: none;
-}
 
 

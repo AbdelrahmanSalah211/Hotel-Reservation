@@ -161,7 +161,7 @@ document.addEventListener("DOMContentLoaded", () => {
           });
         // }
         resolve("done");
-      }, 10);
+      }, 0);
     })
 
     if(roomTypeParam){
