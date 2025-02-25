@@ -1,27 +1,24 @@
-@import url(./../../global/global.css);
-
 .select-menu-container {
   display: flex;
   flex-direction: column;
-  width: 25rem;
-  border: 1px;
+  width: 100%;
   font-size: var(--font-size-100);
   color: hsl(var(--gray-100));
-  margin: 1.25rem;
 }
 
 .custom-select {
   font-size: var(--font-size-100);
   color: hsl(var(--gray-100));
   padding-bottom: 0.25rem;
-  background-color: hsl(var(--white));
   appearance: none;
   background-image: url(./../../assets/images/icons/down-arrow.png);
   background-repeat: no-repeat;
   background-position: calc(100% - 0.3125rem) calc(100% - 0.25rem);
   background-size: 1.5625rem;
   outline: none;
-  border-width: 0 0 1px 0;
+  border: none;
+  border-bottom: solid 0.0625rem hsl(var(--gray-100));
+  cursor: pointer;
 }
 
 .select-menu-container label {
