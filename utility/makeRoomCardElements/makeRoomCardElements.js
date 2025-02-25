@@ -1,4 +1,4 @@
-function makeRoomCardElements(roomsObject){
+function makeRoomCardElements(roomsObject, limit){
     let roomCardElement;
     let roomType;
     let roomDescription;
@@ -6,7 +6,9 @@ function makeRoomCardElements(roomsObject){
     let roomMeals;
 
     let alternator =0;
-    for(let roomObject of roomsObject["room_types"]){
+    // Option 1: Using slice to limit to first N elements
+    for(let roomObject of roomsObject["room_types"].slice(0, limit)){
+
         console.log(roomObject);
 
         // create element contents
@@ -43,4 +45,4 @@ function makeRoomCardElements(roomsObject){
 // for dev
 // fetch("/assets/data/rooms.json")
 // .then((res)=> res.json())
-// .then(data=>makeRoomCardElements(data))
+// .then(data=>makeRoomCardElements(data,3))
