@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Reservation</title>
+  <link rel="stylesheet" href="./../global/global.css">
+  <link rel="stylesheet" href="./../components/NavBar/NavBar.css">
+  <link rel="stylesheet" href="./../components/SelectMenu/SelectMenu.css">
+  <!-- <link rel="stylesheet" href="./../components/InputLabel/InputLabel.css"> -->
+  <link rel="stylesheet" href="./../components/Footer/Footer.css">
+  <link rel="stylesheet" href="./reservation.css">
+</head>
+<body>
+    <nav-bar class="nav-bar">
+      <p class="nav-logo">ITI<br>Hotels</p>
+      <p class="nav-item">Home</p>
+      <p class="nav-item">Rooms</p>
+      <p class="nav-item">Contact Us</p>
+      <p class="nav-item">Book Now</p>
+      <button type="button" class="nav-item">Logout</button>
+    </nav-bar>
+
+  <main>
+    <h1>Reservation</h1>
+    <form class="reservation-form">
+      <div class="container">
+      <section class="room-info">
+        <h2>Room<br>Information</h2>
+        <select-menu label="Location">
+        </select-menu>
+        <select-menu label="Type of Room">
+        </select-menu>
+        <select-menu label="Number of Rooms <span>( 3 available )</span>">
+        </select-menu>
+        <div class="room-features">
+          <div>
+            <input type="checkbox" class="breakfast" id="breakfast-meal" name="breakfast">
+            <label for="breakfast-meal">Breakfast</label>
+          </div>
+        <div>
+          <input type="checkbox" class="lunch" id="lunch-meal" name="lunch">
+          <label for="lunch-meal">Lunch</label>
+        </div>
+        <div>
+          <input type="checkbox" class="dinner" id="dinner-meal" name="dinner">
+          <label for="dinner-meal">Dinner</label>
+        </div>
+        </div>
+        <!-- <my-input class="new-input" input-id="check-in"  label_name="check-in" label-for="check-in" type="datetime-local" placeholder=""></my-input>
+        <my-input class="new-input" input-id="check-out"  label_name="check-out" label-for="check-out" type="datetime-local" placeholder=""></my-input> -->
+      </section>
+      <section class="guest-info">
+        <h2>Guest<br>Information</h2>
+        <!-- <my-input class="new-input" input-id="first-name"  label_name="first-name" label-for="first-name" type="text" placeholder=""></my-input>
+        <my-input class="new-input" input-id="last-name"  label_name="last-name" label-for="last-name" type="text" placeholder=""></my-input>
+        <my-input class="new-input" input-id="phone"  label_name="phone" label-for="phone" type="number" placeholder=""></my-input> -->
+      </section>
+    </div>
+    <p class="error-message">Please fill all fields</p>
+      <input class="submit-btn" type="submit" value="Book">
+    </form>
+  </main>
+
+  <custom-footer>
+
+  </custom-footer>
+  <script src="../components/NavBar/NavBar.js"></script>
+  <script src="../components/SelectMenu/SelectMenu.js" type="module"></script>
+  <!-- <script src="../components/InputLabel/InputLabel.js"></script> -->
+  <script src="../components/Footer/Footer.js"></script>
+  <script src="./reservation.js" type="module"></script>
+
+</body>
+</html>

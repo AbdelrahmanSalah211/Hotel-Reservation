@@ -1,25 +1,29 @@
-.select-menu-container{
+@import url(./../../global/global.css);
+
+.select-menu-container {
   display: flex;
   flex-direction: column;
-  width: 400px;
-  height: 68px;
+  width: 25rem;
   border: 1px;
-  font-size: 20px;
-  font-family: poppins;
-  justify-content: space-between;
+  font-size: var(--font-size-100);
+  color: hsl(var(--gray-100));
+  margin: 1.25rem;
 }
 
-
 .custom-select {
-  font-size: 20px;
-  font-family: poppins;
-  padding-bottom: 4px;
-  background-color:rgb(255, 255, 255);
+  font-size: var(--font-size-100);
+  color: hsl(var(--gray-100));
+  padding-bottom: 0.25rem;
+  background-color: hsl(var(--white));
   appearance: none;
-  background-image: url(./resource/down-arrow.png);
+  background-image: url(./../../assets/images/icons/down-arrow.png);
   background-repeat: no-repeat;
-  background-position: calc(100% - 5px) calc(100% - 4px);
-  background-size: 25px;
+  background-position: calc(100% - 0.3125rem) calc(100% - 0.25rem);
+  background-size: 1.5625rem;
   outline: none;
   border-width: 0 0 1px 0;
+}
+
+.select-menu-container label {
+  padding-bottom: 0.25rem;
 }
