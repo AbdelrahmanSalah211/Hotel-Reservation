@@ -1,0 +1,53 @@
+@import url("../../global/global.css");
+
+
+.input-container {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+}
+.input-wrapper {
+  position: relative;
+  display: flex;
+  align-items: center;
+  border-bottom: solid 0.1rem hsl(var(--gray-100));
+  padding: 0.5rem 0;
+  gap: 8px;
+  background-color: hsl(var(--white));
+}
+
+input {
+  width: 100%;
+  border: none;
+  outline: none;
+  flex-grow: 1;
+}
+label {
+  width: 100%;
+  position: absolute;
+  /* left: 8px; */
+  top: 50%;
+  transform: translateY(-50%);
+  font-size: var(--font-size-100);
+  color: hsl(var(--input));
+  transition: all 0.3s ease-in-out;
+  pointer-events: none;
+}
+.my-input-toggle-password{
+  cursor: pointer;
+}
+input:focus + label,
+input:not(:placeholder-shown) + label {
+  top: -4px;
+  font-size: var(--font-size-100);
+
+  color: hsl(var(--gray-100));  
+}
+.icon {
+  width: 1.4rem;
+  height: 1.4rem;
+  color: hsl(var(--input));
+  cursor: pointer;
+}
+
+

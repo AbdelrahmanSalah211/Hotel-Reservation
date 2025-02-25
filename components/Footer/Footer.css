@@ -1,0 +1,146 @@
+.footer {
+    display: flex;
+    flex-direction: column;
+    padding: 1rem;
+    gap: 2rem;
+    background-color: hsl(var(--gray-100));
+}
+
+.footer section {
+    width: 100%;
+}
+
+.footer .about-us {
+    display: flex;
+    flex-direction: column;
+    gap: 0.625rem;
+}
+
+.footer .about-us h2 {
+    font-size: var(--font-size-600);
+    font-weight: 700;
+    color: hsl(var(--white));
+    line-height: 1.03;
+}
+
+.footer .about-us p {
+    font-size: var(--font-size-200);
+    color: hsl(var(--white));
+    line-height: 1.25;
+}
+
+.footer .quick-links {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+}
+
+.footer .quick-links div {
+    display: flex;
+    gap: 2.1875rem;
+    flex-direction: column;
+}
+
+.footer .quick-links div h3 {
+    font-size: var(--font-size-400);
+    font-weight: 600;
+    color: hsl(var(--white));
+}
+
+.footer .quick-links div ul {
+    list-style: none;
+}
+
+.footer .quick-links .book-now ul {
+    display: flex;
+    gap: 1.25rem;
+    flex-wrap: wrap;
+}
+
+.footer .quick-links .book-now ul li a {
+    font-size: var(--font-size-200);
+    color: hsl(var(--white));
+    text-decoration: underline;
+}
+
+.footer .quick-links .book-now ul li a:hover {
+    text-decoration: none;
+}
+
+.footer .quick-links .contact-us ul {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.footer .quick-links .contact-us ul .phone {
+    display: flex;
+    align-items: center;
+    gap: 1.4375rem;
+}
+
+.footer .quick-links .contact-us ul .phone svg {
+    width: 2.1875rem;
+    aspect-ratio: 1/1;
+    fill: hsl(var(--white));
+}
+
+.footer .quick-links .contact-us ul .phone p {
+    font-size: var(--font-size-200);
+    color: hsl(var(--white));
+}
+
+.footer .quick-links .contact-us .social-media-container {
+    display: flex;
+    flex-direction: row;
+    gap: 1.25rem;
+}
+
+.footer .quick-links .contact-us .social-media-container .social-media {
+    width: 3.125rem;
+    aspect-ratio: 1/1;
+    background-color: hsl(var(--white));
+    border-radius: 50%;
+    transition: all 0.2s ease-in-out;
+}
+
+.footer .quick-links .contact-us .social-media-container .social-media a {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 100%;
+}
+
+.footer .quick-links .contact-us .social-media-container .social-media a svg {
+    width: 1.875rem;
+    aspect-ratio: 1/1;
+    fill: hsl(var(--gray-100));
+    stroke: hsl(var(--gray-100));
+    transition: all 0.2s ease-in-out;
+}
+
+.footer .quick-links .contact-us .social-media-container .social-media:hover {
+    background-color: hsl(var(--turquoise-100));
+}
+
+.footer .quick-links .contact-us .social-media-container .social-media:hover a svg {
+    fill: hsl(var(--white));
+    stroke: hsl(var(--white));
+}
+
+@media screen and (min-width: 992px) {
+    .footer {
+        flex-direction: row;
+        padding: 5.125rem 12.5rem 5.125rem 7rem;
+        gap: 7.875rem;
+    }
+
+    .footer section {
+        width: 50%;
+    }
+
+    .footer .quick-links .book-now ul {
+        gap: 1.25rem 4.6875rem;
+    }
+}

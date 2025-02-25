@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="../components/InputLabel/InputLabel.css">
+    <link rel="stylesheet" href="register-info.css">
+</head>
+
+<body>
+    <!-- px / 16 -->
+    <div class="main-container">
+        <div class="container">
+            <form id="my-form" novalidate>
+                <h1>Register</h1>
+                <my-input input-name="email" label-for="email" onchange="" input-id="email" label_name="Email"
+                    label-for="my-email" type="email">
+                </my-input>
+
+                <my-input onchange="" input-name="fname" label-for="fname" input-id="fname"
+                    label_name="First Name" label-for="firstName" type="text">
+                </my-input>
+
+
+
+                <my-input onchange="" input-name="lname" label-for="lname" input-id="lname"
+                    label_name="Last Name" label-for="lastName" type="text">
+                </my-input>
+
+                <div class="error-message">
+                    
+                </div>
+
+                <div class="button">
+                    <button>
+                        Next
+                    </button>
+                </div>
+            </form>
+        </div>
+    </div>
+</body>
+<script src="../components/InputLabel/InputLabel.js" type="module"></script>
+<script src="./register.js" type="module"></script>
+
+</html>
