@@ -1,7 +1,7 @@
 {
     "reservations": [
       {
-        "reservation_id": "R001",
+        "reservation_id": "001",
         "branch_id": "HB201",
         "guest_id": "G001",
         "room_type": "Single",
@@ -13,7 +13,7 @@
         "meals": { "breakfast": true, "lunch": false, "dinner": true }
       },
       {
-        "reservation_id": "R002",
+        "reservation_id": "002",
         "branch_id": "HB201",
         "guest_id": "G002",
         "room_type": "Double",
@@ -25,7 +25,7 @@
         "meals": {"breakfast": true, "lunch": true, "dinner": true}
       },
       {
-        "reservation_id": "R003",
+        "reservation_id": "003",
         "branch_id": "HB202",
         "guest_id": "G003",
         "room_type": "Triple",
@@ -37,7 +37,7 @@
         "meals": {"breakfast": false, "lunch": true, "dinner": false}
       },
       {
-        "reservation_id": "R004",
+        "reservation_id": "004",
         "branch_id": "HB202",
         "guest_id": "G004",
         "room_type": "Queen",
@@ -49,7 +49,7 @@
         "meals": {"breakfast": true, "lunch": false, "dinner": true}
       },
       {
-        "reservation_id": "R005",
+        "reservation_id": "005",
         "branch_id": "HB203",
         "guest_id": "G005",
         "room_type": "King",
@@ -61,7 +61,7 @@
         "meals": {"breakfast": true, "lunch": true, "dinner": false}
       },
       {
-        "reservation_id": "R006",
+        "reservation_id": "006",
         "branch_id": "HB203",
         "guest_id": "G006",
         "room_type": "Twin",
@@ -73,7 +73,7 @@
         "meals": {"breakfast": false, "lunch": false, "dinner": true}
       },
       {
-        "reservation_id": "R007",
+        "reservation_id": "007",
         "branch_id": "HB204",
         "guest_id": "G007",
         "room_type": "Double-Double",
@@ -85,7 +85,7 @@
         "meals": {"breakfast": true, "lunch": false, "dinner": false}
       },
       {
-        "reservation_id": "R008",
+        "reservation_id": "008",
         "branch_id": "HB204",
         "guest_id": "G008",
         "room_type": "Studio",
