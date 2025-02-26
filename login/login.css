@@ -20,6 +20,9 @@ body {
     padding: 3rem 5rem;
   
   }
+.redirect-message{
+  text-align: center;
+}
   .error{
     color: hsl(var(--white));
     font-size: 0.9rem;
@@ -36,9 +39,7 @@ body {
     gap: 1rem;
   }
   
-.redirect-message{
-  text-align: center;
-}
+
   form h1{
     text-align: center;
   }

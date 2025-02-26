@@ -77,7 +77,7 @@ class SelectMenu extends HTMLElement {
 
   }
 
-  diconnectedCallback(){
+  disonnectedCallback(){
     if (this.childObserver) {
       this.childObserver.disconnect();
     }

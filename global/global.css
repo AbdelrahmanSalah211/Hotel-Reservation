@@ -1,4 +1,4 @@
-*{
+* {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
@@ -11,18 +11,18 @@
     --gray-200: 0, 0%, 58%;
     --turquoise-100: 170, 78%, 44%;
     --red-100: 0, 100%, 51%;
+    --yellow-100: 50, 100%, 50%;
     --white: 0, 0%, 100%;
     /* border radius */
-    --radius-100: 0.3125rem;
-    --radius-200: 0.625rem;
+    --radius-100: 0.3125rem;  /*5px*/
+    --radius-200: 0.625rem;  /*10px*/
     /* font size */
-    --font-size-100: 1.25rem;
-    --font-size-200: 1.5rem;
-    --font-size-300: 2.25rem;
-    --font-size-400: 2.5rem;
-    --font-size-500: 3.25rem;
-    --font-size-600: 4.25rem;
-    
+    --font-size-100: 1.25rem;  /*20px*/
+    --font-size-200: 1.5rem;  /*24px*/
+    --font-size-300: 2.25rem;  /*36px*/
+    --font-size-400: 2.5rem;  /*40px*/
+    --font-size-500: 3.25rem;  /*52px*/
+    --font-size-600: 4.25rem;  /*68px*/
     /* screen size for media query */
     --screen-mobile: 576px;
     --screen-tablet: 768px;
