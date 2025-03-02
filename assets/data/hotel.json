@@ -1,7 +1,7 @@
 {
     "branches": [
       {
-        "branch_id": "201",
+        "branch_id": "HB201",
         "name": "Ocean Breeze Hotel - Alexandria",
         "country": "Egypt",
         "rooms": [
@@ -14,7 +14,7 @@
         ]
       },
       {
-        "branch_id": "202",
+        "branch_id": "HB202",
         "name": "Ocean Breeze Hotel - Cairo",
         "country": "Egypt", 
         "rooms": [
@@ -27,7 +27,7 @@
         ]
       },
       {
-        "branch_id": "203",
+        "branch_id": "HB203",
         "name": "Ocean Breeze Hotel - Luxor",
         "country": "Egypt",
         "rooms": [
@@ -40,7 +40,7 @@
         ]
       },
       {
-        "branch_id": "204",
+        "branch_id": "HB204",
         "name": "Ocean Breeze Hotel - Aswan",
         "country": "Egypt",
         "rooms": [
