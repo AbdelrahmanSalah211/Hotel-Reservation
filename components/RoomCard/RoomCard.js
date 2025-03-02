@@ -128,3 +128,18 @@ class RoomCard extends HTMLElement {
 
 }
 customElements.define('room-card', RoomCard);
+
+// for dev
+// onload = function(){
+//     const roomCard1 = document.createElement("room-card");
+//     const hOne1 = document.createElement("h1");
+//     hOne1.innerText = "head"
+//     document.body.appendChild(roomCard1);
+    
+//     roomCard1.appendChild(hOne1);
+    
+//     this.setTimeout(function(){
+//         hOne1.remove();
+
+//     },100)
+// }
