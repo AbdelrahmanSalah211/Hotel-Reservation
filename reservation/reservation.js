@@ -27,7 +27,7 @@ const branches = [
 ];
 
 
-localStorage.setItem("branches", JSON.stringify(branches));
+// localStorage.setItem("branches", JSON.stringify(branches));
 
 
 
@@ -74,19 +74,18 @@ document.addEventListener("DOMContentLoaded", () => {
   const lName = document.querySelector("#last-name");
   const phone = document.querySelector("#phone");
   const submit = document.querySelector(".submit-btn");
-
-  // form.action = '';
-  // form.method = 'POST';
+  form.action = '';
+  form.method = 'POST';
 
   const now = new Date();
   const formattedNow = now.toISOString().slice(0, 16);
 
-  // checkIn.min = formattedNow;
-  // checkOut.min = formattedNow;
+  checkIn.min = formattedNow;
+  checkOut.min = formattedNow;
 
-  // checkIn.addEventListener("change", () => {
-  //   checkOut.min = checkIn.value;
-  // });
+  checkIn.addEventListener("change", () => {
+    checkOut.min = checkIn.value;
+  });
 
   const defaultBranchOption = document.createElement("option");
   defaultBranchOption.value = "";
@@ -151,9 +150,9 @@ document.addEventListener("DOMContentLoaded", () => {
     const myPromise = new Promise((resolve, reject) => {
       setTimeout(() => {
         // if(roomTypeParam){
-          const select1000 = roomType.children[1];
-          const children1000 = select1000.children;
-          Array.from(children1000).forEach((child) => {
+          const selectRoomTypeParam = roomType.children[1];
+          const selectRoomTypeChildren = selectRoomTypeParam.children;
+          Array.from(selectRoomTypeChildren).forEach((child) => {
             if(child.value === roomTypeParam){
               child.selected = true;
               roomType.dispatchEvent(new CustomEvent("onChange", { detail: { value: child.value } }));
@@ -177,6 +176,7 @@ document.addEventListener("DOMContentLoaded", () => {
       (room) => room.type === e.detail.value
     );
     RemoveChildren(numberOfRooms);
+    numberOfRooms.label = `Number of Rooms <span>( ${selectedRoomType.count} available )</span>`
     for(let i = 1; i <= selectedRoomType.count; i++){
       const numberOfRoomOption = document.createElement("option");
       numberOfRoomOption.value = i;
@@ -185,12 +185,31 @@ document.addEventListener("DOMContentLoaded", () => {
     }
   });
 
+  fName.addEventListener("input", function (e) {
+    const val = parseInt(e.data);
+    if(Number.isInteger(val)){
+      fName.value = fName.value.slice(0, fName.value.length - 1);
+    }
+  });
+
+  lName.addEventListener("input", function (e) {
+    const val = parseInt(e.data);
+    if(Number.isInteger(val)){
+      lName.value = lName.value.slice(0, lName.value.length - 1);
+    }
+  });
+
+  phone.addEventListener("input", function (e) {
+    const val = parseInt(e.data);
+    if(Number.isNaN(val)){
+      phone.value = phone.value.slice(0, phone.value.length - 1);
+    }
+  });
+
 
 
   form.addEventListener("submit", function (e) {
-    // sumbit logic will be written here after finishing problems
     e.preventDefault();
-    // call ro function that display bokking success
     const resBranchId = location.value;
     const resRoomType = roomType.value;
     const resNumberOfRooms = numberOfRooms.value;
@@ -199,21 +218,27 @@ document.addEventListener("DOMContentLoaded", () => {
       lunch: lunch.checked,
       dinner: dinner.checked,
     };
-    // const resCheckInDate = checkIn.value;
-    // const resCheckOutDate = checkOut.value;
-    // const resName = `${fName.value} ${lName.value}`;
-    // const resPhoneNumber = phone.value;
-    // const guestInfo = {
-    //   resName,
-    //   resPhoneNumber
-    // }
-    const errP = document.querySelector(".error-message");
-    if (!resBranchId || !resNumberOfRooms /*|| !resCheckInDate || !resCheckOutDate || !fName.value || !lName.value || !resPhoneNumber*/) {
-      errP.style.display = "block";
+    const resCheckInDate = checkIn.value;
+    const resCheckOutDate = checkOut.value;
+    const resName = `${fName.value} ${lName.value}`;
+    const resPhoneNumber = phone.value;
+    const guestInfo = {
+      resName,
+      resPhoneNumber
+    }
+    // const errP = document.querySelector(".error-message");
+    if (!resBranchId || !resNumberOfRooms || !resCheckInDate || !resCheckOutDate || !fName.value || !lName.value || !resPhoneNumber) {
+      // errP.style.display = "block";
+      console.log("wrong fields");
+      console.log(`resBranchId: ${resBranchId}, resRoomType: ${resRoomType}, resNumberOfRooms: ${resNumberOfRooms}, resMeals: ${resMeals}, resCheckInDate: ${resCheckInDate}, resCheckOutDate: ${resCheckOutDate}, guestInfo: ${guestInfo}`);
     } else {
       // errP.style.display = "none";
-      reservation(resBranchId, resRoomType, resNumberOfRooms, resMeals/*, resCheckInDate, resCheckOutDate, guestInfo*/);
-      navigate("/");
+      console.log("correct fields");
+      console.log(`resBranchId: ${resBranchId}, resRoomType: ${resRoomType}, resNumberOfRooms: ${resNumberOfRooms}, resMeals: ${resMeals}, resCheckInDate: ${resCheckInDate}, resCheckOutDate: ${resCheckOutDate}, guestInfo: ${guestInfo}`);
+      reservation(resBranchId, resRoomType, resNumberOfRooms, resMeals, resCheckInDate, resCheckOutDate, guestInfo);
+      setTimeout(() => {
+        navigate("/");
+      }, 4000);
     }
   });
 });
