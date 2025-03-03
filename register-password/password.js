@@ -1,4 +1,5 @@
-import { validation } from "../utils/forms.js";
+import { validation } from "../utility/forms.js";
+import { registerSecondStep  } from "../utility/auth.js";
 
 const passwordForm = document.getElementById('password-form');
 
@@ -11,10 +12,8 @@ passwordForm.onsubmit = function(e) {
  
     
     if (validation.Password(formData)) {
-        if(localStorage.getItem("register-info")){ 
-            localStorage.setItem("register-info","");
-        }
-        window.location.href = "./register-pass.html";
+        registerSecondStep(formData);
+        window.location.href = "../login/login.html";
     } else {
 
         console.error("Validation failed");

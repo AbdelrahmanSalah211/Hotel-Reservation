@@ -1,25 +1,26 @@
-.select-menu-container{
+.select-menu-container {
   display: flex;
   flex-direction: column;
-  width: 400px;
-  height: 68px;
-  border: 1px;
-  font-size: 20px;
-  font-family: poppins;
-  justify-content: space-between;
+  width: 100%;
+  font-size: var(--font-size-100);
+  color: hsl(var(--gray-100));
 }
 
-
 .custom-select {
-  font-size: 20px;
-  font-family: poppins;
-  padding-bottom: 4px;
-  background-color:rgb(255, 255, 255);
+  font-size: var(--font-size-100);
+  color: hsl(var(--gray-100));
+  padding-bottom: 0.25rem;
   appearance: none;
-  background-image: url(./resource/down-arrow.png);
+  background-image: url(./../../assets/images/icons/down-arrow.png);
   background-repeat: no-repeat;
-  background-position: calc(100% - 5px) calc(100% - 4px);
-  background-size: 25px;
+  background-position: calc(100% - 0.3125rem) calc(100% - 0.25rem);
+  background-size: 1.5625rem;
   outline: none;
-  border-width: 0 0 1px 0;
+  border: none;
+  border-bottom: solid 0.0625rem hsl(var(--gray-100));
+  cursor: pointer;
+}
+
+.select-menu-container label {
+  padding-bottom: 0.25rem;
 }

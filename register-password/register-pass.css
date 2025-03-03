@@ -29,7 +29,9 @@ body {
     border-radius: 0.25rem;
     
   }
-
+  .redirect-message{
+    text-align: center;
+  }
 
   .error-message{
     display: flex;
