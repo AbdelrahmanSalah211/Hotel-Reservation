@@ -15,6 +15,7 @@ main .container {
   display: flex;
   gap: 16rem;
   padding: 5rem;
+  flex-direction: column;
 }
 
 main .container section {
@@ -34,6 +35,7 @@ main .container section h2 {
 main .container .room-info .room-features {
   display: flex;
   gap: 1.625rem;
+  flex-direction: column;
 }
 
 main .container .room-info .room-features div {
@@ -45,10 +47,12 @@ main .container .room-info .room-features div {
 main .container .room-info .room-features div input[type="checkbox"] {
   width: 1.25rem;
   aspect-ratio: 1/1;
+  cursor: pointer;
 }
 
 main .container .room-info .room-features div label {
   font-size: var(--font-size-100);
+  cursor: pointer;
 }
 
 main form .submit-btn {
@@ -73,6 +77,35 @@ main form .submit-btn:hover {
   background-color: hsl(var(--gray-100));
 }
 
+main .container .room-info input[type="datetime-local"]::-webkit-calendar-picker-indicator {
+  cursor: pointer;
+}
+
+@media(min-width: 992px) {
+  /* .container {
+    flex-direction: row;
+  } */
+
+  /* .room-info, .guest-info {
+    flex: 1;
+    min-width: 45%;
+  } */
+
+  /*.room-features {
+    display: flex;
+    flex-direction: row;
+    gap: 2.5rem;
+  } */
+
+  main .container {
+    flex-direction: row;
+  }
+
+  main .container .room-info .room-features {
+    flex-direction: row;
+  }
+}
+
 /* .reservation-form {
   color: hsl(var(--gray-100));
   display: flex;
@@ -85,7 +118,6 @@ main form .submit-btn:hover {
   gap: 1.5rem;
   color: hsl(var(--gray-100));
 }
-
 
 .submit-btn {
   background-color: hsl(var(--turquoise-100));
@@ -144,22 +176,4 @@ span {
   .container {
     flex-direction: column;
   }
-}
-
-@media(min-width: 992px) {
-  .container {
-    flex-direction: row;
-  }
-
-  .room-info, .guest-info {
-    flex: 1;
-    min-width: 45%;
-  }
-
-  .room-features {
-    display: flex;
-    flex-direction: row;
-    gap: 2.5rem;
-  }
-
 } */
