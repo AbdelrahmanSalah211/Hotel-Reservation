@@ -9,6 +9,7 @@
     <link rel="stylesheet" href="./../components/SelectMenu/SelectMenu.css">
     <link rel="stylesheet" href="./../components/InputLabel/InputLabel.css">
     <link rel="stylesheet" href="./../components/Footer/Footer.css">
+    <link rel="stylesheet" href="./../components/Toast/Toast.css">
     <link rel="stylesheet" href="./reservation.css">
   </head>
   <body>
@@ -31,58 +32,44 @@
             </select-menu>
             <select-menu label="Type of Room">
             </select-menu>
-            <select-menu label="Number of Rooms <span>( 3 available )</span>">
+            <select-menu label="Number of Rooms">
             </select-menu>
             <div class="room-features">
               <div>
-                <input type="checkbox" class="breakfast" id="breakfast-meal"
-                  name="breakfast">
+                <input type="checkbox" class="breakfast" id="breakfast-meal" name="breakfast">
                 <label for="breakfast-meal">Breakfast</label>
               </div>
               <div>
-                <input type="checkbox" class="lunch" id="lunch-meal"
-                  name="lunch">
+                <input type="checkbox" class="lunch" id="lunch-meal" name="lunch">
                 <label for="lunch-meal">Lunch</label>
               </div>
               <div>
-                <input type="checkbox" class="dinner" id="dinner-meal"
-                  name="dinner">
+                <input type="checkbox" class="dinner" id="dinner-meal" name="dinner">
                 <label for="dinner-meal">Dinner</label>
               </div>
             </div>
-            <my-input class="new-input" input-id="check-in"
-              label_name="Check-In Date" label-for="check-in"
-              type="datetime-local"
-              placeholder></my-input>
-            <my-input class="new-input" input-id="check-out"
-              label_name="Check-Out Date" label-for="check-out"
-              type="datetime-local"
-              placeholder></my-input>
+            <my-input input-id="check-in" label_name="Check-In Date" label-for="check-in" type="datetime-local" placeholder></my-input>
+            <my-input input-id="check-out" label_name="Check-Out Date" label-for="check-out" type="datetime-local" placeholder></my-input>
           </section>
           <section class="guest-info">
             <h2>Guest<br>Information</h2>
-            <my-input class="new-input" input-id="first-name"
-              label_name="First Name" label-for="first-name" type="text"
-              placeholder></my-input>
-            <my-input class="new-input" input-id="last-name"
-              label_name="Last Name" label-for="last-name" type="text"
-              placeholder></my-input>
-            <my-input class="new-input" input-id="phone" label_name="Phone"
-              label-for="phone" type="number" placeholder></my-input>
+            <my-input input-id="first-name" label_name="First Name" label-for="first-name" type="text" placeholder></my-input>
+            <my-input input-id="last-name" label_name="Last Name" label-for="last-name" type="text" placeholder></my-input>
+            <my-input input-id="phone" label_name="Phone" label-for="phone" type="text" placeholder></my-input>
           </section>
         </div>
         <!-- <p class="error-message">Please fill all fields</p> -->
-         <input class="submit-btn" type="submit" value="Book">
+        <input class="submit-btn" type="submit" value="Book">
       </form>
     </main>
 
     <custom-footer>
-
     </custom-footer>
     <script src="../components/NavBar/NavBar.js"></script>
     <script src="../components/SelectMenu/SelectMenu.js" type="module"></script>
     <script src="../components/InputLabel/InputLabel.js"></script>
     <script src="../components/Footer/Footer.js"></script>
+    <script src="../components/Toast/Toast.js"></script>
     <script src="./reservation.js" type="module"></script>
 
   </body>
