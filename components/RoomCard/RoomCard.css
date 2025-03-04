@@ -2,39 +2,16 @@
 /* tablet: 768px */
 /* desktop:  992px */
 
-/* 
-@media (min-width: 576px) {
-  .container-sm, .container {
-    max-width: 540px;
-  }
-}
-@media (min-width: 768px) {
-  .container-md, .container-sm, .container {
-    max-width: 720px;
-  }
-}
-@media (min-width: 992px) {
-  .container-lg, .container-md, .container-sm, .container {
-    max-width: 960px;
-  }
-}
-@media (min-width: 1200px) {
-  .container-xl, .container-lg, .container-md, .container-sm, .container {
-    max-width: 1140px;
-  }
-}
-@media (min-width: 1400px) {
-  .container-xxl, .container-xl, .container-lg, .container-md, .container-sm, .container {
-    max-width: 1320px;
-  }
-}
- */
 
+/* for dev */
+/* body{
+    background-color: white;
+    padding: min(6.25rem, 8%);
+    display: flex;
+    flex-direction: column;
+    gap: 10rem;
+} */
 
-body{
-    background-color: black;
-    padding: 6.25rem;
-}
 room-card{
   color: var(--gray-100);
     /* font-size: large; */
@@ -55,11 +32,11 @@ room-card .cntnr {
     /* position: relative; */
     width: 100%; /* he setted px width */
     height: auto;
-    /* for dev */ background-color: white; 
+    /* for dev background-color: white;  */
 
     /* for children */
     display: flex;
-    gap: 3rem;
+    gap: 1rem;
     flex-direction: column;
     align-items: stretch; /* Ensure children stretch to the same height */
 }
@@ -67,9 +44,12 @@ room-card .cntnr {
 room-card .imgCntnr {
     /* flex-grow: 1; */
     width: 100%; /*555px 35rem*/
+    max-height: 50vh;
+    max-height: 50dvh;
+
     border-radius: 0.3125rem;
     overflow: hidden;
-    background-color: red;
+    /* background-color: red; for dev */
 
     /* for chidren */
     display: flex;
@@ -80,12 +60,11 @@ room-card .imgCntnr {
 room-card .bodyCntnr {
     /* flex-grow: 2; */
     width: 100%;
-    /* min-width: 70rem; */
     
     box-sizing: border-box;
     padding: min(2.5rem, 8%); /*40px*/
-    /* background-color: yellow; */
     font-size: 1.5rem;
+    /* background-color: yellow; for dev */
 
     /* for children */
     display: flex;
@@ -93,6 +72,7 @@ room-card .bodyCntnr {
     justify-content: center;
     align-items: flex-start;
     align-content: stretch;
+    gap: 2rem;
 }
 
 room-card .imgCntnr img {
@@ -102,11 +82,11 @@ room-card .imgCntnr img {
     width: 100%;
     height: 100%;
     object-fit: cover;
-    background-color: red;
+    /* background-color: red; for dev */
 }
 
 room-card .bodyCntnr .textBody{
-    /* background-color: aqua; */
+    /* background-color: aqua; for dev */
     width: 100%;
     height: 100%;
     font-size: 1.5rem;
@@ -115,7 +95,11 @@ room-card .bodyCntnr .textBody{
 }
 
 room-card .bodyCntnr .textBody h1 {
-    margin-bottom: 1.375rem;
+    padding-bottom: 1.375rem;
+}
+
+room-card .bodyCntnr .textBody p {
+  padding-bottom: 1rem;
 }
 
 /* desktop */
@@ -123,14 +107,29 @@ room-card .bodyCntnr .textBody h1 {
     room-card .cntnr {
         flex-direction: row;
         width: 100%;
+        height: 24rem;
+        gap: 3rem
     }
+
+    room-card .cntnr-reverse {
+      flex-direction: row-reverse;
+      width: 100%;
+      height: 24rem;
+      gap: 3rem
+  }
+
     room-card .imgCntnr {
-        width: 50%;
+        width: 45%;
         height: auto;
+        max-height: auto;
     }
     room-card .bodyCntnr {
-        width: 50%;
-        /* flex-grow: 0; */
+        width: 55%;        
+    }
+
+    room-card .textBody {
+      overflow: scroll;
+      scrollbar-width: none;
     }
 
     room-card .imgCntnr img {
@@ -143,10 +142,10 @@ room-card button {
     /* margin-bottom: 1.5rem; */
     width: 8.75rem;
     height: 3.25rem;
-    background-color: var(--gray-100);
     /* for dev */ background-color: grey;
+    background-color: var(--gray-100);
     color: white;
     border-radius: 0.25rem;
-    border-width: 1px;
+    /* border-width: 1px; for dev */
 
 }

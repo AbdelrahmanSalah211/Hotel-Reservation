@@ -1,0 +1,74 @@
+.toast-container {
+    /*Movement*/position: fixed;
+    top: -6.25rem;
+    left: 50%;
+    transform: translate(-50%, 0%);
+    -webkit-transform: translate(-50%, 0%);
+    -moz-transform: translate(-50%, 0%);
+    -ms-transform: translate(-50%, 0%);
+    -o-transform: translate(-50%, 0%);
+    transition: all var(--animation-duration) ease-in-out;
+    -webkit-transition: all var(--animation-duration) ease-in-out;
+    -moz-transition: all var(--animation-duration) ease-in-out;
+    -ms-transition: all var(--animation-duration) ease-in-out;
+    -o-transition: all var(--animation-duration) ease-in-out;
+    opacity: 0;
+    /*Shape*/display: flex;
+    width: 28.125rem;
+    box-shadow: 0 0 1.25rem hsl(var(--gray-200), 25%);
+    border-radius: var(--radius-100);
+    -webkit-border-radius: var(--radius-100);
+    -moz-border-radius: var(--radius-100);
+    -ms-border-radius: var(--radius-100);
+    -o-border-radius: var(--radius-100);
+}
+
+.active {
+    top: 2rem;
+    opacity: 1;
+}
+
+.toast-container .toast-type {
+    width: 22.23%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: hsl(var(--turquoise-100));
+    border-radius: var(--radius-100);
+    -webkit-border-radius: var(--radius-100);
+    -moz-border-radius: var(--radius-100);
+    -ms-border-radius: var(--radius-100);
+    -o-border-radius: var(--radius-100);
+}
+
+.toast-container .toast-type.success {
+    background-color: hsl(var(--turquoise-100));
+}
+
+.toast-container .toast-type.error {
+    background-color: hsl(var(--red-100));
+}
+
+.toast-container .toast-type.warning {
+    background-color: hsl(var(--yellow-100));
+}
+
+.toast-container .toast-type svg {
+    fill: hsl(var(--white));
+    width: 2.8125rem;
+    aspect-ratio: 1/1;
+}
+
+.toast-container .toast-message-container {
+    width: 77.77%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 2.175rem 0;
+}
+
+.toast-container .toast-message-container .toast-message {
+    color: hsl(var(--gray-100));
+    font-size: var(--font-size-100);
+    font-weight: 500;
+}
