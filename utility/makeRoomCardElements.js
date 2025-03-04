@@ -23,9 +23,9 @@ function makeRoomCardElements(roomsObject, limit){
         roomType.innerHTML          = roomObject["type"] + " Room";
         roomDescription.innerHTML   = roomObject["description"];
         roomMeals.innerText = "Meals of the Day: " +
-                              ((roomObject["meals"]["breakfast"])?"breakfast ":"") +
-                              ((roomObject["meals"]["lunch"])    ?"lunch "    :"") +
-                              ((roomObject["meals"]["dinner"])   ?"dinner "   :"");
+                              ((roomObject["meals"]["breakfast"])?"• breakfast ":"") +
+                              ((roomObject["meals"]["lunch"])    ?"• lunch "    :"") +
+                              ((roomObject["meals"]["dinner"])   ?"• dinner "   :"");
         roomImage.src = roomObject["image_url"];
 
         // connect the element to the Dom

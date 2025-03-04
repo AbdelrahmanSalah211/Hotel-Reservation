@@ -1,3 +1,4 @@
+//TODO: function that detects currenet directory
 class RoomCard extends HTMLElement {
     constructor(){
         super();
@@ -9,7 +10,7 @@ class RoomCard extends HTMLElement {
         this.innerHTML  = `
             <div class="cntnr card">
                 <div class="imgCntnr">
-                    <img src="./images/room1.jpg" alt="roomImg">
+                    <img src="/assets/images/triple.webp" alt="roomImg">
                 </div>
                 <div class="bodyCntnr">
                     <div class="textBody">
@@ -24,7 +25,7 @@ class RoomCard extends HTMLElement {
         if(!document.getElementById("Room-card-style")){
 
             const style     = document.createElement("link")
-            style.href      = "RoomCard.css";
+            style.href      = "/components/RoomCard/RoomCard.css";
             style.rel       = "stylesheet";
             style.id        = "Room-card-style";
             document.head.prepend(style);
@@ -128,3 +129,18 @@ class RoomCard extends HTMLElement {
 
 }
 customElements.define('room-card', RoomCard);
+
+// for dev
+// onload = function(){
+//     const roomCard1 = document.createElement("room-card");
+//     const hOne1 = document.createElement("h1");
+//     hOne1.innerText = "head"
+//     document.body.appendChild(roomCard1);
+    
+//     roomCard1.appendChild(hOne1);
+    
+//     this.setTimeout(function(){
+//         hOne1.remove();
+
+//     },100)
+// }
