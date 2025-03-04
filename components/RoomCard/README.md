@@ -1,9 +1,11 @@
 # How to uses the compoent in HTML?
 Like any other HTML element
+```HTML
 <room-card>
   <!-- add img -->
   <!-- add any text element -->
 </room-card>
+```
 
 # How to use it in JS
 ```javascript
