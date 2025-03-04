@@ -3,121 +3,121 @@
         {
           "type": "Single",
           "description": "A cozy room designed for one person, featuring a comfortable single bed, suitable for solo travelers seeking comfort and privacy.",
-          "image_url": "../images/single.webp",
+          "image_url": "/assets/images/single.webp",
           "meals": {"breakfast": true, "lunch": false, "dinner": true}
       },
       {
         "type": "Double",
         "description": "A spacious room accommodating two guests, equipped with either one double bed or two twin beds, ideal for couples or friends sharing a room.",
-        "image_url": "../images/double.webp",
+        "image_url": "/assets/images/double.webp",
         "meals": {"breakfast": true, "lunch": true, "dinner": false}
       },
       {
         "type": "Triple",
         "description": "Designed to comfortably accommodate three guests, this room offers a combination of beds, such as a double bed and a single bed, or three single beds.",
-        "image_url": "../images/triple.webp",
+        "image_url": "/assets/images/triple.webp",
         "meals": {"breakfast": false, "lunch": true, "dinner": true}
       },
       {
         "type": "Queen",
         "description": "A room featuring a queen-sized bed, suitable for up to two guests, offering a balance of space and comfort.",
-        "image_url": "../images/queen.webp",
+        "image_url": "/assets/images/queen.webp",
         "meals": {"breakfast": true, "lunch": false, "dinner": false}
       },
       {
         "type": "King",
         "description": "A luxurious room equipped with a king-sized bed, providing ample space and comfort for up to two guests.",
-        "image_url": "../images/king.webp",
+        "image_url": "/assets/images/king.webp",
         "meals": {"breakfast": true, "lunch": true, "dinner": true}
       },
       {
         "type": "Twin",
         "description": "Featuring two separate twin beds, this room is perfect for guests who prefer individual sleeping arrangements.",
-        "image_url": "../images/twin.webp",
+        "image_url": "/assets/images/twin.webp",
         "meals": {"breakfast": false, "lunch": false, "dinner": true}
       },
       {
         "type": "Double-Double",
         "description": "Equipped with two double beds, this room accommodates up to four guests, making it ideal for families.",
-        "image_url": "../images/double-double.webp",
+        "image_url": "/assets/images/double-double.webp",
         "meals": {"breakfast": true, "lunch": true, "dinner": false}
       },
       {
         "type": "Studio",
         "description": "A multifunctional space featuring a studio bed (a couch that converts into a bed) and may include additional amenities like a kitchenette.",
-        "image_url": "../images/studio.webp",
+        "image_url": "/assets/images/studio.webp",
         "meals": {"breakfast": false, "lunch": true, "dinner": true}
       },
       {
         "type": "Suite",
         "description": "An elegant suite offering separate living and sleeping areas, providing ample space and luxury for guests seeking an upgraded experience.",
-        "image_url": "../images/suite.webp",
+        "image_url": "/assets/images/suite.webp",
         "meals": {"breakfast": true, "lunch": false, "dinner": true}
       },
       {
         "type": "Junior-Suite",
         "description": "A smaller suite with a combined living and sleeping area, offering a taste of luxury and extra space.",
-        "image_url": "../images/junior-suite.webp",
+        "image_url": "/assets/images/junior-suite.webp",
         "meals": {"breakfast": true, "lunch": true, "dinner": false}
       },
       {
         "type": "Master-Suite",
         "description": "A spacious suite featuring multiple rooms, including separate living and sleeping areas, designed for guests seeking premium comfort.",
-        "image_url": "../images/master-suite.webp",
+        "image_url": "/assets/images/master-suite.webp",
         "meals": {"breakfast": false, "lunch": true, "dinner": true}
       },
       {
         "type": "Executive-Suite",
         "description": "Designed for business travelers, this suite offers a dedicated workspace, meeting area, and luxurious sleeping quarters.",
-        "image_url": "../images/executive-suite.webp",
+        "image_url": "/assets/images/executive-suite.webp",
         "meals": {"breakfast": true, "lunch": false, "dinner": true}
       },
       {
         "type": "Presidential-Suite",
         "description": "The most luxurious accommodation in the hotel, featuring expansive space, premium amenities, and exclusive services.",
-        "image_url": "../images/presidential-suite.webp",
+        "image_url": "/assets/images/presidential-suite.webp",
         "meals": {"breakfast": true, "lunch": true, "dinner": true}
       },
       {
         "type": "Penthouse-Suite",
         "description": "A luxurious top-floor suite featuring premium amenities, expansive views, and exclusive services for an unparalleled stay.",
-        "image_url": "../images/penthouse-suite.webp",
+        "image_url": "/assets/images/penthouse-suite.webp",
         "meals": {"breakfast": true, "lunch": false, "dinner": true}
       },
       {
         "type": "Villa",
         "description": "A standalone accommodation offering multiple rooms, private amenities like a pool or garden, ideal for families or groups seeking privacy.",
-        "image_url": "../images/villa.webp",
+        "image_url": "/assets/images/villa.webp",
         "meals": {"breakfast": true, "lunch": true, "dinner": false}
       },
       {
         "type": "Connecting",
         "description": "Two rooms connected by a private door, allowing easy access between rooms, perfect for families or groups.",
-        "image_url": "../images/connecting.webp",
+        "image_url": "/assets/images/connecting.webp",
         "meals": {"breakfast": false, "lunch": true, "dinner": true}
       },
       {
         "type": "Accessible",
         "description": "Designed for guests with disabilities, this room offers accessible features like wider doorways, grab bars, and modified bathroom facilities.",
-        "image_url": "../images/accissible.webp",
+        "image_url": "/assets/images/accissible.webp",
         "meals": {"breakfast": true, "lunch": false, "dinner": true}
       },
       {
         "type": "Cabana",
         "description": "A room located near the pool or beach area, often featuring a private terrace, offering easy access to recreational facilities.",
-        "image_url": "../images/cabana.webp",
+        "image_url": "/assets/images/cabana.webp",
         "meals": {"breakfast": true, "lunch": true, "dinner": false}
       },
       {
         "type": "Bungalow",
         "description": "A standalone, single-story accommodation, often found in resorts, providing a private and intimate setting.",
-        "image_url": "../images/Bungalow.webp",
+        "image_url": "/assets/images/Bungalow.webp",
         "meals": {"breakfast": false, "lunch": true, "dinner": true}
       },
       {
         "type": "Loft",
         "description": "A modern, open-plan room with high ceilings, often featuring industrial design elements and ample natural light.",
-        "image_url": "../images/Loft.webp",
+        "image_url": "/assets/images/Loft.webp",
         "meals": {"breakfast": true, "lunch": false, "dinner": true}
       }
     ]
