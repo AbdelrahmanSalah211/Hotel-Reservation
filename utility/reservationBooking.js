@@ -64,7 +64,7 @@ function reservation(resBranchId, resRoomType, resNumberOfRooms, resMeals, resCh
   toast.type = "success";
   toast.message = "Reservation successful!";
   document.body.appendChild(toast);
-  const reservationData = JSON.parse(localStorage.getItem("reservations"));
+  const reservationData = JSON.parse(localStorage.getItem("reservations")) || [];
   const userSession = JSON.parse(localStorage.getItem("user-session"));
   const storedBranches = JSON.parse(localStorage.getItem("branches"));
   // const branch = storedBranches.find(
@@ -81,9 +81,14 @@ function reservation(resBranchId, resRoomType, resNumberOfRooms, resMeals, resCh
     }
   });
   console.log(reservationData);
-  const newId = `${
-    parseInt(reservationData[reservationData.length - 1].reservation_id) + 1
-  }`;
+  if(reservationData.length === 0){
+    var newId = 0;
+  } else {
+    var newId = `${ parseInt(reservationData[reservationData.length - 1].reservation_id) + 1 }`;
+  }
+  // const newId = `${
+  //   parseInt(reservationData[reservationData.length - 1].reservation_id) + 1
+  // }`;
   const newReservation = {
     reservation_id: newId,
     branch_id: resBranchId,
