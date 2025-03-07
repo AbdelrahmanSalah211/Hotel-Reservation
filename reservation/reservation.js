@@ -27,7 +27,7 @@ const branches = [
 ];
 
 
-// localStorage.setItem("branches", JSON.stringify(branches));
+localStorage.setItem("branches", JSON.stringify(branches));
 
 
 
@@ -145,28 +145,49 @@ document.addEventListener("DOMContentLoaded", () => {
       roomType.appendChild(roomTypeOption);
     });
 
-
-
-    const myPromise = new Promise((resolve, reject) => {
-      setTimeout(() => {
-        // if(roomTypeParam){
-          const selectRoomTypeParam = roomType.children[1];
-          const selectRoomTypeChildren = selectRoomTypeParam.children;
-          Array.from(selectRoomTypeChildren).forEach((child) => {
-            if(child.value === roomTypeParam){
-              child.selected = true;
-              roomType.dispatchEvent(new CustomEvent("onChange", { detail: { value: child.value } }));
-            }
-          });
-        // }
-        resolve("done");
-      }, 0);
-    })
+    function myPromise(){
+      return new Promise((resolve, reject) => {
+        setTimeout(() => {
+          // if(roomTypeParam){
+            const selectRoomTypeParam = roomType.children[1];
+            const selectRoomTypeChildren = selectRoomTypeParam.children;
+            Array.from(selectRoomTypeChildren).forEach((child) => {
+              if(child.value === roomTypeParam){
+                child.selected = true;
+                roomType.dispatchEvent(new CustomEvent("onChange", { detail: { value: child.value } }));
+              }
+            });
+          // }
+          resolve("done");
+        }, 0);
+      })
+    }
 
     if(roomTypeParam){
-      const str = await myPromise;
+      const str = await myPromise();
       console.log(str);
     }
+
+    // const myPromise = new Promise((resolve, reject) => {
+    //   setTimeout(() => {
+    //     // if(roomTypeParam){
+    //       const selectRoomTypeParam = roomType.children[1];
+    //       const selectRoomTypeChildren = selectRoomTypeParam.children;
+    //       Array.from(selectRoomTypeChildren).forEach((child) => {
+    //         if(child.value === roomTypeParam){
+    //           child.selected = true;
+    //           roomType.dispatchEvent(new CustomEvent("onChange", { detail: { value: child.value } }));
+    //         }
+    //       });
+    //     // }
+    //     resolve("done");
+    //   }, 0);
+    // })
+
+    // if(roomTypeParam){
+    //   const str = await myPromise;
+    //   console.log(str);
+    // }
 
   });
 
