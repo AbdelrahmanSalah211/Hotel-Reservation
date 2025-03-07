@@ -1,10 +1,11 @@
-import { signin } from "../utility/auth.js";
+import { initializeUsersData, signin } from "../utility/auth.js";
+import { errorsMessage } from "../utility/errorsMessage.js";
 const form= document.getElementById("form");
 console.log(form);
 
 
 
-
+initializeUsersData();
 form.onsubmit = (e) => {
     e.preventDefault();
     const formData = new FormData(form);
@@ -15,14 +16,7 @@ form.onsubmit = (e) => {
 
     }else{
         console.log("Invalid email or password");
-        
-        const error = document.querySelector(".error-message");
-        error.innerHTML = "";
-        error.style.display = "flex";
-        const errorSpan = document.createElement("span");
-        errorSpan.className = "error";
-        error.appendChild(errorSpan);
-        errorSpan.innerText = "Invalid email or password";
+        errorsMessage("Invalid email or password");
     }
 
 
