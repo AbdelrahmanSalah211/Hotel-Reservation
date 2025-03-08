@@ -13,6 +13,7 @@ class SelectMenu extends HTMLElement {
     this.appendChild(label);
     const select = document.createElement('select');
     select.classList.add('custom-select');
+    select.required = true;
     children.forEach(child => {
       const newChild = child.cloneNode(true);
       select.appendChild(newChild);
@@ -77,7 +78,7 @@ class SelectMenu extends HTMLElement {
 
   }
 
-  diconnectedCallback(){
+  disonnectedCallback(){
     if (this.childObserver) {
       this.childObserver.disconnect();
     }
