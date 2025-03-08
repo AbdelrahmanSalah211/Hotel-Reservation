@@ -152,7 +152,8 @@ class MyInput extends HTMLElement {
                     name=${this.inputName}
                      id="${this.inputId}" 
                      type="${this.type}" 
-                     placeholder=" "
+                     placeholder=" ",
+                     required
                     >
                     <label class="my-input-label" for=${this.forLabel || ''}">${this.labelName}</label>
                     ${isPassword ? this.getIcon() : ""}
