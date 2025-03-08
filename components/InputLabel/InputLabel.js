@@ -86,49 +86,34 @@ class MyInput extends HTMLElement {
     }
 
 
- 
-
     getIcon() {
 
         return `<div class="my-input-toggle-password" >
         
             <svg class="my-input-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                ${this.isPasswordVisible 
-                        ? '<path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"></path><circle cx="12" cy="12" r="3"></circle>' 
-                        : '<path d="M17.94 17.94A10.07 10.07 0 0 1 12 20c-7 0-11-8-11-8a18.45 18.45 0 0 1 5.06-5.94M9.9 4.24A9.12 9.12 0 0 1 12 4c7 0 11 8 11 8a18.5 18.5 0 0 1-2.16 3.19m-6.72-1.07a3 3 0 1 1-4.24-4.24"></path><line x1="1" y1="1" x2="23" y2="23"></line>'}
+                ${this.isPasswordVisible
+                ? '<path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"></path><circle cx="12" cy="12" r="3"></circle>'
+                : '<path d="M17.94 17.94A10.07 10.07 0 0 1 12 20c-7 0-11-8-11-8a18.45 18.45 0 0 1 5.06-5.94M9.9 4.24A9.12 9.12 0 0 1 12 4c7 0 11 8 11 8a18.5 18.5 0 0 1-2.16 3.19m-6.72-1.07a3 3 0 1 1-4.24-4.24"></path><line x1="1" y1="1" x2="23" y2="23"></line>'}
             </svg>        
         </div>`
 
     }
 
-
-
     togglePasswordVisibility() {
-
-
-
 
         this.isPasswordVisible = !this.isPasswordVisible;
         const input = this.querySelector(`#${this.inputId}`);
-        if(input){
-        input.type = this.isPasswordVisible ? "text" : "password";
+        if (input) {
+            input.type = this.isPasswordVisible ? "text" : "password";
 
-        this.querySelector(".my-input-toggle-password").outerHTML = this.getIcon();
-        this.querySelector(".my-input-toggle-password").addEventListener('click', this.togglePasswordVisibility.bind(this));
+            this.querySelector(".my-input-toggle-password").outerHTML = this.getIcon();
+            this.querySelector(".my-input-toggle-password").addEventListener('click', this.togglePasswordVisibility.bind(this));
         }
 
     }
 
 
-    
-
-
-
-
-
-
     render() {
-
 
         this.innerHTML = '';
         const container = document.createElement('div');
@@ -144,22 +129,17 @@ class MyInput extends HTMLElement {
 
 
         container.innerHTML = `
-            
-                <div class="input-wrapper">
-
-                    <input
-                    class="my-input ${isPassword? "my-input-password" : ""}"
-                    name=${this.inputName}
-                     id="${this.inputId}" 
-                     type="${this.type}" 
-                     required
-                    >
-                    <label class="my-input-label" for=${this.forLabel || ''}">${this.labelName}</label>
-                    ${isPassword ? this.getIcon() : ""}
-                </div>
+            <label class="my-input-label" for=${this.forLabel || ''}">${this.labelName}</label>
+            ${isPassword ? this.getIcon() : ""}
+            <input
+                class="my-input ${isPassword ? "my-input-password" : ""}"
+                name=${this.inputName}
+                id="${this.inputId}" 
+                type="${this.type}" 
+                placeholder=" "
+                required
+            >
         `;
-
-        ;
 
 
         this.appendChild(container);
@@ -172,8 +152,8 @@ class MyInput extends HTMLElement {
 
         if (isPassword) {
             const toggleBtn = this.querySelector(".my-input-toggle-password");
-            if(toggleBtn){
-            toggleBtn.addEventListener("click", this.togglePasswordVisibility.bind(this));
+            if (toggleBtn) {
+                toggleBtn.addEventListener("click", this.togglePasswordVisibility.bind(this));
             }
         }
 
