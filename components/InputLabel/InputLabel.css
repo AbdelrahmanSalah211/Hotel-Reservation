@@ -32,6 +32,13 @@
   color: hsl(var(--gray-100));
 }
 
+.input-container .icon {
+  width: 1.4rem;
+  height: 1.4rem;
+  color: hsl(var(--input));
+  cursor: pointer;
+} 
+
 
 /* .input-container {
   display: flex;
@@ -79,9 +86,4 @@
   color: hsl(var(--gray-100));
 }
 
-.input-container .icon {
-  width: 1.4rem;
-  height: 1.4rem;
-  color: hsl(var(--input));
-  cursor: pointer;
-} */
+

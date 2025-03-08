@@ -137,6 +137,7 @@ class MyInput extends HTMLElement {
                 id="${this.inputId}" 
                 type="${this.type}" 
                 placeholder=" "
+                required
             >
         `;
 
