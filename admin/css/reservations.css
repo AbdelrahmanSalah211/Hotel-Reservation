@@ -1,0 +1,193 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+}
+
+:root {
+    /* colors */
+    --gray-100: 0, 0%, 22%;
+    --gray-200: 0, 0%, 58%;
+    --turquoise-100: 170, 78%, 44%;
+    --red-100: 0, 100%, 51%;
+    --yellow-100: 50, 100%, 50%;
+    --white: 0, 0%, 100%;
+    /* border radius */
+    --radius-100: 0.3125rem;  /*5px*/
+    --radius-200: 0.625rem;  /*10px*/
+    /* font size */
+    --font-size-100: 1.25rem;  /*20px*/
+    --font-size-200: 1.5rem;  /*24px*/
+    --font-size-300: 2.25rem;  /*36px*/
+    --font-size-400: 2.5rem;  /*40px*/
+    --font-size-500: 3.25rem;  /*52px*/
+    --font-size-600: 4.25rem;  /*68px*/
+    /* screen size for media query */
+    --screen-mobile: 576px;
+    --screen-tablet: 768px;
+    --screen-desktop: 992px;
+}
+
+body{
+    display: flex;
+    gap: 1rem;
+    font-size: 1.5rem;
+    color: hsl(var(--gray-100));
+}
+
+#sidebar {
+    display: flex;
+    flex-direction: column;
+    width: 20rem;
+    background-color: rgb(42, 41, 41);
+    
+}
+
+#app {
+    width: 100%;
+}
+
+
+/* **** page styles */
+#reservation-subpage {
+    display: flex;
+    gap: 1rem;
+    flex-direction: column;
+}
+
+.add-btn {
+    mask-image: url(/assets/images/icons/add-svgrepo-com.svg);
+    align-self: flex-end;
+    margin-right: 10rem;
+}
+.add-btn:hover {
+    background-color: black;
+}
+
+dialog {
+    /* width: 90%; */
+    /* height: 90%; */
+    /* position: fixed; */
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    padding: 2rem;
+    border: none;
+    border-radius: var(--radius-200);
+}
+
+::backdrop {
+    background-image: linear-gradient(
+      45deg,
+      black
+    );
+    opacity: 0.75;
+  }
+
+
+.reservation-table {
+    width: 100%;
+    padding: 1rem;
+    padding-left: 2.5em;
+    border: 1px solid hsl(var(--gray-200));
+    box-shadow: 0 0 0.2rem hsl(var(--gray-100));
+    border-radius: 1rem;
+}
+
+.reservation-record {
+    /* display: flex; */
+    /* flex-direction: column; */
+    /* gap: 0.5rem; */
+    
+    position: relative;
+    padding: 1rem;
+    border-bottom: 0.1em solid hsl(var(--gray-100));
+    border-radius: var(--radius-200);
+}
+
+.reservation-record:hover {
+    background-color: hsl(var(--gray-200));
+    background-color: rgb(226, 219, 219);
+}
+
+.record-id {
+    display: inline-block;
+    background-color: hsl(var(--gray-200));
+    width: 1.1em;
+    width: fit-content;
+    text-align: center;
+    border-radius: 2rem;
+    padding: 0.25em;
+    border-color:  hsl(var(--gray-200));
+}
+
+.icon {
+    display: inline-block;
+    width: 1em;
+    height: 1em;
+    background-color: currentColor;/*hsl(var(--gray-100));*/
+    mask-size: cover;
+}
+.chk-out-icon {
+    transform: scaleX(-1);
+}
+
+
+.chk-in-icon {
+    mask-image: url(/assets/images/icons/curve-down-arrow-svgrepo-com.svg);
+}
+.chk-out-icon {
+    mask-image: url(/assets/images/icons/curved-up-arrow-svgrepo-com.svg);
+}
+.guest-name-icon {
+    mask-image: url(/assets/images/icons/user-svgrepo-com.svg);
+}
+.rooms-icon {
+    mask-image: url(/assets/images/icons/key-skeleton-svgrepo-com.svg);
+}
+.edit-btn {
+    mask-image: url(/assets/images/icons/edit-1479-svgrepo-com.svg);
+    cursor: pointer;
+}
+.reject-btn {
+    mask-image: url(/assets/images/icons/basic-denied-reject-svgrepo-com.svg);
+    cursor: pointer;
+}
+
+.ctrl {
+    display: none;
+    position: absolute;
+    height: 100%;
+    padding-right: 0.5em;
+    /* background-color: blue; */
+    /* width: 5rem; */
+    /* right: 0; */
+    left: -2.5em;
+    
+}
+.reservation-record:hover .ctrl {
+    display: block;
+    /* background-color: black; */
+}
+.reject-btn {
+    background-color: #B46060;
+}
+
+.reject-btn:hover {
+    background-color: #b14040;
+}
+
+.edit-btn:hover {
+    background-color: hsl(0, 3%, 13%);
+}
+
+
+/* @media (min-width: 992px) { */
+    /* .reservation-record { */
+        /* display: ; */
+        /* flex-direction: row; */
+        /* justify-content: space-between; */
+        /* justify-content: ; */
+    /* } */
+/* } */

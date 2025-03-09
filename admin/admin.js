@@ -1,6 +1,9 @@
+// import reservationSubPage from './js/reservations.js';
+
+
 const routes = {
     "/admin/reservations": {
-        html: `<div>Reservations</div>`,
+        html: `<div id="reservation-subpage"><div class="icon add-btn"></div><dialog></dialog></div>`,//`<script src="./js/reservations.js"></script>`,//reservationSubPage,
         js: `./js/reservations.js`,
         css: `./css/reservations.css`,
     },
@@ -23,7 +26,9 @@ const routes = {
 
 function loadResources(route) {
     if(routes[route].html){
-        document.getElementById("app").innerHTML = routes[route].html;    
+        document.getElementById("app")
+        .innerHTML = routes[route].html;    
+        //.appendChild(routes[route].html)
     }
 
     if (routes[route].css) {
@@ -46,11 +51,15 @@ function loadResources(route) {
 function manageResources(route) {
     // Removing JS and CSS files if exists
     document.querySelectorAll("[data-dynamic]").forEach(el => el.remove());
+    const app = document.getElementById("app");
+    while(app.firstChild){
+        app.removeChild(app.firstChild);
+    }
     console.log(route)
     console.log(routes[route])
     if (routes[route]){
         loadResources(route);
-    }else if(route == "/admin/"){
+    }else if(route == "/admin/" || route == "/admin/index.html"){
         route = "/admin/reservations";
         loadResources(route);
     }else {
