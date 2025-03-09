@@ -1,0 +1,19 @@
+{
+  "staff": [
+    {
+      "email": "admin@example.com",
+      "password": "admin123",
+      "isAdmin": true
+    },
+    {
+      "email": "user1@example.com",
+      "password": "user123",
+      "isAdmin": false
+    },
+    {
+      "email": "user2@example.com",
+      "password": "user456",
+      "isAdmin": false
+    }
+  ]
+}
