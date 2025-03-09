@@ -1,13 +1,13 @@
 export function loadData(){
     // let;
 
-    if(!window.localStorage.getItem("hotel")){
+    if(!window.localStorage.getItem("branches")){
         
         fetch("/assets/data/hotel.json")
         .then((res)=> res.json())
         .then(
             data=>{
-                window.localStorage.setItem("hotel", JSON.stringify(data.branches));
+                window.localStorage.setItem("branches", JSON.stringify(data.branches));
             }
         );
     }
@@ -29,7 +29,21 @@ export function loadData(){
         .then((res)=> res.json())
         .then(
             data=>{
-                window.localStorage.setItem("rooms", JSON.stringify(data.room_types));
+                window.localStorage.setItem("room_types", JSON.stringify(data.room_types));
+            }
+        );
+    
+    }
+
+    let guests;
+
+    if(!window.localStorage.getItem("guests")){
+        
+        fetch("/assets/data/guests.json")
+        .then((res)=> res.json())
+        .then(
+            data=>{
+                window.localStorage.setItem("guests", JSON.stringify(data.guests));
             }
         );
     
