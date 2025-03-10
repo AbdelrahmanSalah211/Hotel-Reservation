@@ -69,9 +69,9 @@ const branches = [
 
 localStorage.setItem("branches", JSON.stringify(branches));
 
-import { isLoggedIn } from "../utility/checkLogin.js";
-import { navigate } from "../utility/routes.js";
-import { reservation } from "../utility/reservationBooking.js";
+import { isLoggedIn } from "/utility/checkLogin.js";
+import { navigate } from "/utility/routes.js";
+import { reservation } from "/utility/reservationBooking.js";
 
 const urlParams = new URLSearchParams(window.location.search);
 const roomTypeParam = urlParams.get("roomType");
@@ -86,42 +86,37 @@ const reservationEventHandler = async function () {
   const smScript = document.createElement("script");
   smScript.src = "/components/SelectMenu/SelectMenu.js";
   smScript.type = "module";
-  document.body.prepend(smScript);
+  document.body.append(smScript);
   
   const smLink = document.createElement("link");
   smLink.rel = "stylesheet";
   smLink.href = "/components/SelectMenu/SelectMenu.css";
-  document.head.prepend(smLink);
+  document.head.append(smLink);
 
-  const ilScirpt = document.createElement("script");
-  ilScirpt.src = "/components/InputLabel/InputLabel.js";
-  document.body.prepend(ilScirpt);
+  const ilScript = document.createElement("script");
+  ilScript.src = "/components/InputLabel/InputLabel.js";
+  document.body.append(ilScript);
 
   const ilLink = document.createElement("link");
   ilLink.rel = "stylesheet";
   ilLink.href = "/components/InputLabel/InputLabel.css";
-  document.head.prepend(ilLink);
+  document.head.append(ilLink);
 
   const tScript = document.createElement("script");
   tScript.src = "/components/Toast/Toast.js";
-  document.body.prepend(tScript);
+  document.body.append(tScript);
 
   const tLink = document.createElement("link");
   tLink.rel = "stylesheet";
   tLink.href = "/components/Toast/Toast.css";
-  document.head.prepend(tLink);
+  document.head.append(tLink);
 
-  function wFunc(){
-    return new Promise((resolve, reject) => {
-      setTimeout(() => {
-        resolve("done");
-      }, 100);
-    });
-  }
-    await wFunc();
+  await new Promise((resolve) => ilScript.addEventListener("load", resolve));
+
   // if (!isLoggedIn()) {
   //   navigate("/login");
   // }
+
   const form = document.querySelector(".reservation-form");
   const menus = document.querySelectorAll("select-menu");
   const location = menus[0];
@@ -301,7 +296,13 @@ const reservationEventHandler = async function () {
   }
 }
 
-document.addEventListener("DOMContentLoaded", reservationEventHandler);
+if (document.readyState == "interactive" || document.readyState == "complete") {
+  reservationEventHandler()
+} else {
+  document.addEventListener("DOMContentLoaded", reservationEventHandler);
+}
+
+// document.addEventListener("DOMContentLoaded", reservationEventHandler);
 
 // module.exports = { reservationEventHandler };
 
