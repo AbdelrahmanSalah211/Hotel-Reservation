@@ -185,7 +185,7 @@ const reservationEventHandler = async function () {
 
   let selectedBranch;
   location.addEventListener("onChange",async function (e) {
-    selectedBranch = branches.find((branch) => branch.branch_id === e.detail.value);
+    selectedBranch = storedBranches.find((branch) => branch.branch_id === e.detail.value);
 
     removeChildren(roomType);
     removeChildren(numberOfRooms);
