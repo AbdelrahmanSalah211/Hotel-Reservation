@@ -93,6 +93,19 @@ function isAdmin(email) {
 
 
 
+
+}
+
+
+
+function signInStaff(email,password){
+    const data = localStorage.getItem('staff');
+    const staff = data.staff.find(data => data.email === email && data.password === password);
+    if(staff){
+        return true;
+    }
+
+    return false;
 }
 
 
@@ -100,6 +113,7 @@ export {
     addStaff,
     editStaff,
     deleteStaff,
-    isAdmin
+    isAdmin,
+    signInStaff
 }
 
