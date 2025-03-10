@@ -23,7 +23,7 @@ export function loadData(){
         );
     }
     
-    if(!window.localStorage.getItem("rooms")){
+    if(!window.localStorage.getItem("room_types")){
 
         fetch("/assets/data/rooms.json")
         .then((res)=> res.json())
