@@ -1,6 +1,7 @@
 import { validation } from "../utility/forms.js";
 import { initializeUsersData, registerFirstStep, saveToLocalStorage } from "../utility/auth.js";
 import { errorsMessage } from "../utility/errorsMessage.js";
+import { navigate } from "../utility/routes.js";
 
 
 
@@ -49,7 +50,8 @@ form.onsubmit = function (e) {
         }
         saveToLocalStorage(formData);
 
-        window.location.href = "../register-password/register-pass.html";
+        // window.location.href = "../register-password/register-pass.html";
+        navigate("/signup/step2")
     } else {
 
         console.error("Validation failed");

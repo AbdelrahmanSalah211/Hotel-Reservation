@@ -22,8 +22,18 @@
                 <my-input onchange="" input-name="password" input-id="password" label_name="Password"
                     label-for="my-password" type="password" placeholder="Enter your password">
                 </my-input>
-                <div class="error-message"></div>
+                <div class="sign-as" id="sign-as">
+                    <div>
+                        <input type="radio" name="sign-as" id="guest" value="guest">
+                        <label for="guest">Guest</label>
+                    </div>
+                    <div>
+                        <input type="radio" name="sign-as" id="staff" value="staff">
+                        <label for="staff">Staff</label>
+                    </div>
 
+                </div>
+                <div class="error-message"></div>
                 <div class="button">
                     <button>
                         Signup
