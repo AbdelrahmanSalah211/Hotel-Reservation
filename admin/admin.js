@@ -3,7 +3,7 @@
 
 const routes = {
     "/admin/reservations": {
-        html: `<div id="reservation-subpage"><div class="icon add-btn"></div><dialog></dialog></div>`,//`<script src="./js/reservations.js"></script>`,//reservationSubPage,
+        html: `<div id="reservation-subpage"><div class="icon add-btn"></div><dialog></dialog></div>`, //reservationSubPage,
         js: `./js/reservations.js`,
         css: `./css/reservations.css`,
     },
@@ -44,6 +44,7 @@ function loadResources(route) {
         script.src = routes[route].js;
         script.setAttribute("data-dynamic", ""); // Mark it for removal later
         script.defer = true;
+        script.type = "module"
         document.body.appendChild(script);
     }
 }

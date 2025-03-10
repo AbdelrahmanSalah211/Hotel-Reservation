@@ -1,36 +1,6 @@
-const branches = [
-  {
-    branch_id: "HB201",
-    name: "Ocean Breeze Hotel - Alexandria",
-    country: "Egypt",
-    rooms: [
-      { type: "Single", count: 20, price_per_night: 120 },
-      { type: "Twin", count: 10, price_per_night: 120 },
-      { type: "Double", count: 40, price_per_night: 120 },
-      { type: "Suite", count: 40, price_per_night: 120 },
-      { type: "Junior-Suite", count: 3, price_per_night: 250 },
-    ],
-  },
-  {
-    branch_id: "HB202",
-    name: "Ocean Breeze Hotel - Cairo",
-    country: "Egypt",
-    rooms: [
-      { type: "Single", count: 25, price_per_night: 150 },
-      { type: "Twin", count: 15, price_per_night: 150 },
-      { type: "Double", count: 35, price_per_night: 150 },
-      { type: "Suite", count: 45, price_per_night: 150 },
-      { type: "King", count: 7, price_per_night: 220 },
-      { type: "Junior-Suite", count: 4, price_per_night: 270 },
-    ],
-  },
-];
-
-localStorage.setItem("branches", JSON.stringify(branches));
-
-import { isLoggedIn } from "../utility/checkLogin.js";
-import { navigate } from "../utility/routes.js";
-import { reservation } from "../utility/reservationBooking.js";
+import { isLoggedIn } from "/utility/checkLogin.js";
+import { navigate } from "/utility/routes.js";
+import { reservation } from "/utility/reservationBooking.js";
 
 const urlParams = new URLSearchParams(window.location.search);
 const roomTypeParam = urlParams.get("roomType");
@@ -40,7 +10,14 @@ const dinnerParam = urlParams.get("dinner");
 
 const queryString = `?roomType=King&breakfast=true&lunch=true&dinner=true`;
 
-document.addEventListener("DOMContentLoaded", reservationEventHandler);
+if (document.readyState == "interactive" || document.readyState == "complete")
+{
+  reservationEventHandler()
+}
+else
+{
+  document.addEventListener("DOMContentLoaded", reservationEventHandler);
+}
 
 function reservationEventHandler() {
   // if (!isLoggedIn()) {
@@ -114,7 +91,7 @@ function reservationEventHandler() {
 
   let selectedBranch;
   location.addEventListener("onChange",async function (e) {
-    selectedBranch = branches.find((branch) => branch.branch_id === e.detail.value);
+    selectedBranch = storedBranches.find((branch) => branch.branch_id === e.detail.value);
 
     removeChildren(roomType);
     removeChildren(numberOfRooms);
@@ -226,4 +203,5 @@ function reservationEventHandler() {
 }
 
 
-module.exports = { reservationEventHandler };
+// module.exports = { reservationEventHandler };
+export { reservationEventHandler };

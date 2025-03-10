@@ -1,3 +1,5 @@
+import {loadData} from "/utility/loadData.js"
+
 function getUsers(){
     try {
         const data = localStorage.getItem("guests");
@@ -24,18 +26,18 @@ function saveUsers(data) {
 
 function existEmail(userData) {
     const data = getUsers();
-   return  data.guests.some(user => user.email === userData.email);
+   return  data.some(user => user.email === userData.email);
 }
 
 
 function generateGuestId() {
     const data = getUsers();
-    if (data.guests.length === 0) {
+    if (data.length === 0) {
       return 'G001';
     }
     
     // Find the highest guest ID number and increment it
-    const highestId = data.guests
+    const highestId = data
       .map(guest => parseInt(guest.guest_id.substring(1)))
       .reduce((max, current) => Math.max(max, current), 0);
     
@@ -76,7 +78,7 @@ function generateGuestId() {
 
 
     const data = getUsers();
-    data.guests.push(newUser);
+    data.push(newUser);
     
 
     if (saveUsers(data)) {
@@ -105,7 +107,7 @@ function signin(email,password){
     const data = getUsers();
     console.log(data);
     
-   const user = data.guests.find(user=>user.email === email && user.password === password);
+   const user = data.find(user=>user.email === email && user.password === password);
    console.log(user);
    
     if(user){
@@ -123,13 +125,8 @@ return false;
 
 
 function initializeUsersData() {
+    loadData();
     const data = getUsers();
-    if(!data){
-        fetch("../assets/data/guests.json").then(response => response.json()).then(data => {
-            console.log(data);
-            
-            saveUsers(data);}).catch(error => console.error(error));
-    }
 }
 
 

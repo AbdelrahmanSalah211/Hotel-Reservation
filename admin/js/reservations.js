@@ -1,3 +1,4 @@
+
 //* globals
 var parent = document.getElementById("reservation-subpage"); // document.createElement("div"); // for now
 
@@ -5,6 +6,7 @@ var parent = document.getElementById("reservation-subpage"); // document.createE
 
 //* logic exe
 
+//todo: make validation using try catch
 //todo: see to remove the no date message when new record is added (load fn, or addfn)
 //! create table (after validation of data existence)
 if(localStorage.branches)
@@ -63,46 +65,152 @@ addBtn.addEventListener
 )
 
 //! fetching and attaching reservation form in the dailog
-var doc;
-fetch("/reservation/reservation.html")
-.then(res => res.text())
-.then
-(
-    (html) => 
+// run only if the doc at least interactive
+if (document.readyState == "interactive" || document.readyState == "complete")
+{
+    attachForm()
+}
+else
+{
+    document.addEventListener(
+        "DOMContentLoaded",
+        attachForm
+    )
+}
+
+async function attachForm() {
+    //! HTML
+    const res = await fetch("/reservation/reservation.html");
+    const html = await res.text();
+    const parser = new DOMParser();
+    let doc = parser.parseFromString(html, "text/html");
+    const reservationForm = doc.getElementsByClassName("reservation-form")[0];
+    dialog.appendChild(reservationForm);
+    console.log(reservationForm)
+
+    //! CSS
+    const styleSheets = doc.getElementsByTagName("head")[0].getElementsByTagName("link")
+    for (let style of styleSheets)
     {
-        const parser = new DOMParser();
-        doc    = parser.parseFromString(html, "text/html");
-
-        const reservationForm = doc.getElementsByClassName("reservation-form")[0];
-        dialog.appendChild(reservationForm);
-        
-        // attaching the styling
-        const styleSheets = doc.getElementsByTagName("head")[0].getElementsByTagName("link")
-        for (let style of styleSheets)
-        {
-            // if(!Array.from(thisHead.getElementsByTagName("link")).map(lnk => lnk.href).includes(style.href))
-            style.setAttribute("data-dynamic","")    
-            document.getElementsByTagName("head")[0].appendChild(style);
-        }
-
-        // attaching scripts
-        const scripts = doc.getElementsByTagName("script");
-        for (let script of scripts) {
-            const newScript = document.createElement("script");
-            newScript.src = script.src;
-            newScript.type = "module"
-            document.body.appendChild(newScript);
-        }
+        // if(!Array.from(thisHead.getElementsByTagName("link")).map(lnk => lnk.href).includes(style.href))
+        style.setAttribute("data-dynamic","")    
+        document.getElementsByTagName("head")[0].appendChild(style);
     }
 
-)
+    //! JS
+    //   <script src="/components/SelectMenu/SelectMenu.js" type="module"></script>
+    // <script src="/components/InputLabel/InputLabel.js"></script>
+    const SelectMenu = document.createElement("script");
+    const InputLabel = document.createElement("script");
+    const formJS = document.createElement("script");
+    const toast = document.createElement("script");
 
-setTimeout(()=>{
-    const ln = document.createElement("script");
-    ln.src = "/reservation/reservation.js";
-    ln.type = "module";
-    document.body.appendChild(ln)
-}, 100)
+    reservationForm.addEventListener("load", attachScripts)
+
+    function attachScripts() 
+    {
+        SelectMenu.src = "/components/SelectMenu/SelectMenu.js";
+        SelectMenu.type = "module"
+        SelectMenu.async = false;
+        // SelectMenu.defer = true;
+        document.body.appendChild(SelectMenu);
+    
+        InputLabel.src = "/components/InputLabel/InputLabel.js";
+        InputLabel.type = "module"
+        InputLabel.async = false;
+        // InputLabel.defer = true;
+        document.body.appendChild(InputLabel);
+        
+        toast.src = "/components/Toast/Toast.js";
+        toast.type = "module"
+        toast.async = false;
+        // toast.defer = true;
+        document.body.appendChild(toast);
+        
+        formJS.src = "/reservation/reservation.js";
+        formJS.type = "module"
+        formJS.async = false;
+        // formJS.defer = true;
+        document.body.appendChild(formJS);
+    }
+    attachScripts()
+
+    //reservationEventHandler();
+
+    // async function attachScripts() 
+    // {    
+    //     const scripts = doc.getElementsByTagName("script");
+    //     for (let script of scripts) {
+    //         const newScript = document.createElement("script");
+    //         newScript.src = script.src;
+    //         newScript.type = "module"
+    //         newScript.async = false;
+    //         document.body.appendChild(newScript);
+    //         // console.log(newScript.readyState)
+    //         // await new Promise((resolve)=>{
+    //         //     while (true) {
+    //         //         if(["interactive", "complete"].includes(newScript.readyState)){
+    //         //             resolve();
+    //         //         }
+    //         //     }
+    //         //     // newScript.onload = resolve;
+    //         // });
+    //     }    
+    // }
+    // attachScripts();
+}
+
+
+
+// var doc;
+// fetch("/reservation/reservation.html")
+// .then(res => res.text())
+// .then
+// (
+//     async (html) => 
+//     {
+//         const parser = new DOMParser();
+//         doc = parser.parseFromString(html, "text/html");
+
+//         const reservationForm = doc.getElementsByClassName("reservation-form")[0];
+//         dialog.appendChild(reservationForm);
+        
+//         // attaching the styling
+//         const styleSheets = doc.getElementsByTagName("head")[0].getElementsByTagName("link")
+//         for (let style of styleSheets)
+//         {
+//             // if(!Array.from(thisHead.getElementsByTagName("link")).map(lnk => lnk.href).includes(style.href))
+//             style.setAttribute("data-dynamic","")    
+//             document.getElementsByTagName("head")[0].appendChild(style);
+//         }
+
+//         // attaching scripts
+//         const scripts = doc.getElementsByTagName("script");
+//         for (let script of scripts) {
+//             const newScript = document.createElement("script");
+//             newScript.src = script.src;
+//             newScript.type = "module"
+//             document.body.appendChild(newScript);
+//         }
+        
+//         setTimeout(
+//             ()=>
+//             {
+//                 reservationEventHandler();
+//             },
+//             100
+//         )
+
+//     }
+
+// )
+
+// setTimeout(()=>{
+//     const ln = document.createElement("script");
+//     ln.src = "/reservation/reservation.js";
+//     ln.type = "module";
+//     document.body.appendChild(ln)
+// }, 100)
 
 
 //* utilities
