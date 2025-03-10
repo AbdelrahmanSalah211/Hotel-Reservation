@@ -109,27 +109,31 @@ async function attachForm() {
 
     function attachScripts() 
     {
-        SelectMenu.src = "/components/SelectMenu/SelectMenu.js";
+        SelectMenu.src = "/components/SelectMenu/SelectMenu.js" + '?v=' + Date.now();
         SelectMenu.type = "module"
         SelectMenu.async = false;
+        SelectMenu.setAttribute("data-dynamic", "");
         // SelectMenu.defer = true;
         document.body.appendChild(SelectMenu);
     
-        InputLabel.src = "/components/InputLabel/InputLabel.js";
+        InputLabel.src = "/components/InputLabel/InputLabel.js" + '?v=' + Date.now();
         InputLabel.type = "module"
         InputLabel.async = false;
+        InputLabel.setAttribute("data-dynamic", "");
         // InputLabel.defer = true;
         document.body.appendChild(InputLabel);
         
-        toast.src = "/components/Toast/Toast.js";
+        toast.src = "/components/Toast/Toast.js" + '?v=' + Date.now();
         toast.type = "module"
         toast.async = false;
+        toast.setAttribute("data-dynamic", "");
         // toast.defer = true;
         document.body.appendChild(toast);
         
-        formJS.src = "/reservation/reservation.js";
+        formJS.src = "/reservation/reservation.js" + '?v=' + Date.now();
         formJS.type = "module"
         formJS.async = false;
+        formJS.setAttribute("data-dynamic", "");
         // formJS.defer = true;
         document.body.appendChild(formJS);
     }
