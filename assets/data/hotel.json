@@ -23,7 +23,12 @@
           {"type": "Double", "count": 35, "total_count":  35, "price_per_night": 150},
           {"type": "Suite", "count": 45, "total_count":  45, "price_per_night": 150},
           {"type": "King", "count": 7, "total_count":  7, "price_per_night": 220},
-          {"type": "Junior-Suite", "count": 4, "total_count":  4, "price_per_night": 270}
+          {"type": "Junior-Suite", "count": 4, "total_count":  4, "price_per_night": 270},
+          {"type": "Executive-Suite", "count": 20, "total_count":  20, "price_per_night": 1240},
+          {"type": "Presidential-Suite", "count": 30, "total_count":  30, "price_per_night": 1240},
+          {"type": "Penthouse-Suite", "count": 40, "total_count":  40, "price_per_night": 1240},
+          {"type": "Villa", "count": 10, "total_count":  10, "price_per_night": 1240},
+          {"type": "Connecting", "count": 20, "total_count":  20, "price_per_night": 1240}
         ]
       },
       {
@@ -36,7 +41,12 @@
           {"type": "Double", "count": 30, "total_count":  30, "price_per_night": 100},
           {"type": "Suite", "count": 35, "total_count":  35, "price_per_night": 100},
           {"type": "King", "count": 6, "total_count":  6, "price_per_night": 180},
-          {"type": "Junior-Suite", "count": 2, "total_count":  2, "price_per_night": 230}
+          {"type": "Junior-Suite", "count": 2, "total_count":  2, "price_per_night": 230},
+          {"type": "Triple", "count": 10, "total_count":  10, "price_per_night": 1240},
+          {"type": "Queen", "count": 20, "total_count":  20, "price_per_night": 1240},
+          {"type": "Double-Double", "count": 30, "total_count":  30, "price_per_night": 1240},
+          {"type": "Studio", "count": 40, "total_count":  40, "price_per_night": 1240},
+          {"type": "Master-Suite", "count": 10, "total_count":  10, "price_per_night": 1240}
         ]
       },
       {
@@ -50,7 +60,10 @@
           {"type": "Suite", "count": 42, "total_count":  42, "price_per_night": 110},
           {"type": "King", "count": 4, "total_count":  4, "price_per_night": 190},
           {"type": "Junior-Suite", "count": 5, "total_count":  5, "price_per_night": 240},
-          {"type": "Bungalow", "count": 1, "total_count":  1, "price_per_night": 1240}
+          {"type": "Bungalow", "count": 1, "total_count":  1, "price_per_night": 1240},
+          {"type": "Accessible", "count": 30, "total_count":  30, "price_per_night": 1240},
+          {"type": "Cabana", "count": 40, "total_count":  40, "price_per_night": 1240},
+          {"type": "Loft", "count": 1, "total_count":  1, "price_per_night": 1240}
         ]
       }
     ]
