@@ -120,6 +120,10 @@ class SelectMenu extends HTMLElement {
 
 }
 
-customElements.define('select-menu', SelectMenu);
+try {
+  customElements.define('select-menu', SelectMenu);
+} catch (error) {
+  console.error(error);
+}
 
 export default SelectMenu;
