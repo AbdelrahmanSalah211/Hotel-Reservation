@@ -1,6 +1,8 @@
 @import url(../global/global.css);
 body {
     height: 100vh;
+    overflow: hidden;
+
   }
   .main-container {
     display: flex;
@@ -8,7 +10,20 @@ body {
     align-items: center;
     padding: 4rem 3rem;
     width: 100%;
-    height: 100%;
+    z-index: 10;
+
+  }
+
+
+
+  .nav-title{
+    display: none;
+  }
+  .svg-top-left{
+    display: none;
+  }
+  .svg-bottom-right{
+    display: none;
   }
   .container {
     display: flex;
@@ -18,6 +33,9 @@ body {
     box-shadow: 0.25rem 0.25rem 1.25rem hsl(var(--gray-200),25%);
     border-radius: 0.5rem;
     padding: 3rem 5rem;
+    z-index: 20;
+    background-color:hsl(var(--white));
+
   
   }
 
@@ -147,6 +165,45 @@ body {
       cursor: pointer;
         
     }
+
+
+
+
+  .svg-top-left{
+    position:absolute;
+    top: -7.285714286rem;
+    left: 60.142857143rem;
+    z-index: 1;
+    width: 36.571428571rem;
+    height: 36.571428571rem;
+    display: block;
+    
+  }
+
+.nav-title{
+  position: absolute;
+  left: 6rem;
+  top:1.747rem;
+  display: block;
+}
+  .nav-title h1{
+    font-size: 2.571428571rem; 
+    font-weight: 700;
+
+  }
+  
+  .hotels {
+    display: block;
+    font-weight: normal;
+      font-weight: 700;
+  }
+
+  .svg-bottom-right{
+      position: absolute;
+      top: 14.285714286rem;
+      left: 14.142857143rem;
+      display: block;
+  }
   }
   
 
