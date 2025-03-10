@@ -1,5 +1,6 @@
 import { validation } from "../utility/forms.js";
 import { initializeUsersData, registerFirstStep, saveToLocalStorage } from "../utility/auth.js";
+import { errorsMessage } from "../utility/errorsMessage.js";
 
 
 
@@ -43,16 +44,7 @@ form.onsubmit = function (e) {
 
     if (validation.Register(formData)) {
         if(!registerFirstStep(formData)){
-          console.log("already exists");
-          
-          const errorContainer =   document.querySelector(".error-message");
-            errorContainer.style.display = "flex";
-          console.log(errorContainer);
-          
-          const errorSpan = document.createElement("span");
-          errorSpan.className = "error";
-          errorSpan.innerHTML = "Email already exists";
-          errorContainer.appendChild(errorSpan);
+         errorsMessage("Email already exists");
          return;
         }
         saveToLocalStorage(formData);
