@@ -51,9 +51,9 @@ const reservationEventHandler = async function () {
 
   await new Promise((resolve) => ilScript.addEventListener("load", resolve));
 
-  // if (!isLoggedIn()) {
-  //   navigate("/login");
-  // }
+  if (!isLoggedIn()) {
+    navigate("/login");
+  }
 
   const form = document.querySelector(".reservation-form");
   const menus = document.querySelectorAll("select-menu");
