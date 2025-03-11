@@ -95,6 +95,13 @@ dialog {
     border-radius: 1rem;
 }
 
+.table-title {
+    padding-top: 2rem;
+    /* padding-bottom: 1rem; */
+    color: gray;
+    border-bottom: 0.1rem solid gray;
+}
+
 .reservation-record {
     /* display: flex; */
     /* flex-direction: column; */
@@ -182,6 +189,27 @@ dialog {
     background-color: hsl(0, 3%, 13%);
 }
 
+.btn {
+    background-color: hsl(var(--red-100));
+    font-size: var(--font-size-100);
+    font-weight: 700;
+    color: hsl(var(--white));
+    border: none;
+    padding: 0.625rem;
+    width: 8.75rem;
+    border-radius: var(--radius-100);
+    cursor: pointer;
+    transition: all 0.2s ease-in-out;
+    -webkit-transition: all 0.2s ease-in-out;
+    -moz-transition: all 0.2s ease-in-out;
+    -ms-transition: all 0.2s ease-in-out;
+    -o-transition: all 0.2s ease-in-out;
+    margin: 0 0 0 5rem;
+}
+  
+.btn:hover {
+    background-color: hsl(var(--gray-100));
+}
 
 /* @media (min-width: 992px) { */
     /* .reservation-record { */

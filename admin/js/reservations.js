@@ -1,7 +1,8 @@
 
 //* globals
 var parent = document.getElementById("reservation-subpage"); // document.createElement("div"); // for now
-
+// var formLoadEvent = new CustomEvent("load", {detail: {type:"form"} });
+// addEventListener("formload", fn)
 
 
 //* logic exe
@@ -86,16 +87,21 @@ async function attachForm() {
     let doc = parser.parseFromString(html, "text/html");
     const reservationForm = doc.getElementsByClassName("reservation-form")[0];
     dialog.appendChild(reservationForm);
+    dispatchEvent( new CustomEvent("loadform") );
     console.log(reservationForm)
+
 
     //! CSS
     const styleSheets = doc.getElementsByTagName("head")[0].getElementsByTagName("link")
-    for (let style of styleSheets)
+    const pageHead = document.getElementsByTagName("head")[0];
+    console.log(styleSheets);
+    // if(!Array.from(pageHead.getElementsByTagName("link")).map(lnk => lnk.href).includes(style.href))
+ 
+    Array.from(styleSheets).forEach((style)=>
     {
-        // if(!Array.from(thisHead.getElementsByTagName("link")).map(lnk => lnk.href).includes(style.href))
+        pageHead.appendChild(style);
         style.setAttribute("data-dynamic","")    
-        document.getElementsByTagName("head")[0].appendChild(style);
-    }
+    })
 
     //! JS
     //   <script src="/components/SelectMenu/SelectMenu.js" type="module"></script>
@@ -164,7 +170,22 @@ async function attachForm() {
     // attachScripts();
 }
 
+// customizing form
+addEventListener("loadform", custForm)
+function custForm(event)
+{
+    var reservationForm = document.getElementsByClassName("reservation-form")[0];        
+    
+    // <input class="submit-btn" type="submit" value="Book">
+    const closeBtn = document.createElement("input");
+    closeBtn.classList.add("btn");
+    closeBtn.type = "button";
+    closeBtn.value = "Close";
+    reservationForm.appendChild(closeBtn);
 
+    closeBtn.onclick = ()=> dialog.close();
+}
+// custForm();
 
 // var doc;
 // fetch("/reservation/reservation.html")
@@ -239,18 +260,29 @@ function createReservationTables()
 
     for (let hotel of hotels)
     {
-        tables[hotel.branch_id] = createReservationTable(reservationTable, hotel.branch_id)
+        tables[hotel.branch_id] = createReservationTable(reservationTable, hotel.branch_id, hotel.name)
     }
     
     return tables;
 }
 
-function createReservationTable(parent, id)
+function createReservationTable(parent, id, branchName)
 {
     const reservationTable = document.createElement("tbody");   
-    // reservationTable.classList.add("reservation-table");
+    // <tr><td colspan="3"><strong>Fruits</strong></td></tr>
+    const tableTitleCont = document.createElement("tr");
+    tableTitleCont.classList.add("table-title-cont")
+    const tableTitle     = document.createElement("td");
+    tableTitle.colSpan = "5";
+    tableTitle.classList.add("table-title");
+    tableTitle.innerHTML = branchName;
+    
+    tableTitleCont.appendChild(tableTitle);
+    reservationTable.appendChild(tableTitleCont);
+
     reservationTable.id = id; // HB201 
     parent.appendChild(reservationTable);
+    
 
     return reservationTable;
 }
@@ -385,8 +417,8 @@ function createControlsField()
 //     document.head.appendChild(script);
 // }
 
-// // Example usage:
-// // runScriptManually('console.log("Hello, World!");');
-// // runScriptManually('/path/to/your/script.js', true);
+// Example usage:
+// runScriptManually('console.log("Hello, World!");');
+// runScriptManually('/path/to/your/script.js', true);
 
 // reservationId, branchId, guestId, roomType, numberOfRooms, guestName, phoneNumber, checkIn, checkOut, meals
