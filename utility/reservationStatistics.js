@@ -1,6 +1,6 @@
 function reservationStatistics() {
   const branches = JSON.parse(localStorage.getItem("branches"));
-  const roomTypes = JSON.parse(localStorage.getItem("rooms"));
+  const roomTypes = JSON.parse(localStorage.getItem("room_types"));
   const data = {};
   branches.forEach(branch => {
     branch.rooms.forEach(room => {
