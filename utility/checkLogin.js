@@ -1,5 +1,5 @@
 function isLoggedIn() {
-  return localStorage.getItem("isLoggedIn");
+  return JSON.parse(localStorage.getItem("user-session"));
 }
 
 export { isLoggedIn };
