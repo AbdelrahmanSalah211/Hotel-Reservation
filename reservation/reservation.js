@@ -1,77 +1,6 @@
-const branches = [
-  {
-    "branch_id": "HB201",
-    "name": "Ocean Breeze Hotel - Alexandria",
-    "country": "Egypt",
-    "rooms": [
-      {"type": "Single", "count": 20, "total_count":  20, "price_per_night": 120},
-      {"type": "Twin", "count": 10, "total_count":  10, "price_per_night": 120},
-      {"type": "Double", "count": 40, "total_count":  40, "price_per_night": 120},
-      {"type": "Suite", "count": 40, "total_count":  40, "price_per_night": 120},
-      {"type": "King", "count": 5, "total_count":  5, "price_per_night": 200},
-      {"type": "Junior-Suite", "count": 3, "total_count":  3, "price_per_night": 250}
-    ]
-  },
-  {
-    "branch_id": "HB202",
-    "name": "Ocean Breeze Hotel - Cairo",
-    "country": "Egypt", 
-    "rooms": [
-      {"type": "Single", "count": 25, "total_count":  25, "price_per_night": 150},
-      {"type": "Twin", "count": 15, "total_count":  15, "price_per_night": 150},
-      {"type": "Double", "count": 35, "total_count":  35, "price_per_night": 150},
-      {"type": "Suite", "count": 45, "total_count":  45, "price_per_night": 150},
-      {"type": "King", "count": 7, "total_count":  7, "price_per_night": 220},
-      {"type": "Junior-Suite", "count": 4, "total_count":  4, "price_per_night": 270},
-      {"type": "Executive-Suite", "count": 20, "total_count":  20, "price_per_night": 1240},
-      {"type": "Presidential-Suite", "count": 30, "total_count":  30, "price_per_night": 1240},
-      {"type": "Penthouse-Suite", "count": 40, "total_count":  40, "price_per_night": 1240},
-      {"type": "Villa", "count": 10, "total_count":  10, "price_per_night": 1240},
-      {"type": "Connecting", "count": 20, "total_count":  20, "price_per_night": 1240},
-    ]
-  },
-  {
-    "branch_id": "HB203",
-    "name": "Ocean Breeze Hotel - Luxor",
-    "country": "Egypt",
-    "rooms": [
-      {"type": "Single", "count": 15, "total_count":  15, "price_per_night": 100},
-      {"type": "Twin", "count": 12, "total_count":  12, "price_per_night": 100},
-      {"type": "Double", "count": 30, "total_count":  30, "price_per_night": 100},
-      {"type": "Suite", "count": 35, "total_count":  35, "price_per_night": 100},
-      {"type": "King", "count": 6, "total_count":  6, "price_per_night": 180},
-      {"type": "Junior-Suite", "count": 2, "total_count":  2, "price_per_night": 230},
-      {"type": "Triple", "count": 10, "total_count":  10, "price_per_night": 1240},
-      {"type": "Queen", "count": 20, "total_count":  20, "price_per_night": 1240},
-      {"type": "Double-Double", "count": 30, "total_count":  30, "price_per_night": 1240},
-      {"type": "Studio", "count": 40, "total_count":  40, "price_per_night": 1240},
-      {"type": "Master-Suite", "count": 10, "total_count":  10, "price_per_night": 1240}
-    ]
-  },
-  {
-    "branch_id": "HB204",
-    "name": "Ocean Breeze Hotel - Aswan",
-    "country": "Egypt",
-    "rooms": [
-      {"type": "Single", "count": 18, "total_count":  18, "price_per_night": 110},
-      {"type": "Twin", "count": 8, "total_count":  8, "price_per_night": 110},
-      {"type": "Double", "count": 38, "total_count":  38, "price_per_night": 110},
-      {"type": "Suite", "count": 42, "total_count":  42, "price_per_night": 110},
-      {"type": "King", "count": 4, "total_count":  4, "price_per_night": 190},
-      {"type": "Junior-Suite", "count": 5, "total_count":  5, "price_per_night": 240},
-      {"type": "Bungalow", "count": 1, "total_count":  1, "price_per_night": 1240},
-      {"type": "Accessible", "count": 30, "total_count":  30, "price_per_night": 1240},
-      {"type": "Cabana", "count": 40, "total_count":  40, "price_per_night": 1240},
-      {"type": "Loft", "count": 1, "total_count":  1, "price_per_night": 1240}
-    ]
-  }
-];
-
-localStorage.setItem("branches", JSON.stringify(branches));
-
-import { isLoggedIn } from "../utility/checkLogin.js";
-import { navigate } from "../utility/routes.js";
-import { reservation } from "../utility/reservationBooking.js";
+import { isLoggedIn } from "/utility/checkLogin.js";
+import { navigate } from "/utility/routes.js";
+import { reservation } from "/utility/reservationBooking.js";
 
 const urlParams = new URLSearchParams(window.location.search);
 const roomTypeParam = urlParams.get("roomType");
@@ -84,44 +13,48 @@ const queryString = `?roomType=King&breakfast=true&lunch=true&dinner=true`;
 
 const reservationEventHandler = async function () {
   const smScript = document.createElement("script");
-  smScript.src = "/components/SelectMenu/SelectMenu.js";
+  smScript.src = `/components/SelectMenu/SelectMenu.js?v=${Date.now()}`;
   smScript.type = "module";
-  document.body.prepend(smScript);
+  smScript.async = false;
+  smScript.setAttribute("data-dynamic", "");
+  document.body.append(smScript);
   
   const smLink = document.createElement("link");
   smLink.rel = "stylesheet";
   smLink.href = "/components/SelectMenu/SelectMenu.css";
-  document.head.prepend(smLink);
+  smLink.setAttribute("data-dynamic", "");
+  document.head.append(smLink);
 
-  const ilScirpt = document.createElement("script");
-  ilScirpt.src = "/components/InputLabel/InputLabel.js";
-  document.body.prepend(ilScirpt);
+  const ilScript = document.createElement("script");
+  ilScript.src = `/components/InputLabel/InputLabel.js?v=${Date.now()}`;
+  ilScript.async = false;
+  ilScript.setAttribute("data-dynamic", "");
+  document.body.append(ilScript);
 
   const ilLink = document.createElement("link");
   ilLink.rel = "stylesheet";
   ilLink.href = "/components/InputLabel/InputLabel.css";
-  document.head.prepend(ilLink);
+  ilLink.setAttribute("data-dynamic", "");
+  document.head.append(ilLink);
 
   const tScript = document.createElement("script");
-  tScript.src = "/components/Toast/Toast.js";
-  document.body.prepend(tScript);
+  tScript.src = `/components/Toast/Toast.js?v=${Date.now()}`;
+  tScript.async = false;
+  tScript.setAttribute("data-dynamic", "");
+  document.body.append(tScript);
 
   const tLink = document.createElement("link");
   tLink.rel = "stylesheet";
   tLink.href = "/components/Toast/Toast.css";
-  document.head.prepend(tLink);
+  tLink.setAttribute("data-dynamic", "");
+  document.head.append(tLink);
 
-  function wFunc(){
-    return new Promise((resolve, reject) => {
-      setTimeout(() => {
-        resolve("done");
-      }, 100);
-    });
+  await new Promise((resolve) => ilScript.addEventListener("load", resolve));
+
+  if (!isLoggedIn()) {
+    navigate("/login");
   }
-    await wFunc();
-  // if (!isLoggedIn()) {
-  //   navigate("/login");
-  // }
+
   const form = document.querySelector(".reservation-form");
   const menus = document.querySelectorAll("select-menu");
   const location = menus[0];
@@ -190,7 +123,7 @@ const reservationEventHandler = async function () {
 
   let selectedBranch;
   location.addEventListener("onChange",async function (e) {
-    selectedBranch = branches.find((branch) => branch.branch_id === e.detail.value);
+    selectedBranch = storedBranches.find((branch) => branch.branch_id === e.detail.value);
 
     removeChildren(roomType);
     removeChildren(numberOfRooms);
@@ -286,7 +219,12 @@ const reservationEventHandler = async function () {
       console.log(`resBranchId: ${resBranchId}, resRoomType: ${resRoomType}, resNumberOfRooms: ${resNumberOfRooms}, resMeals: ${resMeals}, resCheckInDate: ${resCheckInDate}, resCheckOutDate: ${resCheckOutDate}, guestInfo: ${guestInfo}`);
       reservation(resBranchId, resRoomType, resNumberOfRooms, resMeals, resCheckInDate, resCheckOutDate, guestInfo);
       setTimeout(() => {
-        navigate("/");
+        if(window.location.pathname == "/reservation/reservation.html"){
+          navigate("/");
+        } else if (window.location.pathname == "/admin/reservation.html"){
+          const modal = document.querySelector("dialog");
+          modal.close();
+        }
       }, 4000);
     }
   });
@@ -301,7 +239,13 @@ const reservationEventHandler = async function () {
   }
 }
 
-document.addEventListener("DOMContentLoaded", reservationEventHandler);
+if (document.readyState == "interactive" || document.readyState == "complete") {
+  reservationEventHandler()
+} else {
+  document.addEventListener("DOMContentLoaded", reservationEventHandler);
+}
+
+// document.addEventListener("DOMContentLoaded", reservationEventHandler);
 
 // module.exports = { reservationEventHandler };
 
