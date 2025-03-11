@@ -95,7 +95,7 @@ function reservation(resBranchId, resRoomType, resNumberOfRooms, resMeals, resCh
     guest_id: userSession.guest_id,
     room_type: resRoomType,
     number_of_rooms: resNumberOfRooms,
-    guest_name: guestInfo.resName,
+    resident_name: guestInfo.resName,
     phone_number: guestInfo.resPhoneNumber,
     check_in: resCheckInDate,
     check_out: resCheckOutDate,
