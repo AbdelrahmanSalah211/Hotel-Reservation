@@ -1,41 +1,50 @@
 <!DOCTYPE html>
 <html lang="en">
 
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-    <link rel="stylesheet" href="login.css">
-    <link rel="stylesheet" href="../components/InputLabel/InputLabel.css">
-</head>
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>ITI Hotels</title>
+        <link rel="stylesheet" href="../global/global.css">
+        <link rel="stylesheet" href="login.css">
+        <link rel="stylesheet" href="../components/InputLabel/InputLabel.css">
+    </head>
 
-<body>
-    <div class="main-container">
-        <div class="container">
-            <form id="form">
-                <h1>Login</h1>
+    <body>
+        <div class="main-container">
+            <h1 class="main-title"><p>ITI<br>Hotels</p></h1>
+            <div class="container">
+                <h2 class="form-title">Login</h2>
+                <form id="form">
+                    <my-input onchange input-name="email" input-id="Email"
+                        label_name="Email" label-for="my-Email"
+                        type="text">
+                    </my-input>
 
-                <my-input onchange="" input-name="email" input-id="Email" label_name="Email" label-for="my-Email"
-                    type="text">
-                </my-input>
-
-                <my-input onchange="" input-name="password" input-id="password" label_name="Password"
-                    label-for="my-password" type="password" placeholder="Enter your password">
-                </my-input>
-                <div class="error-message"></div>
-
-                <div class="button">
-                    <button>
-                        Signup
-                    </button>
-                </div>
-                <p class="redirect-message">Do not have an account? <span><a
-                            href="../register-info/register-info.html">Register</a></span></p>
-            </form>
+                    <my-input onchange input-name="password" input-id="password"
+                        label_name="Password"
+                        label-for="my-password" type="password"
+                        placeholder="Enter your password">
+                    </my-input>
+                    <div class="radio-btns-container">
+                        <div class="radio-option">
+                            <input type="radio" name="role" value="guest" id="guest">
+                            <label for="guest">Guest</label>
+                        </div>
+                        <div class="radio-option">
+                            <input type="radio" name="role" value="staff" id="staff">
+                            <label for="staff">Staff</label>
+                        </div>
+                    </div>
+                    <div class="error-message"></div>
+                    <button class="submit-btn" type="submit">Signin</button>
+                    <p class="redirect-message">Do not have an account? <span><a
+                                href="../register-info/register-info.html">Register</a></span></p>
+                </form>
+            </div>
         </div>
-    </div>
-</body>
-<script src="../components/InputLabel/InputLabel.js" type="module"></script>
-<script src="./login.js" type="module"></script>
+    </body>
+    <script src="../components/InputLabel/InputLabel.js" type="module"></script>
+    <script src="./login.js" type="module"></script>
 
 </html>
