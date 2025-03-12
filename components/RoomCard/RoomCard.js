@@ -117,7 +117,14 @@ class RoomCard extends HTMLElement
     disconnectedCallback(){}
 
 }
-customElements.define('room-card', RoomCard);
+try 
+{
+    customElements.define('room-card', RoomCard);
+} 
+catch (error) 
+{
+    console.error("`room-card` custom elemnt maybe already Defined 😉")    
+}
 
 // for dev
 // onload = function(){
