@@ -38,7 +38,7 @@ function reservation(resBranchId, resRoomType, resNumberOfRooms, resMeals, resCh
   localStorage.setItem("branches", JSON.stringify(storedBranches));
   localStorage.setItem("reservations", JSON.stringify(reservationData));
   toast.fire();
-  dispatchEvent(new CustomEvent("successfulsubmit", { detail: { record: newReservation } }));
+  dispatchEvent(new CustomEvent("successfulSubmit", { detail: { record: newReservation } }));
 }
 
 export { reservation };
