@@ -1,0 +1,138 @@
+/* all inside room-container class
+<div class="card>
+  <h4>Room Type</h4>
+  <div class="res-container">
+    <div class=img-card>
+      <img src="/assets/images/" class="room-img">
+      <div class="icons-overlay">
+        <img src="/assets/images/icons/breakfast.png">
+        <img src="/assets/images/icons/lunch.png">
+        <img src="/assets/images/icons/dinner.png">
+      </div>
+    </div>
+    <div class="info">
+      <p class="total-count"></p>
+      <p class="reserved"></p>
+      <p class="available"></p>
+      <p class="description"></p>
+    </div>
+  </div>
+</div>
+*/
+
+/*
+
+make div for info and img-car to handle responsive then what will remoain are the spaces between elements 
+
+adjust size of the img-card
+
+--screen-mobile: 576px;
+--screen-tablet: 768px;
+--screen-desktop: 992px;
+
+*/
+
+.rooms-container {
+  display: flex;
+  flex-direction: column;
+  color: hsl(var(--gray-100));
+  /* gap: 1.6875rem; */
+}
+
+.rooms-container .card {
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+}
+
+.rooms-container .card .res-container {
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+}
+
+.rooms-container .card h4 {
+  font-size: var(--font-size-300);
+}
+
+.rooms-container .card .img-card {
+  position: relative;
+  width: 52%;  
+}
+
+.rooms-container .card .room-img {
+  /* width: 52%; */
+  /* width: 18.75rem; */
+  width: 100%;
+  aspect-ratio: 2/1;
+  border-radius: var(--radius-100);
+}
+
+.rooms-container .card .icons-overlay {
+  position: absolute;
+  /* width: 52%; */
+  /* width: 18.75rem; */
+  width: 100%;
+  bottom: 0.3rem;
+  left: 0rem;
+  display: flex;
+  gap: 1.25rem;
+  border-radius: var(--radius-100);
+  background-color: hsl(var(--gray-100), 0.75);
+  padding-left: 1rem;
+}
+
+.rooms-container .card .icons-overlay img {
+  width: 1.5625rem;
+  height: 1.5625rem;
+}
+
+.rooms-container .card .info {
+  display: flex;
+  flex-direction: column;
+  gap: 0.875rem;
+  font-size: var(--font-size-100);
+}
+
+strong {
+  font-weight: 600;
+}
+
+
+.description {
+  font-weight: 400;
+}
+
+
+@media (min-width: 768px){
+  .rooms-container .card .res-container {
+    flex-direction: row;
+    /* gap: 1.25rem; */
+  }
+
+  .rooms-container .card .img-card{
+    width: 50%;
+  }
+
+  .rooms-container .card .info {
+    width: 50%;
+  }
+}
+
+@media (min-width: 992px){
+  .rooms-container {
+    flex-direction: row;
+    flex-wrap: wrap;
+    gap: 1rem;
+  }
+
+  .rooms-container .card {
+    width: 48%;
+    /* width: 50%; */
+  }
+
+  .rooms-container .card .res-container {
+    flex-direction: column;
+    /* gap: 1.25rem; */
+  }
+}
