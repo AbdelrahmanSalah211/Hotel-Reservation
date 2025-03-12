@@ -35,7 +35,6 @@ export function loadData(){
     
     }
 
-    let guests;
 
     if(!window.localStorage.getItem("guests")){
         

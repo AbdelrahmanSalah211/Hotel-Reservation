@@ -1,4 +1,4 @@
-import {loadData} from "/utility/loadData.js"
+import { loadData } from "./loadData.js";
 
 function getUsers(){
     try {
@@ -126,7 +126,6 @@ return false;
 
 function initializeUsersData() {
     loadData();
-    const data = getUsers();
 }
 
 

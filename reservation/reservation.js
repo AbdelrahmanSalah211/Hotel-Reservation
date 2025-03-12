@@ -10,19 +10,51 @@ const dinnerParam = urlParams.get("dinner");
 
 const queryString = `?roomType=King&breakfast=true&lunch=true&dinner=true`;
 
-if (document.readyState == "interactive" || document.readyState == "complete")
-{
-  reservationEventHandler()
-}
-else
-{
-  document.addEventListener("DOMContentLoaded", reservationEventHandler);
-}
 
-function reservationEventHandler() {
-  // if (!isLoggedIn()) {
-  //   navigate("/login");
-  // }
+const reservationEventHandler = async function () {
+  const smScript = document.createElement("script");
+  smScript.src = `/components/SelectMenu/SelectMenu.js?v=${Date.now()}`;
+  smScript.type = "module";
+  smScript.async = false;
+  smScript.setAttribute("data-dynamic", "");
+  document.body.append(smScript);
+  
+  const smLink = document.createElement("link");
+  smLink.rel = "stylesheet";
+  smLink.href = "/components/SelectMenu/SelectMenu.css";
+  smLink.setAttribute("data-dynamic", "");
+  document.head.append(smLink);
+
+  const ilScript = document.createElement("script");
+  ilScript.src = `/components/InputLabel/InputLabel.js?v=${Date.now()}`;
+  ilScript.async = false;
+  ilScript.setAttribute("data-dynamic", "");
+  document.body.append(ilScript);
+
+  const ilLink = document.createElement("link");
+  ilLink.rel = "stylesheet";
+  ilLink.href = "/components/InputLabel/InputLabel.css";
+  ilLink.setAttribute("data-dynamic", "");
+  document.head.append(ilLink);
+
+  const tScript = document.createElement("script");
+  tScript.src = `/components/Toast/Toast.js?v=${Date.now()}`;
+  tScript.async = false;
+  tScript.setAttribute("data-dynamic", "");
+  document.body.append(tScript);
+
+  const tLink = document.createElement("link");
+  tLink.rel = "stylesheet";
+  tLink.href = "/components/Toast/Toast.css";
+  tLink.setAttribute("data-dynamic", "");
+  document.head.append(tLink);
+
+  await new Promise((resolve) => ilScript.addEventListener("load", resolve));
+
+  if (!isLoggedIn()) {
+    navigate("/login");
+  }
+
   const form = document.querySelector(".reservation-form");
   const menus = document.querySelectorAll("select-menu");
   const location = menus[0];
@@ -187,7 +219,12 @@ function reservationEventHandler() {
       console.log(`resBranchId: ${resBranchId}, resRoomType: ${resRoomType}, resNumberOfRooms: ${resNumberOfRooms}, resMeals: ${resMeals}, resCheckInDate: ${resCheckInDate}, resCheckOutDate: ${resCheckOutDate}, guestInfo: ${guestInfo}`);
       reservation(resBranchId, resRoomType, resNumberOfRooms, resMeals, resCheckInDate, resCheckOutDate, guestInfo);
       setTimeout(() => {
-        navigate("/");
+        if(window.location.pathname == "/reservation/reservation.html"){
+          navigate("/");
+        } else if (window.location.pathname == "/admin/reservation.html"){
+          const modal = document.querySelector("dialog");
+          modal.close();
+        }
       }, 4000);
     }
   });
@@ -202,6 +239,14 @@ function reservationEventHandler() {
   }
 }
 
+if (document.readyState == "interactive" || document.readyState == "complete") {
+  reservationEventHandler()
+} else {
+  document.addEventListener("DOMContentLoaded", reservationEventHandler);
+}
+
+// document.addEventListener("DOMContentLoaded", reservationEventHandler);
 
 // module.exports = { reservationEventHandler };
-export { reservationEventHandler };
+
+export default reservationEventHandler;
