@@ -1,7 +1,6 @@
 import { initializeUsersData, signin } from "../utility/auth.js";
 import { errorsMessage } from "../utility/errorsMessage.js";
 const form= document.getElementById("form");
-console.log(form);
 
 
 
@@ -15,7 +14,6 @@ form.onsubmit = (e) => {
         location.href = "../home/index.html";
 
     }else{
-        console.log("Invalid email or password");
         errorsMessage("Invalid email or password");
     }
 

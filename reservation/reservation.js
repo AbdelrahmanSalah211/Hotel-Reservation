@@ -221,9 +221,6 @@ const reservationEventHandler = async function () {
       setTimeout(() => {
         if(window.location.pathname == "/reservation/reservation.html"){
           navigate("/");
-        } else if (window.location.pathname == "/admin/reservation.html"){
-          const modal = document.querySelector("dialog");
-          modal.close();
         }
       }, 4000);
     }
