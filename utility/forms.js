@@ -7,20 +7,19 @@ export const validation = {
 
 
     Register: function (form) {
-        
         let isValid = true;
         if (!form.get("email") || !this.regEmail.test(form.get("email"))) {
             this.showError("email");
             isValid = false;
         }
-      
+
         if (!form.get("fname") || !this.regName.test(form.get("fname"))) {
 
             this.showError("fname");
             isValid = false;
 
         }
-        
+
         if (!form.get("lname") || !this.regName.test(form.get("lname"))) {
 
             this.showError("lname");
@@ -28,13 +27,34 @@ export const validation = {
 
         }
 
-
         return isValid;
 
 
+    },
+
+
+    StaffData:function (form) {
+        let isValid = true;
+        if (!form.get("email") || !this.regEmail.test(form.get("email"))) {
+            this.showError("email");
+            isValid = false;
+        }
+
+        if (!form.get("fname") || !this.regName.test(form.get("my-name"))) {
+
+            this.showError("my-name");
+            isValid = false;
+
+        }
+
+       
+
+        return isValid && this.Password(form);
     }
 
-,
+
+
+    ,
     Password: function (form) {
         let isValid = true;
         if (!form.get("password") || form.get("password").length < 8) {
@@ -46,6 +66,8 @@ export const validation = {
             this.showError("confirm_password");
             isValid = false;
         }
+        console.log(isValid);
+        
         return isValid;
     }
 
@@ -58,7 +80,7 @@ export const validation = {
         const errorMessage = document.querySelector(".error-message");
         const spanError = document.createElement("span");
         errorMessage.innerHTML = "";
-        if (errorMessage ) {
+        if (errorMessage) {
             errorMessage.style.display = "flex";
             document.createElement("span");
             spanError.className = "error";
@@ -69,7 +91,12 @@ export const validation = {
             }
             if (inputName === "fname") {
                 spanError.innerHTML = "Please enter a valid first name";
-                
+
+            }
+
+            if (inputName === "my-name") {
+                spanError.innerHTML = "Please enter a valid  name";
+
             }
             if (inputName === "lname") {
                 spanError.innerHTML = "Please enter a valid last name";
@@ -81,21 +108,20 @@ export const validation = {
                 spanError.innerHTML = "Passwords do not match";
             }
 
-            
+
         }
 
 
-        if (!myInput.dataset.errorListenerAdded) {
 
-            myInput.addEventListener('input', function () {
+console.log(myInput);
 
-                if (errorMessage) {
-                    errorMessage.style.display = "none"
-                }
+        myInput.addEventListener('input', function () {
 
-            });
-            myInput.dataset.errorListenerAdded = true;
-        }
+            if (errorMessage) {
+                errorMessage.style.display = "none"
+            }
+
+        });
     }
 
 

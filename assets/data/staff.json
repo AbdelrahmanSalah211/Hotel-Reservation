@@ -3,17 +3,81 @@
     {
       "email": "admin@example.com",
       "password": "admin123",
-      "isAdmin": true
+      "name":"admin",
+      "isAdmin": true,
+      "gender":"male"
     },
     {
       "email": "user1@example.com",
       "password": "user123",
-      "isAdmin": false
+      "name":"user1",
+      "isAdmin": false,
+      "gender":"female"
     },
     {
       "email": "user2@example.com",
       "password": "user456",
-      "isAdmin": false
+      "name":"user2",
+      "isAdmin": false,
+      "gender":"male"
+
     }
+    ,{
+      "email": "user3@example.com",
+      "password": "user789",
+      "name": "user3",
+      "isAdmin": false,
+      "gender": "female"
+    },
+    {
+      "email": "user4@example.com",
+      "password": "user101",
+      "name": "user4",
+      "isAdmin": true,
+      "gender": "male"
+    },
+    {
+      "email": "user5@example.com",
+      "password": "user112",
+      "name": "user5",
+      "isAdmin": false,
+      "gender": "female"
+    },
+    {
+      "email": "user6@example.com",
+      "password": "user131",
+      "name": "user6",
+      "isAdmin": false,
+      "gender": "male"
+    },
+    {
+      "email": "user7@example.com",
+      "password": "user415",
+      "name": "user7",
+      "isAdmin": true,
+      "gender": "female"
+    },
+    {
+      "email": "user8@example.com",
+      "password": "user161",
+      "name": "user8",
+      "isAdmin": false,
+      "gender": "male"
+    },
+    {
+      "email": "user9@example.com",
+      "password": "user718",
+      "name": "user9",
+      "isAdmin": false,
+      "gender": "female"
+    },
+    {
+      "email": "user10@example.com",
+      "password": "user919",
+      "name": "user10",
+      "isAdmin": false,
+      "gender": "male"
+    }
+
   ]
 }

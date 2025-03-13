@@ -1,4 +1,4 @@
-export function loadData(){
+export function loadData() {
     // let;
 
     if(!window.localStorage.getItem("branches")){
@@ -12,15 +12,15 @@ export function loadData(){
         );
     }
 
-    if(!window.localStorage.getItem("reservations")){
-  
+    if (!window.localStorage.getItem("reservations")) {
+
         fetch("/assets/data/reservations.json")
-        .then((res)=> res.json())
-        .then(
-            data=>{
-                window.localStorage.setItem("reservations", JSON.stringify(data.reservations));
-            }
-        );
+            .then((res) => res.json())
+            .then(
+                data => {
+                    window.localStorage.setItem("reservations", JSON.stringify(data.reservations));
+                }
+            );
     }
     
     if(!window.localStorage.getItem("room_types")){
