@@ -1,6 +1,7 @@
 import { isLoggedIn } from "/utility/checkLogin.js";
 import { navigate } from "/utility/routes.js";
 import { reservation } from "/utility/reservationBooking.js";
+import { logout } from "/utility/logout.js";
 
 const urlParams = new URLSearchParams(window.location.search);
 const roomTypeParam = urlParams.get("roomType");
@@ -59,6 +60,10 @@ const reservationEventHandler = async function () {
   toast.type = "success";
   toast.message = "Reservation successful!";
   document.body.appendChild(toast);
+
+  const logoutBtn = document.querySelector("#logout");
+  console.log(logoutBtn);
+  logoutBtn.addEventListener("click", logout);
 
   const form = document.querySelector(".reservation-form");
   const menus = document.querySelectorAll("select-menu");
