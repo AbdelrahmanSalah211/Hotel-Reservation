@@ -1,12 +1,12 @@
-
 //* globals
-var parent = document.getElementById("reservation-subpage"); // document.createElement("div"); // for now
-// var formLoadEvent = new CustomEvent("load", {detail: {type:"form"} });
-// addEventListener("formload", fn)
-
+var parent = document.getElementById("reservation-subpage"); // to attach tables to
+var addBtn = document.getElementsByClassName("add-btn")[0];
+var dialog = document.getElementsByTagName("dialog")[0];
+var recordModal = document.getElementsByClassName("records-modal")[0];
+var closeX = document.getElementsByClassName("close-x")[0];
+var closeXs = document.querySelectorAll(".close-x");
 
 //* logic exe
-
 //todo: make validation using try catch
 //todo: see to remove the no date message when new record is added (load fn, or addfn)
 //! create table (after validation of data existence)
@@ -54,9 +54,9 @@ if(localStorage.branches)
     noHotel.innerText = "This is not a hotel yet or you lost your data";
 }
 
-//!  add a reservation button logid
-var addBtn = document.getElementsByClassName("add-btn")[0];
-var dialog = document.getElementsByTagName("dialog")[0];
+
+
+//!  events
 addBtn.addEventListener
 (
     "click",
@@ -65,6 +65,16 @@ addBtn.addEventListener
     }
 )
 
+closeXs.forEach((closeX)=>{
+
+    closeX.addEventListener(
+        "click",
+        function(){
+            console.log(this);
+            closeX.closest("dialog").close();
+        }
+    )
+})
 //! fetching and attaching reservation form in the dailog
 // run only if the doc at least interactive
 if (document.readyState == "interactive" || document.readyState == "complete")
@@ -90,152 +100,94 @@ async function attachForm() {
     dispatchEvent( new CustomEvent("loadform") );
     console.log(reservationForm)
 
-
-    //! CSS
-    const styleSheets = doc.getElementsByTagName("head")[0].getElementsByTagName("link")
-    const pageHead = document.getElementsByTagName("head")[0];
-    console.log(styleSheets);
-    // if(!Array.from(pageHead.getElementsByTagName("link")).map(lnk => lnk.href).includes(style.href))
- 
-    Array.from(styleSheets).forEach((style)=>
-    {
-        pageHead.appendChild(style);
-        style.setAttribute("data-dynamic","")    
-    })
-
-    //! JS
-    //   <script src="/components/SelectMenu/SelectMenu.js" type="module"></script>
-    // <script src="/components/InputLabel/InputLabel.js"></script>
-    const SelectMenu = document.createElement("script");
-    const InputLabel = document.createElement("script");
-    const formJS = document.createElement("script");
-    const toast = document.createElement("script");
-
-    reservationForm.addEventListener("load", attachScripts)
-
-    function attachScripts() 
-    {
-        SelectMenu.src = "/components/SelectMenu/SelectMenu.js" + '?v=' + Date.now();
-        SelectMenu.type = "module"
-        SelectMenu.async = false;
-        SelectMenu.setAttribute("data-dynamic", "");
-        // SelectMenu.defer = true;
-        document.body.appendChild(SelectMenu);
-    
-        InputLabel.src = "/components/InputLabel/InputLabel.js" + '?v=' + Date.now();
-        InputLabel.type = "module"
-        InputLabel.async = false;
-        InputLabel.setAttribute("data-dynamic", "");
-        // InputLabel.defer = true;
-        document.body.appendChild(InputLabel);
-        
-        toast.src = "/components/Toast/Toast.js" + '?v=' + Date.now();
-        toast.type = "module"
-        toast.async = false;
-        toast.setAttribute("data-dynamic", "");
-        // toast.defer = true;
-        document.body.appendChild(toast);
-        
-        formJS.src = "/reservation/reservation.js" + '?v=' + Date.now();
-        formJS.type = "module"
-        formJS.async = false;
-        formJS.setAttribute("data-dynamic", "");
-        // formJS.defer = true;
-        document.body.appendChild(formJS);
-    }
-    attachScripts()
-
-    //reservationEventHandler();
-
-    // async function attachScripts() 
-    // {    
-    //     const scripts = doc.getElementsByTagName("script");
-    //     for (let script of scripts) {
-    //         const newScript = document.createElement("script");
-    //         newScript.src = script.src;
-    //         newScript.type = "module"
-    //         newScript.async = false;
-    //         document.body.appendChild(newScript);
-    //         // console.log(newScript.readyState)
-    //         // await new Promise((resolve)=>{
-    //         //     while (true) {
-    //         //         if(["interactive", "complete"].includes(newScript.readyState)){
-    //         //             resolve();
-    //         //         }
-    //         //     }
-    //         //     // newScript.onload = resolve;
-    //         // });
-    //     }    
-    // }
-    // attachScripts();
-}
-
-// customizing form
-addEventListener("loadform", custForm)
-function custForm(event)
-{
-    var reservationForm = document.getElementsByClassName("reservation-form")[0];        
-    
-    // <input class="submit-btn" type="submit" value="Book">
+    // attach <input class="submit-btn" type="submit" value="Book">
     const closeBtn = document.createElement("input");
-    closeBtn.classList.add("btn");
+    closeBtn.classList.add("close-btn", "btn");
     closeBtn.type = "button";
     closeBtn.value = "Close";
     reservationForm.appendChild(closeBtn);
 
     closeBtn.onclick = ()=> dialog.close();
+
+    //! CSS
+    // const styleSheets = doc.getElementsByTagName("head")[0].getElementsByTagName("link")
+    const pageHead = document.getElementsByTagName("head")[0];
+    const style = document.createElement("link");
+    style.rel="stylesheet";
+    style.href = "/reservation/reservation.css";
+    pageHead.appendChild(style);
+    // if(!Array.from(pageHead.getElementsByTagName("link")).map(lnk => lnk.href).includes(style.href))
+
+    //! JS
+    // runScrip("/components/SelectMenu/SelectMenu.js");
+    // runScrip("/components/InputLabel/InputLabel.js");
+    // runScrip("/components/Toast/Toast.js");
+    runScrip("/reservation/reservation.js");
+
 }
-// custForm();
 
-// var doc;
-// fetch("/reservation/reservation.html")
-// .then(res => res.text())
-// .then
-// (
-//     async (html) => 
-//     {
-//         const parser = new DOMParser();
-//         doc = parser.parseFromString(html, "text/html");
+// customizing form
+// addEventListener("loadform", confForm)
+// function confForm(event)
+// {
+//     var reservationForm = document.getElementsByClassName("reservation-form")[0];        
+// }
 
-//         const reservationForm = doc.getElementsByClassName("reservation-form")[0];
-//         dialog.appendChild(reservationForm);
-        
-//         // attaching the styling
-//         const styleSheets = doc.getElementsByTagName("head")[0].getElementsByTagName("link")
-//         for (let style of styleSheets)
-//         {
-//             // if(!Array.from(thisHead.getElementsByTagName("link")).map(lnk => lnk.href).includes(style.href))
-//             style.setAttribute("data-dynamic","")    
-//             document.getElementsByTagName("head")[0].appendChild(style);
-//         }
+//! successful submit actions
+addEventListener("successfulSubmit", // change event to "success" dispatched by Salah
+    function(event){
+        const record = event.detail.record
+        const tableId = event.detail.record.branch_id;
 
-//         // attaching scripts
-//         const scripts = doc.getElementsByTagName("script");
-//         for (let script of scripts) {
-//             const newScript = document.createElement("script");
-//             newScript.src = script.src;
-//             newScript.type = "module"
-//             document.body.appendChild(newScript);
-//         }
-        
-//         setTimeout(
-//             ()=>
-//             {
-//                 reservationEventHandler();
-//             },
-//             100
-//         )
+        //add record
+        addReservationRecord(record,tableId)
+    }
+)
 
-//     }
+//! show record details
+document.querySelector(".reservation-table").addEventListener("click", function (event) {
+    let row = event.target.closest("tr"); // Find the closest <tr> element
 
-// )
+    if (row && row.classList.contains("reservation-record")) {
+        console.log("Row clicked:", row.rowIndex); // Row index in the table
+        console.log("Row data:", row.cells[0].textContent); // Extract cell data
+        const record = getReservationRecord(row.cells[0].textContent);
+        recordModal.getElementsByClassName("details")[0].innerHTML = 
+        `
+                <div class="section section-1">
+                    <div class="lable">Request ID</div>
+                    <div class="field">${record.reservation_id}</div>
+                    <div class="lable">Location</div>
+                    <div class="field">${ getHotelBranch(record.branch_id).name}</div>
+                    <div class="lable">Type of Room</div>
+                    <div class="field">${record.room_type}</div>
+                    <div class="lable">Number of Rooms</div>
+                    <div class="field">${record.number_of_rooms}</div>
+                    <input type="checkbox" class="meal-field" ${record.meals.breakfast?"checked":""} disabled>
+                    <span class="meal-lable">Breakfast</span>
+                    <input type="checkbox" class="meal-field" ${record.meals.lunch?"checked":""} disabled>
+                    <span class="meal-lable">Lunch</span>
+                    <input type="checkbox" class="meal-field" ${record.meals.dinner?"checked":""} disabled>
+                    <span class="meal-lable">Dinner</span>
+                </div>
+                <div class="section section-2">
+                    <div class="lable">Check-In Date</div>
+                    <div class="field">${record.check_in}</div>
+                    <div class="lable">Check-Out Date</div>
+                    <div class="field">${record.check_out}</div>
+                    <div class="lable">First Name</div>
+                    <div class="field">${record.guest_name.split(" ")[0]}</div>
+                    <div class="lable">Last Name</div>
+                    <div class="field">${record.guest_name.split(" ")[1]}</div>
+                    <div class="lable">Phone</div>
+                    <div class="field">${record.phone_number}</div>
+                </div>
+            
+        `
+        recordModal.showModal();
+    }
+});
 
-// setTimeout(()=>{
-//     const ln = document.createElement("script");
-//     ln.src = "/reservation/reservation.js";
-//     ln.type = "module";
-//     document.body.appendChild(ln)
-// }, 100)
 
 
 //* utilities
@@ -252,10 +204,29 @@ function createReservationTables()
     // if (document.getElementsByClassName("no-hotel")){
     //     document.getElementsByClassName("no-hotel")[0].remove();
     // }
+
+    //! create the table
     const reservationTable = document.createElement("table");   
     reservationTable.classList.add("reservation-table");
     parent.appendChild(reservationTable);
 
+    //! create the header
+    const tableHeader = document.createElement("thead");
+    reservationTable.appendChild(tableHeader);
+    tableHeader.classList.add("reservation-th");
+    tableHeader.innerHTML = 
+    `
+    <tr>
+        <th>#</th>
+        <th>Check-in</th>
+        <th>Check-out</th>
+        <th>Name</th>
+        <th>Reserved Rooms</th>
+    </tr>
+    `
+
+
+    //! create the subtables
     let tables = {};
 
     for (let hotel of hotels)
@@ -310,7 +281,7 @@ function addReservationRecord(record, table)
     reservatioRecord.appendChild(createGuestNameField(record.guest_name));
     
         //! create room type filed
-    reservatioRecord.appendChild(createRoomTypeField(record.room_type));
+    reservatioRecord.appendChild(createRoomTypeField(record.room_type, record.number_of_rooms));
     
         //! create controls field
     reservatioRecord.appendChild(createControlsField());
@@ -331,7 +302,7 @@ function createChkInField(chkInDate)
     // <span class="chk-in-txt">2025-03-05</span>
     const txt = document.createElement("span");
     txt.classList.add("chk-in-txt");
-    txt.innerText = chkInDate;
+    txt.innerText = chkInDate.split("T")[0];
     field.appendChild(txt);
 
     return field;
@@ -349,7 +320,7 @@ function createChkOutField(chkOutDate)
     // <span class="chk-out-txt">2025-03-05</span>
     const txt = document.createElement("span");
     txt.classList.add("chk-out-txt");
-    txt.innerText = chkOutDate;
+    txt.innerText = chkOutDate.split("T")[0];
     field.appendChild(txt);
 
     return field;
@@ -374,7 +345,7 @@ function createGuestNameField(guestName)
 }
 
 // 🗝️
-function createRoomTypeField(roomType)
+function createRoomTypeField(roomType, nOfRooms)
 {
     const field = document.createElement("td");
     field.classList.add("rooms"); field.title="reserved room type";
@@ -385,7 +356,7 @@ function createRoomTypeField(roomType)
     // <span class="chk-out-txt">2025-03-05</span>
     const txt = document.createElement("span");
     txt.classList.add("rooms-txt");
-    txt.innerText = roomType;
+    txt.innerText = roomType +" *"+nOfRooms;
     field.appendChild(txt);
 
     return field;
@@ -396,6 +367,7 @@ function createControlsField()
 {
     const field = document.createElement("td");
     field.classList.add("ctrl");
+    field.style.display = "none"
     const editBtn = document.createElement("div");
     editBtn.classList.add("edit-btn", "icon");
     const rejectBtn = document.createElement("div");
@@ -407,18 +379,36 @@ function createControlsField()
     return field;
 }
 
-// function runScriptManually(scriptContent, isSrc = false) {
-//     const script = document.createElement("script");
-//     if (isSrc) {
-//         script.src = scriptContent;
-//     } else {
-//         script.innerHTML = scriptContent;
-//     }
-//     document.head.appendChild(script);
-// }
+function runScrip(scriptContent, parent = document.body, isDefer = false, isSrc = true, type = "module", isAsync = false, isDynamic = true) {
+    const script = document.createElement("script");
+    script.defer = isDefer;
+    script.async = isAsync;
+    script.type = type;
+    if(isDynamic){script.setAttribute("data-dynamic", "");}
 
-// Example usage:
-// runScriptManually('console.log("Hello, World!");');
-// runScriptManually('/path/to/your/script.js', true);
+    if (isSrc)  { script.src = scriptContent +'?v='+Date.now();} 
+    else        { script.innerHTML = scriptContent;}
+
+    parent.appendChild(script);
+}
+
+function getReservationRecord(id){
+    const reservations = JSON.parse(localStorage.getItem("reservations"));
+    for (let record of reservations){
+        if ( record.reservation_id == id){
+            return record;
+        }
+    }
+    
+}
+
+function getHotelBranch(id){
+    const branches = JSON.parse(localStorage.branches);
+    for (let branch of branches) {
+        if (branch.branch_id == id) {
+            return branch;
+        }
+    }
+}
 
 // reservationId, branchId, guestId, roomType, numberOfRooms, guestName, phoneNumber, checkIn, checkOut, meals

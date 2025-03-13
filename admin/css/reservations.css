@@ -1,80 +1,40 @@
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    font-family: 'Poppins', sans-serif;
-}
-
-:root {
-    /* colors */
-    --gray-100: 0, 0%, 22%;
-    --gray-200: 0, 0%, 58%;
-    --turquoise-100: 170, 78%, 44%;
-    --red-100: 0, 100%, 51%;
-    --yellow-100: 50, 100%, 50%;
-    --white: 0, 0%, 100%;
-    /* border radius */
-    --radius-100: 0.3125rem;  /*5px*/
-    --radius-200: 0.625rem;  /*10px*/
-    /* font size */
-    --font-size-100: 1.25rem;  /*20px*/
-    --font-size-200: 1.5rem;  /*24px*/
-    --font-size-300: 2.25rem;  /*36px*/
-    --font-size-400: 2.5rem;  /*40px*/
-    --font-size-500: 3.25rem;  /*52px*/
-    --font-size-600: 4.25rem;  /*68px*/
-    /* screen size for media query */
-    --screen-mobile: 576px;
-    --screen-tablet: 768px;
-    --screen-desktop: 992px;
-}
-
-body{
-    display: flex;
-    gap: 1rem;
-    font-size: 1.5rem;
-    color: hsl(var(--gray-100));
-}
-
-#sidebar {
-    display: flex;
-    flex-direction: column;
-    width: 20rem;
-    background-color: rgb(42, 41, 41);
-    
-}
-
-#app {
-    width: 100%;
-}
-
 
 /* **** page styles */
 #reservation-subpage {
-    display: flex;
-    gap: 1rem;
     flex-direction: column;
+    padding: 2.5rem;
+}
+
+#reservation-subpage hr {
+    margin: 1rem 0;
+    color: hsla(0, 0%, 58%, 0.5);
+}
+
+.page-header {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
 }
 
 .add-btn {
-    mask-image: url(/assets/images/icons/add-svgrepo-com.svg);
+    /* mask-image: url(/assets/images/icons/add-svgrepo-com.svg); */
     align-self: flex-end;
     margin-right: 10rem;
+    background-color: hsl(var(--turquoise-100));
 }
 .add-btn:hover {
     background-color: black;
 }
 
 dialog {
-    /* width: 90%; */
-    /* height: 90%; */
-    /* position: fixed; */
+    
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-    padding: 2rem;
+    padding: 0;
     border: none;
     border-radius: var(--radius-200);
+    outline: 0;
 }
 
 ::backdrop {
@@ -85,48 +45,162 @@ dialog {
     opacity: 0.75;
   }
 
-
-.reservation-table {
-    width: 100%;
-    padding: 1rem;
-    padding-left: 2.5em;
-    border: 1px solid hsl(var(--gray-200));
-    box-shadow: 0 0 0.2rem hsl(var(--gray-100));
-    border-radius: 1rem;
+.records-modal .detail-container {
+    padding: 3.125rem;
 }
 
-.table-title {
+
+/** record details dialogue  */
+
+.close-x {
+    float: right;
+    /* font-size: 2rem; */
+    /* font-weight: 200; */
+    
+    margin: 2.1rem;
+    cursor: pointer;
+}
+
+.records-modal .details {
+    display: flex;
+    gap: 7.5rem;
+    padding-left: 4.375rem;
+    padding-right: 4.375rem;
+    padding-bottom: 4rem;
+}
+
+.records-modal h1 {
+    margin-bottom: 4.375rem;
+}
+
+.records-modal .lable {
+    font-size: 1.25rem;
+    font-weight: 550;
+}
+
+.records-modal .field {
+    font-size: 1.25rem;
+    font-weight: 400;
+    width: 25rem;
+
+    border-bottom: 0.0625rem solid hsla(0, 0%, 22%, 1);
+    padding-top: 0.5rem;
+    margin-bottom: 2.625rem;
+}
+
+.records-modal .meal-lable {
+    padding-left: 0.7rem;
+    margin-right: 1.5rem;
+    font-size: 1.25rem;
+    font-weight: 400;
+    
+}
+
+.records-modal .meal-field {
+    appearance: none;
+    border-radius: 0.125rem;
+    border: 0.0625rem solid hsl(var(--gray-100));
+    background-color: white;
+    width: 1.25rem;
+    height: 1.25rem;
+}
+
+.records-modal .meal-field:checked {
+    
+    background-color: hsl(var(--gray-100));
+}
+
+
+/** the table */
+.reservation-table {
+    width: 100%;
+    font-weight: 500;
+    /* padding: 1rem; */
+    /* padding-left: 2.5em; */
+    /* border: 1px solid hsl(var(--gray-200)); */
+    /* box-shadow: 0 0 0.2rem hsl(var(--gray-100)); */
+    border-radius: 1rem;
+    border-spacing: 0;
+}
+
+.reservation-th th{
+    /* position: relative; */
+    /* padding-left: 1em; */
+    background-color: hsla(0, 0%, 22%, 1);
+    height: 3.5rem;
+    font-weight: 600;
+    font-size: 1.5rem;
+    color: white;
+    text-align: left;
+}
+
+/* .reservation-th th:not(:last-child)::after {
+    content: "";
+    position: absolute;
+    right: 0;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 1px;
+    height: 60%; 
+    background-color: white; 
+} */
+
+.reservation-record td {
+    font-size: 1.25rem;
+    font-weight: 500;
+}
+
+.table-title { /* branch */
     padding-top: 2rem;
     /* padding-bottom: 1rem; */
     color: gray;
     border-bottom: 0.1rem solid gray;
 }
 
+.reservation-table .reservation-record:nth-of-type(odd) {
+    background-color: hsla(0, 0%, 58%, 0.2);
+  }
+
 .reservation-record {
-    /* display: flex; */
-    /* flex-direction: column; */
-    /* gap: 0.5rem; */
-    
+    height: 2.3rem;
     position: relative;
-    padding: 1rem;
-    border-bottom: 0.1em solid hsl(var(--gray-100));
-    border-radius: var(--radius-200);
 }
 
-.reservation-record:hover {
-    background-color: hsl(var(--gray-200));
-    background-color: rgb(226, 219, 219);
+tr.reservation-record td:first-child,  .reservation-th tr th:first-child{
+    border-top-left-radius: 0.4rem;
+    border-bottom-left-radius: 0.4rem;
+}
+tr.reservation-record td:nth-child(5),  .reservation-th tr th:nth-child(5){
+    border-top-right-radius: 0.4rem;
+    border-bottom-right-radius: 0.4rem;
+}
+
+.reservation-record td:first-child, .reservation-table th:first-child {
+    padding-left: 1rem;
+    width: 1.1em;
+}
+
+.reservation-record td:not(:nth-child(5)), .reservation-table th:not(:last-child) {
+    padding-right: 1rem;
+}
+
+
+.reservation-table .reservation-record:hover {
+    background-color: hsl(170, 69%, 76%);
 }
 
 .record-id {
-    display: inline-block;
-    background-color: hsl(var(--gray-200));
-    width: 1.1em;
-    width: fit-content;
-    text-align: center;
-    border-radius: 2rem;
-    padding: 0.25em;
-    border-color:  hsl(var(--gray-200));
+    /* width: 1.1em; */
+    text-decoration: underline;
+
+    color: hsl(var(--turquoise-100));
+    /* border-radius: 2rem; */
+    /* padding-left: 1rem; */
+    /* border-color:  hsl(var(--gray-200)); */
+}
+
+.icon+span {
+    padding-left: 1em;
 }
 
 .icon {
@@ -161,6 +235,11 @@ dialog {
     mask-image: url(/assets/images/icons/basic-denied-reject-svgrepo-com.svg);
     cursor: pointer;
 }
+.close-icon {
+    width: 1.6rem;
+    height: 1.6rem;
+    mask-image: url(/assets/images/icons/close-svgrepo-com.svg);
+}
 
 .ctrl {
     display: none;
@@ -190,7 +269,7 @@ dialog {
 }
 
 .btn {
-    background-color: hsl(var(--red-100));
+    /* background-color: hsl(var(--red-100)); */
     font-size: var(--font-size-100);
     font-weight: 700;
     color: hsl(var(--white));
@@ -206,16 +285,25 @@ dialog {
     -o-transition: all 0.2s ease-in-out;
     margin: 0 0 0 5rem;
 }
+
+.close-btn {
+    background-color: hsl(var(--red-100));
+}
+
   
 .btn:hover {
     background-color: hsl(var(--gray-100));
 }
 
-/* @media (min-width: 992px) { */
+@media (max-width: 992px) { 
     /* .reservation-record { */
         /* display: ; */
         /* flex-direction: row; */
         /* justify-content: space-between; */
         /* justify-content: ; */
     /* } */
-/* } */
+
+    .records-modal .details {
+        flex-direction: column;
+    }
+}
