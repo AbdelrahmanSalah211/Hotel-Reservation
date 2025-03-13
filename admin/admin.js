@@ -64,12 +64,10 @@ function loadResources(route) {
 function manageResources(route) {
     // Removing JS and CSS files if exists
     document.querySelectorAll("[data-dynamic]").forEach(el => el.remove());
-    console.log(route)
-    console.log(routes[route])
     if (routes[route]){
         loadResources(route);
     }else if(route == "/admin/"){
-        route = "/admin/reservations";
+        route = "/admin/rooms";
         loadResources(route);
     }else {
         route = "/admin/notfound";

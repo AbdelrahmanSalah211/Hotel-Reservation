@@ -33,8 +33,9 @@
 }
 
 .divider {
-  color: hsl(var(--gray-100), 0.5);
-  padding-bottom: 1.9375rem;
+  border: none;
+  height: 0.05rem;
+  background-color: hsl(var(--gray-200), 50%);
 }
 
 .rooms-container {
@@ -42,7 +43,7 @@
   flex-direction: column;
   color: hsl(var(--gray-100));
   gap: 3.1875rem;
-  padding-left: 1.9375rem;
+  padding: 1.9375rem;
 }
 
 .rooms-container .card {
