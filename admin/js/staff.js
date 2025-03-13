@@ -89,7 +89,8 @@ function showChangePasswordOverlay() {
 
     const changePasswordForm = document.querySelector('.change-password');
     changePasswordForm.style.display = 'block';
-
+    changePasswordForm.querySelector('.title h1:first-child').innerHTML = "Change Password";
+    changePasswordForm.querySelector('.form-button').innerHTML = "Change";
     const closeButton = document.querySelector('.change-password .exit');
     closeButton.addEventListener('click', hideChangePasswordOverlay);
 

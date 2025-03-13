@@ -1,8 +1,9 @@
 function reservation(resBranchId, resRoomType, resNumberOfRooms, resMeals, resCheckInDate, resCheckOutDate, guestInfo) {
-  const toast = document.createElement("custom-toast");
-  toast.type = "success";
-  toast.message = "Reservation successful!";
-  document.body.appendChild(toast);
+  // const toast = document.createElement("custom-toast");
+  // toast.type = "success";
+  // toast.message = "Reservation successful!";
+  // document.body.appendChild(toast);
+  const toast = document.querySelector("custom-toast");
   const reservationData = JSON.parse(localStorage.getItem("reservations")) || [];
   const userSession = JSON.parse(localStorage.getItem("user-session"));
   const storedBranches = JSON.parse(localStorage.getItem("branches"));

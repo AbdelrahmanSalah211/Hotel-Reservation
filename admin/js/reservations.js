@@ -141,6 +141,7 @@ addEventListener("successfulSubmit", // change event to "success" dispatched by 
 
         //add record
         addReservationRecord(record,tableId)
+        dialog.close();
     }
 )
 
