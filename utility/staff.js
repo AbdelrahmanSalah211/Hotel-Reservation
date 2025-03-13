@@ -107,8 +107,8 @@ function signInStaff(email, password) {
     
     if (staff) {
         const userSession = {
-            email: user.first_name,
-            name: user.last_name,
+            email: staff.first_name,
+            name: staff.last_name,
         }
         localStorage.setItem("user-session", JSON.stringify(userSession));
         return true;

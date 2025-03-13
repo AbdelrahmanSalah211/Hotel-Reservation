@@ -1,22 +1,100 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="../global/global.css">
-    <link rel="stylesheet" href="./admin.css">
-    <title>ITI Hotels</title>
-</head>
-<body>
-    <aside id="sidebar">
-        <a href="/admin/reservations" data-link>Reservations</a>
-        <a href="/admin/rooms" data-link>Rooms</a>
-        <a href="/admin/staff" data-link>Staff</a>
-    </aside>
-    <main id="app">
-        write your html here for testing
-        ⚠️ do not style the main only style your component
-    </main>
-    <script src="./admin.js"></script>
-</body>
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="../global/global.css">
+        <link rel="stylesheet" href="./style.css">
+        <title>ITI Hotels</title>
+    </head>
+    <body>
+        <aside id="sidebar" class="sidebar" colapsed>
+            <button type="button" id="toggle-sidebar" class="btn" title="">
+                <svg viewBox="0 0 24 24" fill="none"
+                    xmlns="http://www.w3.org/2000/svg"><g id="SVGRepo_bgCarrier"
+                        stroke-width="0"></g><g id="SVGRepo_tracerCarrier"
+                        stroke-linecap="round" stroke-linejoin="round"></g><g
+                        id="SVGRepo_iconCarrier"> <path
+                            d="M4 6H20M4 12H20M4 18H20"
+                            stroke-width="2" stroke-linecap="round"
+                            stroke-linejoin="round"></path> </g></svg>
+                <span>Menu</span>
+            </button>
+            <a href="/admin/reservations" data-link selected>
+                <svg viewBox="0 0 24 24" fill="none"
+                    xmlns="http://www.w3.org/2000/svg"><g id="SVGRepo_bgCarrier"
+                        stroke-width="0"></g><g id="SVGRepo_tracerCarrier"
+                        stroke-linecap="round" stroke-linejoin="round"></g><g
+                        id="SVGRepo_iconCarrier"> <path
+                            d="M18.18 8.03933L18.6435 7.57589C19.4113 6.80804 20.6563 6.80804 21.4241 7.57589C22.192 8.34374 22.192 9.58868 21.4241 10.3565L20.9607 10.82M18.18 8.03933C18.18 8.03933 18.238 9.02414 19.1069 9.89309C19.9759 10.762 20.9607 10.82 20.9607 10.82M18.18 8.03933L13.9194 12.2999C13.6308 12.5885 13.4865 12.7328 13.3624 12.8919C13.2161 13.0796 13.0906 13.2827 12.9882 13.4975C12.9014 13.6797 12.8368 13.8732 12.7078 14.2604L12.2946 15.5L12.1609 15.901M20.9607 10.82L16.7001 15.0806C16.4115 15.3692 16.2672 15.5135 16.1081 15.6376C15.9204 15.7839 15.7173 15.9094 15.5025 16.0118C15.3203 16.0986 15.1268 16.1632 14.7396 16.2922L13.5 16.7054L13.099 16.8391M13.099 16.8391L12.6979 16.9728C12.5074 17.0363 12.2973 16.9867 12.1553 16.8447C12.0133 16.7027 11.9637 16.4926 12.0272 16.3021L12.1609 15.901M13.099 16.8391L12.1609 15.901"
+                            stroke-width="1.5"></path> <path
+                            d="M8 13H10.5" stroke-width="1.5"
+                            stroke-linecap="round"></path> <path d="M8 9H14.5"
+                            stroke-width="1.5"
+                            stroke-linecap="round"></path> <path d="M8 17H9.5"
+                            stroke-width="1.5"
+                            stroke-linecap="round"></path> <path
+                            d="M3 14V10C3 6.22876 3 4.34315 4.17157 3.17157C5.34315 2 7.22876 2 11 2H13C16.7712 2 18.6569 2 19.8284 3.17157M21 14C21 17.7712 21 19.6569 19.8284 20.8284M4.17157 20.8284C5.34315 22 7.22876 22 11 22H13C16.7712 22 18.6569 22 19.8284 20.8284M19.8284 20.8284C20.7715 19.8853 20.9554 18.4796 20.9913 16"
+                            stroke-width="1.5"
+                            stroke-linecap="round"></path> </g></svg>
+                <span>Reservations Requests</span>
+            </a>
+            <a href="/admin/rooms" data-link>
+                <svg viewBox="0 0 24 24" id="Layer_1" data-name="Layer 1"
+                    xmlns="http://www.w3.org/2000/svg"><g
+                        id="SVGRepo_bgCarrier" stroke-width="0"></g><g
+                        id="SVGRepo_tracerCarrier" stroke-linecap="round"
+                        stroke-linejoin="round"></g><g
+                        id="SVGRepo_iconCarrier"><defs><style>.cls-1{fill:none;stroke-miterlimit:10;stroke-width:1.91px;}</style></defs><circle
+                            class="cls-1" cx="19.64" cy="4.36"
+                            r="2.86"></circle><polyline class="cls-1"
+                            points="3.41 8.18 3.41 4.36 16.77 4.36"></polyline><line
+                            class="cls-1" x1="7.23" y1="8.18" x2="7.23"
+                            y2="4.36"></line><polygon class="cls-1"
+                            points="13.91 22.5 1.5 22.5 1.5 12.96 13.91 12.96 17.73 17.73 13.91 22.5"></polygon><path
+                            class="cls-1"
+                            d="M17.73,17.73h1.4a3.37,3.37,0,0,0,3.37-3.38h0a3.38,3.38,0,0,0-1-2.38l-.89-.89a3.37,3.37,0,0,1-1-2.39V5.32"></path></g></svg>
+                <span>Rooms</span>
+            </a>
+            <a href="/admin/staff" data-link>
+                <svg fill="#ffffff" version="1.1" id="Capa_1"
+                    xmlns="http://www.w3.org/2000/svg"
+                    xmlns:xlink="http://www.w3.org/1999/xlink"
+                    viewBox="0 0 183.405 183.405" xml:space="preserve"><g
+                        id="SVGRepo_bgCarrier" stroke-width="0"></g><g
+                        id="SVGRepo_tracerCarrier" stroke-linecap="round"
+                        stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier">
+                        <g> <g> <path
+                                    d="M160.766,0H64.054c-5.307,0-9.965,2.755-12.662,6.902h8.915c1.154-0.524,2.402-0.859,3.748-0.859h96.711 c4.999,0,9.061,4.064,9.061,9.064v125.577c0,4.604-3.495,8.269-7.946,8.841c-0.292,2.29-1.054,4.422-2.259,6.26h1.145 c8.336,0,15.113-6.771,15.113-15.101V15.101C175.879,6.777,169.102,0,160.766,0z"></path>
+                                <path
+                                    d="M140.057,13.804H43.348c-5.307,0-9.965,2.759-12.666,6.905h8.918c1.154-0.523,2.399-0.861,3.748-0.861h96.708 c5.011,0,9.072,4.064,9.072,9.066v125.579c0,4.604-3.501,8.258-7.946,8.83c-0.292,2.289-1.06,4.42-2.259,6.271h1.139 c8.342,0,15.125-6.771,15.125-15.113V28.914C155.176,20.581,148.398,13.804,140.057,13.804z"></path>
+                                <path
+                                    d="M119.347,27.611H22.639c-8.336,0-15.113,6.771-15.113,15.107v125.58c0,8.33,6.777,15.107,15.113,15.107h96.708 c8.343,0,15.126-6.771,15.126-15.107V42.718C134.473,34.388,127.689,27.611,119.347,27.611z M128.42,168.298 c0,4.993-4.067,9.066-9.073,9.066H22.639c-5.005,0-9.07-4.067-9.07-9.066V42.718c0-4.997,4.064-9.067,9.07-9.067h96.708 c5.006,0,9.073,4.07,9.073,9.067V168.298z"></path>
+                                <path
+                                    d="M80.236,107.747c6.777-4.549,11.447-13.548,11.447-21.644c0-11.43-9.252-20.7-20.688-20.7 c-11.43,0-20.685,9.271-20.685,20.7c0,8.096,4.67,17.095,11.429,21.644c-16.185,4.11-28.202,18.194-28.202,28.625 c0,12.324,74.933,12.324,74.933,0C108.46,125.941,96.452,111.857,80.236,107.747z M70.996,145.604l-10.507-10.485l8.835-21.361 H69.23l-3.428-3.945c1.668,0.597,3.386,0.962,5.188,0.962c1.806,0,3.517-0.359,5.179-0.943l-3.435,3.921h-0.076l8.842,21.361 L70.996,145.604z"></path>
+                            </g> </g> </g></svg>
+                <span>Staff</span>
+            </a>
+            <button type="button" id="logout" class="btn">
+                <svg viewBox="0 0 24 24" fill="none"
+                    xmlns="http://www.w3.org/2000/svg"><g id="SVGRepo_bgCarrier"
+                        stroke-width="0"></g><g id="SVGRepo_tracerCarrier"
+                        stroke-linecap="round" stroke-linejoin="round"></g><g
+                        id="SVGRepo_iconCarrier"> <path
+                            d="M15 12L2 12M2 12L5.5 9M2 12L5.5 15"
+                            stroke-width="1.5"
+                            stroke-linecap="round"
+                            stroke-linejoin="round"></path> <path
+                            d="M9.00195 7C9.01406 4.82497 9.11051 3.64706 9.87889 2.87868C10.7576 2 12.1718 2 15.0002 2L16.0002 2C18.8286 2 20.2429 2 21.1215 2.87868C22.0002 3.75736 22.0002 5.17157 22.0002 8L22.0002 16C22.0002 18.8284 22.0002 20.2426 21.1215 21.1213C20.3531 21.8897 19.1752 21.9862 17 21.9983M9.00195 17C9.01406 19.175 9.11051 20.3529 9.87889 21.1213C10.5202 21.7626 11.4467 21.9359 13 21.9827"
+                            stroke-width="1.5"
+                            stroke-linecap="round"></path> </g></svg>
+                <span>Logout</span>
+            </button>
+        </aside>
+        <main id="app" class="app">
+            write your html here for testing
+            ⚠️ do not style the main only style your component
+        </main>
+        <script src="./admin.js"></script>
+    </body>
 </html>

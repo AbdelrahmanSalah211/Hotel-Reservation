@@ -112,4 +112,8 @@ class Toast extends HTMLElement {
 
 }
 
-customElements.define('custom-toast', Toast);
+try {
+    customElements.define('custom-toast', Toast);
+}catch (error){
+    console.log(error);
+}

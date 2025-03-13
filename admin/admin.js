@@ -67,7 +67,7 @@ function manageResources(route) {
     if (routes[route]){
         loadResources(route);
     }else if(route == "/admin/"){
-        route = "/admin/rooms";
+        route = "/admin/reservations";
         loadResources(route);
     }else {
         route = "/admin/notfound";
