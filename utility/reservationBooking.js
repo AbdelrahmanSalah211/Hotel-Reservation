@@ -27,7 +27,7 @@ function reservation(resBranchId, resRoomType, resNumberOfRooms, resMeals, resCh
     guest_id: userSession.guest_id,
     room_type: resRoomType,
     number_of_rooms: resNumberOfRooms,
-    resident_name: guestInfo.resName,
+    guest_name: guestInfo.resName,
     phone_number: guestInfo.resPhoneNumber,
     check_in: resCheckInDate,
     check_out: resCheckOutDate,
@@ -38,6 +38,7 @@ function reservation(resBranchId, resRoomType, resNumberOfRooms, resMeals, resCh
   localStorage.setItem("branches", JSON.stringify(storedBranches));
   localStorage.setItem("reservations", JSON.stringify(reservationData));
   toast.fire();
+  dispatchEvent(new CustomEvent("successfulSubmit", { detail: { record: newReservation } }));
 }
 
 export { reservation };
