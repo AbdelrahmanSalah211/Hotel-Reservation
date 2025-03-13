@@ -18,7 +18,7 @@ body {
   font-size: 14px;
   min-height: 20px;
 }
-.icon img {
+.icon svg {
   position: relative;
   width: 5.349285714rem;
   height: 7.142857143rem;
@@ -58,7 +58,7 @@ body {
   cursor: pointer;
 }
 
-.dots img {
+.dots svg {
   position: absolute;
   top: 1.5rem;
   right: 1.5rem;
@@ -237,7 +237,7 @@ body {
     left: 49.3125rem;
     
   }
-  .change-password .exit img{
+  .change-password .exit svg{
   width: 1.5625rem;
     height: 1.5625rem;
   }
