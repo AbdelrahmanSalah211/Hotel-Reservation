@@ -1,56 +1,73 @@
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>staff</title>
-    <link rel="stylesheet" href="../../components/InputLabel/InputLabel.css">
-    <link rel="stylesheet" href="../css/staff.css">
+    <!-- <link rel="stylesheet" href="../css/staff.css"> -->
 </head>
+
 <body>
-    <div class="add-staff-button-container">
-        <button id="add-staff-button">Add New Staff</button>
-    </div>
-        <div class="container" id="container-card">
-            <!-- Your main content goes here -->
+
+    <link rel="stylesheet" href="/components/InputLabel/InputLabel.css">
+
+
+    <div class="header">
+
+        <h1>Staff</h1>
+        <div class="add-staff-button-container">
+            <button id="add-staff-button"> Add </button>
         </div>
-    
-        <div class="change-password">
-            <div class="exit">
-                <svg width="800px" height="800px" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                    <path fill-rule="evenodd" clip-rule="evenodd" d="M10.9393 12L6.9696 15.9697L8.03026 17.0304L12 13.0607L15.9697 17.0304L17.0304 15.9697L13.0607 12L17.0303 8.03039L15.9696 6.96973L12 10.9393L8.03038 6.96973L6.96972 8.03039L10.9393 12Z" fill="#080341"/>
-                    </svg>
+
+    </div>
+
+    <hr>
+    <div class="container" id="container-card">
+        <!-- Your main content goes here -->
+    </div>
+
+
+
+
+    <div class="change-password">
+        <div class="exit">
+            <svg width="800px" height="800px" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path fill-rule="evenodd" clip-rule="evenodd"
+                    d="M10.9393 12L6.9696 15.9697L8.03026 17.0304L12 13.0607L15.9697 17.0304L17.0304 15.9697L13.0607 12L17.0303 8.03039L15.9696 6.96973L12 10.9393L8.03038 6.96973L6.96972 8.03039L10.9393 12Z"
+                    fill="#080341" />
+            </svg>
+        </div>
+        <div class="title">
+            <div>
+                <h1>Change Password</h1>
             </div>
-            <div class="title">
-                <div>
-                    <h1>Change Password</h1>
-                </div>
-            </div>
-    
-            <form id="form">
-    
-                <div class="left-side">
-                    <input type="hidden" id="mode" name="mode">
-    
-                    <my-input onchange="" input-name="fname" label-for="fname" input-id="fname"
-                    label_name="First Name" label-for="Name" type="text">
+        </div>
+
+        <form id="form">
+
+            <div class="left-side">
+                <input type="hidden" id="mode" name="mode">
+
+                <my-input onchange="" input-name="fname" label-for="fname" input-id="fname" label_name="First Name"
+                    label-for="Name" type="text">
                 </my-input>
-                    <my-input onchange="" input-name="password" input-id="password" label_name="Password"
-                        label-for="my-password" type="password">
-                    </my-input>
-    
-                    <my-input onchange="" input-name="confirm_password" input-id="confirm-password"
-                        label_name="Confirm Password" label-for="my-confirm-password" type="password">
-                    </my-input>
-                    <div class="button">
-    
-                        <button class="form-button" id="change-password-button">Change Password</button>
-                    </div>
+                <my-input onchange="" input-name="password" input-id="password" label_name="Password"
+                    label-for="my-password" type="password">
+                </my-input>
+
+                <my-input onchange="" input-name="confirm_password" input-id="confirm-password"
+                    label_name="Confirm Password" label-for="my-confirm-password" type="password">
+                </my-input>
+                <div class="button">
+
+                    <button class="form-button" id="change-password-button">Change Password</button>
                 </div>
-                <div class="right-side">
-                    <my-input onchange="" input-name="email" input-id="email" label_name="Email" label-for="email"
+            </div>
+            <div class="right-side">
+                <my-input onchange="" input-name="email" input-id="email" label_name="Email" label-for="email"
                     type="email">
                 </my-input>
-               
+
                 <div class="gender" id="gender">
                     <div>
                         <input type="radio" name="gender" id="male" value="male">
@@ -61,22 +78,21 @@
                         <label for="female">Female</label>
                     </div>
                 </div>
-                </div>
-    
-                <div class="error-message"></div>
-                </div>
-    
-    
-    
-            </form>
-        </div>
-    
-    
-    
-    
-    
-    
-    </body>
-    <script src="../../components/InputLabel/InputLabel.js"></script>
-    <script src="../js/staff.js" type="module"></script>
+            </div>
+
+            <div class="error-message"></div>
+        </form>
+    </div>
+
+
+
+
+
+
+    <!-- <script src="/components/InputLabel/InputLabel.js"></script> -->
+
+
+
+</body>
+
 </html>
