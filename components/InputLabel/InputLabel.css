@@ -9,7 +9,6 @@
 .input-container label {
   position: absolute;
   font-size: var(--font-size-100);
-  font-weight: 500;
   color: hsl(var(--gray-100));
   transition: all 0.2s ease-in-out;
   -webkit-transition: all 0.2s ease-in-out;

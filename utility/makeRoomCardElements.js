@@ -1,4 +1,6 @@
-function makeRoomCardElements(roomsObject, limit){
+import {navigate} from "./routes.js";
+
+export function makeRoomCardElements(rooms, limit,container){
     let roomCardElement;
     let roomType;
     let roomDescription;
@@ -7,12 +9,12 @@ function makeRoomCardElements(roomsObject, limit){
 
     let alternator =0;
     // Option 1: Using slice to limit to first N elements
-    for(let roomObject of roomsObject["room_types"].slice(0, limit)){
-
-        console.log(roomObject);
+    for (let roomObject of rooms.slice(0, limit)){
 
         // create element contents
         roomCardElement = document.createElement("room-card");
+
+        roomCardElement.onBook = ()=>navigate("/reservation",`roomType=${roomObject["type"]}&breakfast=${roomObject["meals"]["breakfast"]}&lunch=${roomObject["meals"]["lunch"]}&dinner=${roomObject["meals"]["dinner"]}`);
         
         roomType        = document.createElement("h1");
         roomDescription = document.createElement("p");
@@ -22,14 +24,14 @@ function makeRoomCardElements(roomsObject, limit){
         // fill content with data
         roomType.innerHTML          = roomObject["type"] + " Room";
         roomDescription.innerHTML   = roomObject["description"];
-        roomMeals.innerText = "Meals of the Day: " +
-                              ((roomObject["meals"]["breakfast"])?"• breakfast ":"") +
-                              ((roomObject["meals"]["lunch"])    ?"• lunch "    :"") +
-                              ((roomObject["meals"]["dinner"])   ?"• dinner "   :"");
+        roomMeals.innerText = "Included meals: " +
+                              ((roomObject["meals"]["breakfast"])?"breakfast ":"") +
+                              ((roomObject["meals"]["lunch"])    ?"lunch "    :"") +
+                              ((roomObject["meals"]["dinner"])   ?"dinner"   :"");
         roomImage.src = roomObject["image_url"];
 
         // connect the element to the Dom
-        document.body.appendChild(roomCardElement);
+        container.appendChild(roomCardElement);
         roomCardElement.appendChild(roomType);
         roomCardElement.appendChild(roomDescription);
         roomCardElement.appendChild(roomMeals);

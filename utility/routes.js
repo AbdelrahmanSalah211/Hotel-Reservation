@@ -8,11 +8,8 @@ const routes = {
     "/notfound": "../notfound/notfound.html"
 };
 
-function navigate(path, data={}) {
-    const queryString = new URLSearchParams(data).toString();
-    const fullPath = queryString ? `${path}?${queryString}` : path;
-    history.pushState({}, "", fullPath);
-    window.location.href = routes[path];
+function navigate(path, query) {
+    window.location.href = `${routes[path]}${query ? `?${query}` : ""}`;
 }
 
 function fetchRoute(path){

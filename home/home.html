@@ -1,11 +1,36 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Document</title>
-</head>
-<body>
-  
-</body>
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../components/Footer/Footer.css">
+    <link rel="stylesheet" href="../components/NavBar/NavBar.css">
+    <link rel="stylesheet" href="../components/RoomCard/RoomCard.css">
+    <link rel="stylesheet" href="./home.css">
+    <link rel="stylesheet" href="../global/global.css">
+    <title>Document</title>
+  </head>
+  <body>
+    <nav-bar>
+      <p class="nav-logo rm-tablet">ITI<br>Hotels</p>
+      <a href="/home/home.html" class="nav-item rm-tablet">Home</a>
+      <a href="#rooms-container" class="nav-item rm-tablet">Rooms</a>
+      <a href="#contact-us" class="nav-item rm-tablet">Contact Us</a>
+      <a href="/reservation/reservation.html" class="nav-item rm-mobile">Book Now</a>
+      <button type="button" class="nav-item" id="logout">Logout</button>
+    </nav-bar>
+    <header class="home-header">
+      <h1 class="home-title">Welcome To<br>
+        <span>ITI Hotels</span>
+      </h1>
+    </header>
+    <main id="rooms-container" class="rooms-container">
+      <h1 class="rooms-title">Our Rooms</h1>
+    </main>
+    <custom-footer></custom-footer>
+    <script src="../components/NavBar/NavBar.js"></script>
+    <script src="../components/Footer/Footer.js"></script>
+    <script src="../components/RoomCard/RoomCard.js"></script>
+    <script src="./home.js" type="module"></script>
+  </body>
 </html>

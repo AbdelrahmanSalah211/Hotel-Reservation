@@ -17,6 +17,7 @@
     width: 28.125rem;
     box-shadow: 0 0 1.25rem hsl(var(--gray-200), 25%);
     border-radius: var(--radius-100);
+    background-color: hsl(var(--white));
     -webkit-border-radius: var(--radius-100);
     -moz-border-radius: var(--radius-100);
     -ms-border-radius: var(--radius-100);
