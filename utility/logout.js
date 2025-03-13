@@ -1,6 +1,6 @@
 import { navigate } from "./routes.js";
 function logout() {
-    localStorage.removeItem('isLoggedIn');
+    localStorage.removeItem("user-session");
     navigate("/login");
 }
 

@@ -28,14 +28,16 @@ function saveUsers(data) {
 
 function existEmail(userData) {
     const data = getUsers();
-   return  data.some(user => user.email === userData.email);
+    // console.log(da);
+    
+    return data.some(user => user.email === userData.email);
 }
 
 
 function generateGuestId() {
     const data = getUsers();
     if (data.length === 0) {
-      return 'G001';
+        return 'G001';
     }
 
     // Find the highest guest ID number and increment it
@@ -83,7 +85,6 @@ function registerSecondStep(formData) {
     
     data.push(newUser);
     
-    console.log(data);
 
     if (saveUsers(data)) {
         localStorage.removeItem("register-info");
@@ -109,20 +110,23 @@ function signinGuest(email, password) {
     console.log(email, password);
 
     const data = getUsers();
-    console.log(data);
-    
-   const user = data.find(user=>user.email === email && user.password === password);
-   console.log(user);
-   
-    if(user){
-        const userSession={
-            guest_id : user.guest_id,
-            first_name : user.first_name,
-            last_name : user.last_name,
-            email : user.email
+    console.log(data, "data");
+
+
+    const user = data.find(user => user.email === email && user.password === password);
+    //    console.log(user);
+
+    if (user) {
+        const userSession = {
+            guest_id: user.guest_id,
+            first_name: user.first_name,
+            last_name: user.last_name,
+            email: user.email
+        }
+        localStorage.setItem("user-session", JSON.stringify(userSession));
+        return true;
     }
     return false;
-    }
 };
 
 
@@ -153,4 +157,4 @@ export {
 //         last_name:data.last_name,
 //         email:data.email
 //     }
-// 
+// }

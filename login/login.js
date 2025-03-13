@@ -3,8 +3,9 @@ import { errorsMessage } from "../utility/errorsMessage.js";
 import { loadData } from "../utility/loadData.js";
 import { navigate } from "../utility/routes.js";
 import { signInStaff } from "../utility/staff.js";
-const sign_as = document.getElementById("sign-as");
 const form = document.getElementById("form");
+const staffRadioButton = document.getElementById('staff');
+const guestRadioButton = document.getElementById('guest');
 let currentUser = "";
 
 
@@ -14,17 +15,18 @@ initializeUsersData();
 
 
 
-// console.log(currentUser);
-
-sign_as.querySelectorAll(["input[type=radio"]).forEach((radio) => {
-    radio.onchange = () => {
-
-        currentUser = radio.value;
-    }
+staffRadioButton.addEventListener('click',function () {
+    currentUser = this.value;
 });
 
 
-console.log(currentUser);
+
+guestRadioButton.addEventListener('click',function () {
+    currentUser = this.value;
+})
+
+
+
 form.onsubmit = (e) => {
     e.preventDefault();
     const formData = new FormData(form);
@@ -47,7 +49,6 @@ form.onsubmit = (e) => {
     }
     if (currentUser === "guest") {
         if (signinGuest(email, password)) {
-            loadData();
             navigate("/");
         } else {
             errorsMessage("Invalid email or password");

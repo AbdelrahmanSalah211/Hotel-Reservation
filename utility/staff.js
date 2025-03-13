@@ -104,7 +104,9 @@ function isAdmin(email) {
 function signInStaff(email, password) {
     const data = JSON.parse(localStorage.getItem('staff'));
     const staff = data.find(data => data.email === email && data.password === password);
+    
     if (staff) {
+        
         return true;
     }
 

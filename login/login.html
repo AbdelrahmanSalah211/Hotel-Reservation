@@ -1,51 +1,80 @@
 <!DOCTYPE html>
 <html lang="en">
 
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-    <link rel="stylesheet" href="login.css">
-    <link rel="stylesheet" href="../components/InputLabel/InputLabel.css">
-</head>
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>ITI Hotels</title>
+        <link rel="stylesheet" href="../global/global.css">
+        <link rel="stylesheet" href="login.css">
+        <link rel="stylesheet" href="../components/InputLabel/InputLabel.css">
+    </head>
 
-<body>
-    <div class="main-container">
-        <div class="container">
-            <form id="form">
-                <h1>Login</h1>
+    <body>
+        <svg class="background-icon background-icon-1" viewBox="0 0 24 24"
+            fill="none"
+            xmlns="http://www.w3.org/2000/svg">
+            <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
+            <g id="SVGRepo_tracerCarrier" stroke-linecap="round"
+                stroke-linejoin="round"></g>
+            <g id="SVGRepo_iconCarrier">
+                <path fill-rule="evenodd"
+                    clip-rule="evenodd"
+                    d="M2 6C2 5.44772 1.55228 5 1 5C0.447715 5 0 5.44772 0 6V18C0 18.5523 0.447715 19 1 19C1.55228 19 2 18.5523 2 18V16H22V18C22 18.5523 22.4477 19 23 19C23.5523 19 24 18.5523 24 18V10C24 7.79086 22.2091 6 20 6H13C11.8954 6 11 6.89543 11 8V14H2V6ZM22 10V14H13V8H20C21.1046 8 22 8.89543 22 10Z">
+                </path>
+                <path fill-rule="evenodd"
+                    clip-rule="evenodd"
+                    d="M6.5 13C8.433 13 10 11.433 10 9.5C10 7.567 8.433 6 6.5 6C4.567 6 3 7.567 3 9.5C3 11.433 4.567 13 6.5 13ZM6.5 11.0799C5.62742 11.0799 4.92006 10.3726 4.92006 9.5C4.92006 8.62742 5.62742 7.92006 6.5 7.92006C7.37258 7.92006 8.07994 8.62742 8.07994 9.5C8.07994 10.3726 7.37258 11.0799 6.5 11.0799Z">
+                </path>
+            </g>
+        </svg>
+        <svg class="background-icon background-icon-2" viewBox="0 -32 576 576"
+            xmlns="http://www.w3.org/2000/svg">
+            <g id="SVGRepo_bgCarrier"
+                stroke-width="0"></g>
+            <g id="SVGRepo_tracerCarrier"
+                stroke-linecap="round" stroke-linejoin="round"></g>
+            <g id="SVGRepo_iconCarrier">
+                <path
+                    d="M560 64c8.84 0 16-7.16 16-16V16c0-8.84-7.16-16-16-16H16C7.16 0 0 7.16 0 16v32c0 8.84 7.16 16 16 16h15.98v384H16c-8.84 0-16 7.16-16 16v32c0 8.84 7.16 16 16 16h240v-80c0-8.8 7.2-16 16-16h32c8.8 0 16 7.2 16 16v80h240c8.84 0 16-7.16 16-16v-32c0-8.84-7.16-16-16-16h-16V64h16zm-304 44.8c0-6.4 6.4-12.8 12.8-12.8h38.4c6.4 0 12.8 6.4 12.8 12.8v38.4c0 6.4-6.4 12.8-12.8 12.8h-38.4c-6.4 0-12.8-6.4-12.8-12.8v-38.4zm0 96c0-6.4 6.4-12.8 12.8-12.8h38.4c6.4 0 12.8 6.4 12.8 12.8v38.4c0 6.4-6.4 12.8-12.8 12.8h-38.4c-6.4 0-12.8-6.4-12.8-12.8v-38.4zm-128-96c0-6.4 6.4-12.8 12.8-12.8h38.4c6.4 0 12.8 6.4 12.8 12.8v38.4c0 6.4-6.4 12.8-12.8 12.8h-38.4c-6.4 0-12.8-6.4-12.8-12.8v-38.4zM179.2 256h-38.4c-6.4 0-12.8-6.4-12.8-12.8v-38.4c0-6.4 6.4-12.8 12.8-12.8h38.4c6.4 0 12.8 6.4 12.8 12.8v38.4c0 6.4-6.4 12.8-12.8 12.8zM192 384c0-53.02 42.98-96 96-96s96 42.98 96 96H192zm256-140.8c0 6.4-6.4 12.8-12.8 12.8h-38.4c-6.4 0-12.8-6.4-12.8-12.8v-38.4c0-6.4 6.4-12.8 12.8-12.8h38.4c6.4 0 12.8 6.4 12.8 12.8v38.4zm0-96c0 6.4-6.4 12.8-12.8 12.8h-38.4c-6.4 0-12.8-6.4-12.8-12.8v-38.4c0-6.4 6.4-12.8 12.8-12.8h38.4c6.4 0 12.8 6.4 12.8 12.8v38.4z"></path>
+            </g>
+        </svg>
+        <div class="main-container">
+            <h1 class="main-title"><p>ITI<br>Hotels</p></h1>
+            <div class="container">
+                <h2 class="form-title">Login</h2>
+                <form id="form">
+                    <my-input onchange input-name="email" input-id="Email"
+                        label_name="Email" label-for="my-Email"
+                        type="text">
+                    </my-input>
 
-                <my-input onchange="" input-name="email" input-id="Email" label_name="Email" label-for="my-Email"
-                    type="text">
-                </my-input>
-
-                <my-input onchange="" input-name="password" input-id="password" label_name="Password"
-                    label-for="my-password" type="password" placeholder="Enter your password">
-                </my-input>
-                <div class="sign-as" id="sign-as">
-                    <div>
-                        <input type="radio" name="sign-as" id="guest" value="guest">
-                        <label for="guest">Guest</label>
+                    <my-input onchange input-name="password" input-id="password"
+                        label_name="Password"
+                        label-for="my-password" type="password"
+                        placeholder="Enter your password">
+                    </my-input>
+                    <div class="radio-btns-container">
+                        <div class="radio-option">
+                            <input type="radio" name="role" value="guest"
+                                id="guest">
+                            <label for="guest">Guest</label>
+                        </div>
+                        <div class="radio-option">
+                            <input type="radio" name="role" value="staff"
+                                id="staff">
+                            <label for="staff">Staff</label>
+                        </div>
                     </div>
-                    <div>
-                        <input type="radio" name="sign-as" id="staff" value="staff">
-                        <label for="staff">Staff</label>
-                    </div>
-
-                </div>
-                <div class="error-message"></div>
-                <div class="button">
-                    <button>
-                        Signup
-                    </button>
-                </div>
-                <p class="redirect-message">Do not have an account? <span><a
-                            href="../register-info/register-info.html">Register</a></span></p>
-            </form>
+                    <div class="error-message"></div>
+                    <button class="submit-btn" type="submit">Signin</button>
+                    <p class="redirect-message">Do not have an account? <span><a
+                                href="../register-info/register-info.html">Register</a></span></p>
+                </form>
+            </div>
         </div>
-    </div>
-</body>
-<script src="../components/InputLabel/InputLabel.js" type="module"></script>
-<script src="./login.js" type="module"></script>
+    </body>
+    <script src="../components/InputLabel/InputLabel.js" type="module"></script>
+    <script src="./login.js" type="module"></script>
 
 </html>
