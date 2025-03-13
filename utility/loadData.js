@@ -45,6 +45,18 @@ export function loadData() {
                 window.localStorage.setItem("guests", JSON.stringify(data.guests));
             }
         );
+    }
+
+
+    if(!window.localStorage.getItem("staff")){
+        
+        fetch("/assets/data/staff.json")
+        .then((res)=> res.json())
+        .then(
+            data=>{
+                window.localStorage.setItem("staff", JSON.stringify(data.staff));
+            }
+        );
     
     }
 
