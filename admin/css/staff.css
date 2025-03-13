@@ -3,6 +3,25 @@
 body {
   font-family: "Poppins", sans-serif;
 }
+
+.header{
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding:  2rem;
+
+}
+
+
+hr{
+  color: hsl(var(--gray-100));
+  margin:1rem 2rem ;
+}
+.header h1{
+  font-weight: bolder;
+  color: hsl(var(--gray-100));
+  font-size: var( --font-size-500);
+}
 .container {
   display: flex;
   flex-direction: column;

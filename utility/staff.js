@@ -106,7 +106,11 @@ function signInStaff(email, password) {
     const staff = data.find(data => data.email === email && data.password === password);
     
     if (staff) {
-        
+        const userSession = {
+            email: user.first_name,
+            name: user.last_name,
+        }
+        localStorage.setItem("staff-session", JSON.stringify(userSession));
         return true;
     }
 
