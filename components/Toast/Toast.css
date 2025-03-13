@@ -1,5 +1,6 @@
 .toast-container {
-    /*Movement*/position: fixed;
+    /*Movement*/
+    position: fixed;
     top: -6.25rem;
     left: 50%;
     transform: translate(-50%, 0%);
@@ -13,7 +14,8 @@
     -ms-transition: all var(--animation-duration) ease-in-out;
     -o-transition: all var(--animation-duration) ease-in-out;
     opacity: 0;
-    /*Shape*/display: flex;
+    /*Shape*/
+    display: flex;
     width: 28.125rem;
     box-shadow: 0 0 1.25rem hsl(var(--gray-200), 25%);
     border-radius: var(--radius-100);
@@ -22,10 +24,11 @@
     -moz-border-radius: var(--radius-100);
     -ms-border-radius: var(--radius-100);
     -o-border-radius: var(--radius-100);
+    z-index: 2000;
 }
 
 .active {
-    top: 2rem;
+    top: 8rem;
     opacity: 1;
 }
 
