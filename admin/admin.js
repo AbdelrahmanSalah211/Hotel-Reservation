@@ -36,8 +36,9 @@ function loadResources(route) {
 
     if (routes[route].js) {
         let script = document.createElement("script");
-        script.src = routes[route].js;
+        script.src = `${routes[route].js}?v=${Date.now()}`;
         script.setAttribute("data-dynamic", ""); // Mark it for removal later
+        script.type = "module";
         script.defer = true;
         document.body.appendChild(script);
     }
