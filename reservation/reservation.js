@@ -55,6 +55,11 @@ const reservationEventHandler = async function () {
     navigate("/login");
   }
 
+  const toast = document.createElement("custom-toast");
+  toast.type = "success";
+  toast.message = "Reservation successful!";
+  document.body.appendChild(toast);
+
   const form = document.querySelector(".reservation-form");
   const menus = document.querySelectorAll("select-menu");
   const location = menus[0];
