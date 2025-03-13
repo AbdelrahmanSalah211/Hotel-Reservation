@@ -4,7 +4,7 @@ const routes = {
     "/signup/step1": "../register-info/step1.html",
     "/signup/step2": "../register-password/step2.html",
     "/reservation": "../reservation/reservation.html",
-    "/admin":"../admin/index.html",
+    "/admin":"../admin/",
     "/notfound": "../notfound/notfound.html"
 };
 
