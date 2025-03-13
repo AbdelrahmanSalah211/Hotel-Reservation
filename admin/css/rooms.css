@@ -1,0 +1,150 @@
+/* all room cards - each room type - are inside room-container class
+<div class="rooms-container">
+  <div class="card>
+    <h4>Room Type</h4>
+    <div class="res-container">
+      <div class=img-card>
+        <img src="/assets/images/" class="room-img">
+        <div class="icons-overlay">
+          <img src="/assets/images/icons/breakfast.png">
+          <img src="/assets/images/icons/lunch.png">
+          <img src="/assets/images/icons/dinner.png">
+        </div>
+      </div>
+      <div class="info">
+        <p class="total-count"></p>
+        <p class="reserved"></p>
+        <p class="available"></p>
+        <p class="description"></p>
+      </div>
+    </div>
+  </div>
+</div>
+*/
+
+
+.heading {
+  color: hsl(var(--gray-100));
+  font-size: var(--font-size-500);
+  font-weight: 700;
+  line-height: 4rem;
+  padding-top: 2.5rem;
+  padding-bottom: 1.125rem;
+}
+
+.divider {
+  color: hsl(var(--gray-100), 0.5);
+  padding-bottom: 1.9375rem;
+}
+
+.rooms-container {
+  display: flex;
+  flex-direction: column;
+  color: hsl(var(--gray-100));
+  gap: 3.1875rem;
+  padding-left: 1.9375rem;
+}
+
+.rooms-container .card {
+  display: flex;
+  flex-direction: column;
+  gap: 1.6875rem;
+}
+
+.rooms-container .card .res-container {
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+}
+
+.rooms-container .card h4 {
+  font-size: var(--font-size-300);
+  font-weight: 700;
+  line-height: 2.5rem;
+}
+
+.rooms-container .card .res-container .img-card {
+  position: relative;
+  width: 52%;  
+}
+
+.rooms-container .card .res-container .img-card .room-img {
+  width: 100%;
+  aspect-ratio: 2/1;
+  border-radius: var(--radius-100);
+}
+
+.rooms-container .card .res-container .img-card .icons-overlay {
+  position: absolute;
+  width: 100%;
+  bottom: 0.3rem;
+  left: 0rem;
+  display: flex;
+  gap: 1.25rem;
+  border-radius: var(--radius-100);
+  background-color: hsl(var(--gray-100), 0.75);
+  padding-left: 1rem;
+}
+
+.rooms-container .card .icons-overlay img {
+  width: 1.5625rem;
+  height: 1.5625rem;
+}
+
+.rooms-container .card .res-container .info {
+  display: flex;
+  flex-direction: column;
+  gap: 0.875rem;
+  font-size: var(--font-size-100);
+  font-weight: 400;
+  line-height: 1.25rem;
+  width: 100%;
+}
+
+strong {
+  font-weight: 600;
+}
+
+@media (min-width: 768px) and (max-width: 991px){
+  .rooms-container {
+    gap: 1.875rem;
+  }
+
+  .rooms-container .card .res-container {
+    flex-direction: row;
+  }
+
+  .rooms-container .card .res-container .img-card {
+    width: 50%;
+  }
+
+  .rooms-container .card .res-container .info {
+    width: 50%;
+  }
+
+  /*
+  in screen width range 768-813 the icons-overlay positioned under image not on it in some of cards not all of them
+  12.375rem is the height of the image from which the icons-overlay becomes positioned correctly at width 814px
+  and that is why i also used max-width in media query not to affect the larger screen
+  */
+  .rooms-container .card .res-container .img-card .room-img {
+    min-height: 12.375rem;
+  }
+}
+
+@media (min-width: 992px){
+  .rooms-container {
+    flex-direction: row;
+    flex-wrap: wrap;
+    gap: 3.375rem 8.8125rem;
+  }
+
+  .rooms-container .card {
+    /*largest percentage for each card that allows 2 card in same row because of middle gap*/
+    width: 42%;
+  }
+
+  .rooms-container .card .res-container {
+    flex-direction: column;
+  }
+}
