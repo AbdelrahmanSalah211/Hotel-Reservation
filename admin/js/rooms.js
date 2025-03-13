@@ -1,6 +1,5 @@
 import { reservationStatistics } from "/utility/reservationStatistics.js";
 
-
 const data = reservationStatistics();
 console.log(data);
 
@@ -79,18 +78,4 @@ for (const roomType of roomTypes) {
   description.innerText = roomType.description;
   info.appendChild(description);
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
