@@ -6,6 +6,20 @@ let form = document.getElementById('form');
 var email = "";
 
 
+let script = document.createElement('script');
+script.src = `/components/InputLabel/InputLabel.js?v=${Date.now()}`
+script.type = "module";
+script.async = false;
+
+script.setAttribute("data-dynamic", "");
+
+document.body.append(script);
+
+
+
+
+
+
 function getGenderIcon(gender) {
     console.log(gender);
 
@@ -35,8 +49,12 @@ function getGenderIcon(gender) {
 
     return gender === "male" ? maleIcon : femaleIcon;
 }
+
+
+
 function loadData() {
     const staff = getStaff();
+
     staff.forEach((element) => {
 
         let { name, email, gender } = element;
@@ -80,6 +98,8 @@ function loadData() {
 
 
 function showChangePasswordOverlay() {
+    console.log("asdsad");
+
     document.getElementById('mode').value = 'edit';
     document.getElementById('gender').style.display = 'none'
 
@@ -95,6 +115,7 @@ function showChangePasswordOverlay() {
     closeButton.addEventListener('click', hideChangePasswordOverlay);
 
     overlayBg.addEventListener('click', hideChangePasswordOverlay);
+
 }
 
 function hideChangePasswordOverlay() {
@@ -127,15 +148,19 @@ function addNewAdmin() {
     overlayBg.addEventListener('click', hideChangePasswordOverlay);
 
 }
+function loadPage() {
 
-document.addEventListener('DOMContentLoaded', function () {
     const changePasswordForm = document.querySelector('.change-password');
     document.getElementById('add-staff-button').addEventListener('click', addNewAdmin);
     changePasswordForm.style.display = 'none';
     loadData();
 
+    console.log("sdasdasd");
+
+
 
     containerCards.querySelectorAll('.dots').forEach((dot) => {
+
         dot.addEventListener('click', function () {
             let card = this.closest(".card");
             let box = card.querySelector(".box");
@@ -143,12 +168,14 @@ document.addEventListener('DOMContentLoaded', function () {
             if (box.style.display == "flex") {
                 let deleteButton = box.querySelector(".delete");
                 let changePasswordButton = box.querySelector(".change-password-button");
+
                 deleteButton.replaceWith(deleteButton.cloneNode(true));
                 changePasswordButton.replaceWith(changePasswordButton.cloneNode(true));
                 deleteButton = box.querySelector(".delete");
                 email = card.querySelector('.content h3:first-child').textContent.trim();
 
                 changePasswordButton = box.querySelector(".change-password-button");
+
                 changePasswordButton.addEventListener('click', showChangePasswordOverlay);
 
                 deleteButton.addEventListener('click', function () {
@@ -156,56 +183,59 @@ document.addEventListener('DOMContentLoaded', function () {
                     deleteStaff(email);
                     containerCards.innerHTML = '';
                     loadData();
+                    loadPage();
                 });
-
-
-
-
-
             }
         });
-    });
 
 
-    form.onsubmit = function (e) {
-        e.preventDefault();
-        const formData = new FormData(form);
-        let mode = document.getElementById('mode').value;
-        let gender = document.querySelector('input[name="gender"]:checked')?.value || '';
+
+        form.onsubmit = function (e) {
+            e.preventDefault();
+            const formData = new FormData(form);
+            let mode = document.getElementById('mode').value;
+            let gender = document.querySelector('input[name="gender"]:checked')?.value || '';
 
 
-        if (validation.StaffData(formData)) {
-            const newData = {
-                name: formData.get('fname'),
-                password: formData.get('password'),
-                email: formData.get('email'),
-                gender: gender
-            };
-            // console.log);
-            if (mode == 'edit') {
-                // let email = document.querySelector('input[name="email"]').value;
+            if (validation.StaffData(formData)) {
+                const newData = {
+                    name: formData.get('fname'),
+                    password: formData.get('password'),
+                    email: formData.get('email'),
+                    gender: gender
+                };
+                // console.log);
+                if (mode == 'edit') {
+                    // let email = document.querySelector('input[name="email"]').value;
 
-                if (editStaff(email, newData)) {
+                    if (editStaff(email, newData)) {
+                        hideChangePasswordOverlay();
+                        containerCards.innerHTML = '';
+                        loadData();
+                        loadPage()
+                    } else {
+                        errorsMessage("no staff with this email");
+                    }
+
+                } else if (mode == 'add') {
+                    addStaff(newData.email, newData.name, newData.password, newData.gender);
                     hideChangePasswordOverlay();
                     containerCards.innerHTML = '';
                     loadData();
-                } else {
-                    errorsMessage("no staff with this email");
+                    loadPage()
                 }
 
-            } else if (mode == 'add') {
-                addStaff(newData.email, newData.name, newData.password, newData.gender);
-                hideChangePasswordOverlay();
-                containerCards.innerHTML = '';
-                loadData();
+
+
             }
-
-
-
         }
-    }
 
-})
+    })
+}
+
+
+loadPage();
+
 
 
 
