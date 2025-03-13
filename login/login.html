@@ -10,6 +10,44 @@
         <link rel="stylesheet" href="../components/InputLabel/InputLabel.css">
     </head>
 
+<body>
+    <div class="main-container">
+        <div class="container">
+            <form id="form">
+                <h1>Login</h1>
+
+                <my-input onchange="" input-name="email" input-id="Email" label_name="Email" label-for="my-Email"
+                    type="text">
+                </my-input>
+
+                <my-input onchange="" input-name="password" input-id="password" label_name="Password"
+                    label-for="my-password" type="password" placeholder="Enter your password">
+                </my-input>
+                <div class="sign-as" id="sign-as">
+                    <div>
+                        <input type="radio" name="sign-as" id="guest" value="guest">
+                        <label for="guest">Guest</label>
+                    </div>
+                    <div>
+                        <input type="radio" name="sign-as" id="staff" value="staff">
+                        <label for="staff">Staff</label>
+                    </div>
+
+                </div>
+                <div class="error-message"></div>
+                <div class="button">
+                    <button>
+                        Signup
+                    </button>
+                </div>
+                <p class="redirect-message">Do not have an account? <span><a
+                            href="../register-info/register-info.html">Register</a></span></p>
+            </form>
+        </div>
+    </div>
+</body>
+<script src="../components/InputLabel/InputLabel.js" type="module"></script>
+<script src="./login.js" type="module"></script>
     <body>
         <svg class="background-icon background-icon-1" viewBox="0 0 24 24"
             fill="none"
