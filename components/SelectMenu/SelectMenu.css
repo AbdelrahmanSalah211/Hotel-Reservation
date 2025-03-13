@@ -10,6 +10,7 @@
   font-size: var(--font-size-100);
   color: hsl(var(--gray-100));
   padding-bottom: 0.25rem;
+  padding-right: 2rem;
   appearance: none;
   background-image: url(./../../assets/images/icons/down-arrow.png);
   background-repeat: no-repeat;

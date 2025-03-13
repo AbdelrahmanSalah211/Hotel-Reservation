@@ -6,6 +6,21 @@ class Footer extends HTMLElement {
         this.render();
     }
 
+    createListItems(limit) {
+        const rooms = JSON.parse(localStorage.getItem("room_types"));
+
+        const listItems = rooms.slice(0, limit).map((room) => `
+            <li>
+                <a 
+                    href="/reservation/reservation.html?roomType=${room["type"]}&breakfast=${room["meals"]["breakfast"]}&lunch=${room["meals"]["lunch"]}&dinner=${room["meals"]["dinner"]}"
+                >
+                    ${room.type} Room
+                </a>
+            </li>
+        `).join("");
+        return listItems;
+    }
+
     render() {
         this.innerHTML = `
             <footer class="footer">
@@ -17,14 +32,10 @@ class Footer extends HTMLElement {
                     <div class="book-now">
                         <h3>Book Now</h3>
                         <ul>
-                            <li><a href="#">Delux Room</a></li>
-                            <li><a href="#">Superior Room</a></li>
-                            <li><a href="#">Suite</a></li>
-                            <li><a href="#">Twin Room</a></li>
-                            <li><a href="#">Double Room</a></li>
+                            ${this.createListItems(5)}
                         </ul>
                     </div>
-                    <div class="contact-us">
+                    <div class="contact-us" id="contact-us">
                         <h3>Contact Us</h3>
                         <ul>
                             <li class="phone">

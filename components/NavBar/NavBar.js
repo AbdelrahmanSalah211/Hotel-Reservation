@@ -12,7 +12,6 @@ class NavBar extends HTMLElement {
     }
 
     getListitems() {
-        console.log(Array.from(this.children).filter((child) => child.classList.contains('nav-item')))
         return Array.from(this.children).filter((child) => child.classList.contains('nav-item'));
     }
 
@@ -39,12 +38,11 @@ class NavBar extends HTMLElement {
         this.removeAttribute('class');
 
         const listItems = this.getListitems();
-        console.log(listItems);
         listItems.forEach((item) => {
             const navItem = document.createElement('li');
             navItem.classList.add("nav-item-container");
 
-            item.classList.remove('nav-item');
+            // item.classList.remove('nav-item');
             navItem.appendChild(item);
 
             this.querySelector('.nav-list').appendChild(navItem);

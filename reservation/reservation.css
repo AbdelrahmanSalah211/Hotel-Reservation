@@ -1,5 +1,5 @@
 main {
-  padding: 4.0625rem 3.125rem;
+  padding: 10rem 3.125rem 4.0625rem 3.125rem;
   width: 100%;
 }
 
@@ -13,8 +13,8 @@ main .reservation-title {
 
 main .container {
   display: flex;
-  gap: 16rem;
-  padding: 5rem;
+  gap: 8rem;
+  padding: 5rem 0;
   flex-direction: column;
 }
 
@@ -22,7 +22,7 @@ main .container section {
   display: flex;
   flex-direction: column;
   gap: 2.8125rem;
-  width: 27.78%;
+  width: 80%;
 }
 
 main .container section h2 {
@@ -82,23 +82,24 @@ main .container .room-info input[type="datetime-local"]::-webkit-calendar-picker
 }
 
 @media(min-width: 992px) {
-  /* .container {
+  .container {
     flex-direction: row;
-  } */
+  }
 
-  /* .room-info, .guest-info {
-    flex: 1;
-    min-width: 45%;
-  } */
-
-  /*.room-features {
+  .room-features {
     display: flex;
     flex-direction: row;
     gap: 2.5rem;
-  } */
+  }
 
   main .container {
     flex-direction: row;
+    padding: 5rem;
+    gap: 16rem;
+  }
+
+  main .container section {
+    width: 27.78%;
   }
 
   main .container .room-info .room-features {

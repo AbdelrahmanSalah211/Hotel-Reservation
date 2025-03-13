@@ -24,16 +24,6 @@ class RoomCard extends HTMLElement
             </div>
         `;
 
-        //* initial styling
-        if(!document.getElementById("Room-card-style"))
-        {
-            const style     = document.createElement("link")
-            style.href      = "/components/RoomCard/RoomCard.css";
-            style.rel       = "stylesheet";
-            style.id        = "Room-card-style";
-            document.head.prepend(style);
-        }
-
         //* elements refs
         this.bookBtn           = this.querySelector(".bookBtn");
         const imgCntnr          = this.querySelector(".imgCntnr");
@@ -123,7 +113,7 @@ try
 } 
 catch (error) 
 {
-    console.error("`room-card` custom elemnt maybe already Defined 😉")    
+    console.error("`room-card` custom element maybe already Defined 😉")    
 }
 
 // for dev

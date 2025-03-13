@@ -139,8 +139,4 @@
     .footer section {
         width: 50%;
     }
-
-    .footer .quick-links .book-now ul {
-        gap: 1.25rem 4.6875rem;
-    }
 }
