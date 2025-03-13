@@ -164,7 +164,11 @@ class MyInput extends HTMLElement {
 
 }
 
-customElements.define('my-input', MyInput);
+try {
+    customElements.define('my-input', MyInput);
+}catch(error){
+ console.log(error);
+}
 
 
 

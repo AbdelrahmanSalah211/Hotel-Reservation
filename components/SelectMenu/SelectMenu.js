@@ -123,7 +123,7 @@ class SelectMenu extends HTMLElement {
 try {
   customElements.define('select-menu', SelectMenu);
 } catch (error) {
-  console.error(error);
+  console.log(error)
 }
 
 export default SelectMenu;
