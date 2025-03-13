@@ -113,7 +113,7 @@ try
 } 
 catch (error) 
 {
-    console.error("`room-card` custom element maybe already Defined 😉")    
+    console.log("`room-card` custom element maybe already Defined 😉")    
 }
 
 // for dev
