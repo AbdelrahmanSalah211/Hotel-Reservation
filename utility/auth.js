@@ -122,6 +122,7 @@ function signinGuest(email, password) {
             email : user.email
     }
     return false;
+    }
 };
 
 
