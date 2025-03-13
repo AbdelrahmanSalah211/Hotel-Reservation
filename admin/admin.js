@@ -1,16 +1,16 @@
 const routes = {
     "/admin/reservations": {
-        html: `<div>Reservations</div>`,
+        html: `./html/reservations.html`,
         js: `./js/reservations.js`,
         css: `./css/reservations.css`,
     },
     "/admin/rooms": {
-        html: `<div>Rooms</div>`,
-        js: `./js/Rooms.js`,
+        html: `./html/rooms.html`,
+        js: `./js/rooms.js`,
         css: `./css/rooms.css`
     },
     "/admin/staff": {
-        html: `<div>Staff</div>`,
+        html: `./html/staff.html`,
         js: `./js/staff.js`,
         css: `./css/staff.css`,
     },
@@ -21,9 +21,26 @@ const routes = {
     }
 };
 
+async function fetchAndInjectHTML(htmlPath) {
+    try {
+        const response = await fetch(htmlPath);
+        const text = await response.text();
+
+        const parser = new DOMParser();
+        const doc = parser.parseFromString(text, "text/html");
+        const bodyContent = doc.body.innerHTML;
+
+        document.getElementById("app").innerHTML = bodyContent;
+    } catch (err) {
+        console.error("Failed to load HTML:", err);
+        document.getElementById("app").innerHTML = "<div>Error loading content.</div>";
+    }
+}
+
+
 function loadResources(route) {
     if(routes[route].html){
-        document.getElementById("app").innerHTML = routes[route].html;    
+        fetchAndInjectHTML(routes[route].html);  
     }
 
     if (routes[route].css) {
@@ -47,12 +64,10 @@ function loadResources(route) {
 function manageResources(route) {
     // Removing JS and CSS files if exists
     document.querySelectorAll("[data-dynamic]").forEach(el => el.remove());
-    console.log(route)
-    console.log(routes[route])
     if (routes[route]){
         loadResources(route);
     }else if(route == "/admin/"){
-        route = "/admin/reservations";
+        route = "/admin/rooms";
         loadResources(route);
     }else {
         route = "/admin/notfound";

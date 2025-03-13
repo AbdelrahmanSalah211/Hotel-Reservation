@@ -1,8 +1,4 @@
-@import url(../../global/global.css);
 
-body {
-  font-family: "Poppins", sans-serif;
-}
 
 .header{
   display: flex;
@@ -33,7 +29,7 @@ hr{
 }
 
 .error-message {
-  color: #e53935;
+  color: hsl(var(--red-100));
   font-size: 14px;
   min-height: 20px;
 }
@@ -149,7 +145,7 @@ hr{
   width: 20rem;
 }
 
- button {
+form button {
   padding: 0.9rem 3rem;
   border-radius: 0.3125rem;
   text-align: center;
