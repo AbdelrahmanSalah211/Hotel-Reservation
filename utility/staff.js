@@ -110,7 +110,7 @@ function signInStaff(email, password) {
             email: user.first_name,
             name: user.last_name,
         }
-        localStorage.setItem("staff-session", JSON.stringify(userSession));
+        localStorage.setItem("user-session", JSON.stringify(userSession));
         return true;
     }
 
