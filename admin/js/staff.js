@@ -14,7 +14,7 @@ function loadData() {
         let { name, email, gender } = element;
         containerCards.innerHTML += `<div class="card">
                 <div class="dots" data-id=${index}>
-                    <img src="../assets/images/icons/dots-horizontal-svgrepo-com (1).svg" alt="">
+                    <img src="../../assets/images/icons/dots-horizontal-svgrepo-com (1).svg" alt="">
                 </div>
                 <div class="box" id="box">
                     <button class="change-password-button">
@@ -26,8 +26,8 @@ function loadData() {
                 </div>
                
                 <div class="icon">
-                    ${gender === "male" ? `<img src="../assets/images/icons/hotel-man-1-svgrepo-com.svg" alt="">
-`: `                    <img src="../assets/images/icons/hotel-man-2-svgrepo-com.svg" alt="">
+                    ${gender === "male" ? `<img src="../../assets/images/icons/hotel-man-1-svgrepo-com.svg" alt="">
+`: `                    <img src="../../assets/images/icons/hotel-man-2-svgrepo-com.svg" alt="">
 `}
                 </div>
                 <div class="content">
@@ -82,6 +82,7 @@ function addNewAdmin() {
 
     const changePasswordForm = document.querySelector('.change-password');
     changePasswordForm.querySelector('.title h1:first-child').innerHTML = "add new Admin";
+    changePasswordForm.querySelector('.form-button').innerHTML = "Add"; 
 
     changePasswordForm.style.display = 'block';
 
