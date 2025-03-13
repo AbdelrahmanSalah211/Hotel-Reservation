@@ -28,23 +28,21 @@ function saveUsers(data) {
 
 function existEmail(userData) {
     const data = getUsers();
-    // console.log(da);
-    
-    return data.some(user => user.email === userData.email);
+   return  data.some(user => user.email === userData.email);
 }
 
 
 function generateGuestId() {
     const data = getUsers();
     if (data.length === 0) {
-        return 'G001';
+      return 'G001';
     }
 
     // Find the highest guest ID number and increment it
     const highestId = data
-        .map(guest => parseInt(guest.guest_id.substring(1)))
-        .reduce((max, current) => Math.max(max, current), 0);
-
+      .map(guest => parseInt(guest.guest_id.substring(1)))
+      .reduce((max, current) => Math.max(max, current), 0);
+    
     // Format the new ID with leading zeros
     return `G${(highestId + 1).toString().padStart(3, '0')}`;
 }
@@ -111,21 +109,17 @@ function signinGuest(email, password) {
     console.log(email, password);
 
     const data = getUsers();
-    console.log(data, "data");
-
-
-    const user = data.find(user => user.email === email && user.password === password);
-    //    console.log(user);
-
-    if (user) {
-        const userSession = {
-            guest_id: user.guest_id,
-            first_name: user.first_name,
-            last_name: user.last_name,
-            email: user.email
-        }
-        localStorage.setItem("user-session", JSON.stringify(userSession));
-        return true;
+    console.log(data);
+    
+   const user = data.find(user=>user.email === email && user.password === password);
+   console.log(user);
+   
+    if(user){
+        const userSession={
+            guest_id : user.guest_id,
+            first_name : user.first_name,
+            last_name : user.last_name,
+            email : user.email
     }
     return false;
 };
@@ -133,19 +127,7 @@ function signinGuest(email, password) {
 
 
 function initializeUsersData() {
-    const data = getUsers();
     loadData();
-
-    if (data == undefined || data.length === 0) {
-        console.log("No Data ");
-
-        fetch("../assets/data/guests.json").then(response => response.json()).then(data => {
-            console.log("fetching data");
-
-
-            saveUsers(data.guests);
-        }).catch(error => console.error(error));
-    }
 }
 
 
@@ -170,4 +152,4 @@ export {
 //         last_name:data.last_name,
 //         email:data.email
 //     }
-// }
+// 

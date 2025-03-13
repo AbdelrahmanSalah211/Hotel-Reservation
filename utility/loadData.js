@@ -1,15 +1,15 @@
 export function loadData() {
     // let;
 
-    if (!window.localStorage.getItem("hotel")) {
-
+    if(!window.localStorage.getItem("branches")){
+        
         fetch("/assets/data/hotel.json")
-            .then((res) => res.json())
-            .then(
-                data => {
-                    window.localStorage.setItem("hotel", JSON.stringify(data.branches));
-                }
-            );
+        .then((res)=> res.json())
+        .then(
+            data=>{
+                window.localStorage.setItem("branches", JSON.stringify(data.branches));
+            }
+        );
     }
 
     if (!window.localStorage.getItem("reservations")) {
@@ -22,31 +22,30 @@ export function loadData() {
                 }
             );
     }
-
-    if (!window.localStorage.getItem("rooms")) {
+    
+    if(!window.localStorage.getItem("room_types")){
 
         fetch("/assets/data/rooms.json")
-            .then((res) => res.json())
-            .then(
-                data => {
-                    window.localStorage.setItem("rooms", JSON.stringify(data.room_types));
-                }
-            );
-
+        .then((res)=> res.json())
+        .then(
+            data=>{
+                window.localStorage.setItem("room_types", JSON.stringify(data.room_types));
+            }
+        );
+    
     }
 
 
-    if (!localStorage.getItem("staff")) {
-        fetch("/assets/data/staff.json")
-            .then((data) => data.json()
-            ).then(
-                data => {
-                    localStorage.setItem("staff", JSON.stringify(data.staff));
-             })
-            .catch((error) => {
-                console.log(error);
-
-            })
+    if(!window.localStorage.getItem("guests")){
+        
+        fetch("/assets/data/guests.json")
+        .then((res)=> res.json())
+        .then(
+            data=>{
+                window.localStorage.setItem("guests", JSON.stringify(data.guests));
+            }
+        );
+    
     }
 
 }
