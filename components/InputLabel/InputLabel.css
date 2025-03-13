@@ -1,13 +1,16 @@
 .input-container {
   display: flex;
-  flex-direction: column;
   width: 100%;
   position: relative;
+  border: none;
+  border-bottom: solid 0.0625rem hsl(var(--gray-100));
 }
 
 .input-container label {
   position: absolute;
   font-size: var(--font-size-100);
+  font-weight: 500;
+  color: hsl(var(--gray-100));
   transition: all 0.2s ease-in-out;
   -webkit-transition: all 0.2s ease-in-out;
   -moz-transition: all 0.2s ease-in-out;
@@ -15,6 +18,21 @@
   -o-transition: all 0.2s ease-in-out;
   top: 2.26rem;
   pointer-events: none;
+}
+
+.input-container .my-input-toggle-password {
+  cursor: pointer;
+  align-self: flex-end;
+  display: flex;
+  align-items: center;
+  padding: 0.2rem 0;
+}
+
+.input-container .my-input-toggle-password svg {
+  width: 1.2rem;
+  aspect-ratio: 1/1;
+  stroke-width: 2;
+  stroke: hsl(var(--gray-100));
 }
 
 .input-container:has(input:not(:placeholder-shown)) label,
@@ -27,55 +45,7 @@
   padding: 2.26rem 0 0 0;
   outline: none;
   border: none;
-  border-bottom: solid 0.0625rem hsl(var(--gray-100));
   font-size: var(--font-size-100);
-  color: hsl(var(--gray-100));
-}
-
-
-/* .input-container {
-  display: flex;
-  flex-direction: column;
-  width: 100%;
-}
-
-.input-wrapper {
-  position: relative;
-  display: flex;
-  align-items: center;
-  border-bottom: solid 0.1rem hsl(var(--gray-100));
-  padding: 0.5rem 0;
-  gap: 0.5rem;
-  background-color: hsl(var(--white));
-}
-
-.input-container input {
-  width: 100%;
-  border: none;
-  outline: none;
-}
-
-.input-container label {
-  width: 100%;
-  position: absolute;
-  left: 8px;
-  top: 50%;
-  transform: translateY(-50%);
-  font-size: var(--font-size-100);
-  color: hsl(var(--input));
-  transition: all 0.3s ease-in-out;
-  pointer-events: none;
-}
-
-.my-input-toggle-password {
-  cursor: pointer;
-}
-
-.input-container input:focus+label,
-.input-container input:not(:placeholder-shown)+label {
-  top: -4px;
-  font-size: var(--font-size-100);
-
   color: hsl(var(--gray-100));
 }
 
@@ -84,4 +54,4 @@
   height: 1.4rem;
   color: hsl(var(--input));
   cursor: pointer;
-} */
+}

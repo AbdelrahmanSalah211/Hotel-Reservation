@@ -1,52 +1,6 @@
-const branches = [
-  {
-    branch_id: "HB201",
-    name: "Ocean Breeze Hotel - Alexandria",
-    country: "Egypt",
-    rooms: [
-      { type: "Single", count: 20, price_per_night: 120 },
-      { type: "Twin", count: 10, price_per_night: 120 },
-      { type: "Double", count: 40, price_per_night: 120 },
-      { type: "Suite", count: 40, price_per_night: 120 },
-      { type: "Junior-Suite", count: 3, price_per_night: 250 },
-    ],
-  },
-  {
-    branch_id: "HB202",
-    name: "Ocean Breeze Hotel - Cairo",
-    country: "Egypt",
-    rooms: [
-      { type: "Single", count: 25, price_per_night: 150 },
-      { type: "Twin", count: 15, price_per_night: 150 },
-      { type: "Double", count: 35, price_per_night: 150 },
-      { type: "Suite", count: 45, price_per_night: 150 },
-      { type: "King", count: 7, price_per_night: 220 },
-      { type: "Junior-Suite", count: 4, price_per_night: 270 },
-    ],
-  },
-];
-
-
-localStorage.setItem("branches", JSON.stringify(branches));
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-import { isLoggedIn } from "../utility/checkLogin.js";
-import { navigate } from "../utility/routes.js";
-import { reservation } from "../utility/reservationBooking.js";
-
+import { isLoggedIn } from "/utility/checkLogin.js";
+import { navigate } from "/utility/routes.js";
+import { reservation } from "/utility/reservationBooking.js";
 
 const urlParams = new URLSearchParams(window.location.search);
 const roomTypeParam = urlParams.get("roomType");
@@ -56,10 +10,51 @@ const dinnerParam = urlParams.get("dinner");
 
 const queryString = `?roomType=King&breakfast=true&lunch=true&dinner=true`;
 
-document.addEventListener("DOMContentLoaded", () => {
-  // if (!isLoggedIn()) {
-  //   navigate("/login");
-  // }
+
+const reservationEventHandler = async function () {
+  const smScript = document.createElement("script");
+  smScript.src = `/components/SelectMenu/SelectMenu.js?v=${Date.now()}`;
+  smScript.type = "module";
+  smScript.async = false;
+  smScript.setAttribute("data-dynamic", "");
+  document.body.append(smScript);
+  
+  const smLink = document.createElement("link");
+  smLink.rel = "stylesheet";
+  smLink.href = "/components/SelectMenu/SelectMenu.css";
+  smLink.setAttribute("data-dynamic", "");
+  document.head.append(smLink);
+
+  const ilScript = document.createElement("script");
+  ilScript.src = `/components/InputLabel/InputLabel.js?v=${Date.now()}`;
+  ilScript.async = false;
+  ilScript.setAttribute("data-dynamic", "");
+  document.body.append(ilScript);
+
+  const ilLink = document.createElement("link");
+  ilLink.rel = "stylesheet";
+  ilLink.href = "/components/InputLabel/InputLabel.css";
+  ilLink.setAttribute("data-dynamic", "");
+  document.head.append(ilLink);
+
+  const tScript = document.createElement("script");
+  tScript.src = `/components/Toast/Toast.js?v=${Date.now()}`;
+  tScript.async = false;
+  tScript.setAttribute("data-dynamic", "");
+  document.body.append(tScript);
+
+  const tLink = document.createElement("link");
+  tLink.rel = "stylesheet";
+  tLink.href = "/components/Toast/Toast.css";
+  tLink.setAttribute("data-dynamic", "");
+  document.head.append(tLink);
+
+  await new Promise((resolve) => ilScript.addEventListener("load", resolve));
+
+  if (!isLoggedIn()) {
+    navigate("/login");
+  }
+
   const form = document.querySelector(".reservation-form");
   const menus = document.querySelectorAll("select-menu");
   const location = menus[0];
@@ -91,14 +86,12 @@ document.addEventListener("DOMContentLoaded", () => {
   defaultBranchOption.value = "";
   defaultBranchOption.textContent = "Select Branch";
   defaultBranchOption.selected = true;
-  // defaultBranchOption.disabled = true;
   location.appendChild(defaultBranchOption);
 
   const defaultNumberOfRoomOption = document.createElement("option");
   defaultNumberOfRoomOption.value = "";
   defaultNumberOfRoomOption.textContent = "Select Number of Rooms";
   defaultNumberOfRoomOption.selected = true;
-  // defaultNumberOfRoomOption.disabled = true;
   numberOfRooms.appendChild(defaultNumberOfRoomOption);
 
   const redirectedRoomTypeOption = document.createElement("option");
@@ -119,8 +112,6 @@ document.addEventListener("DOMContentLoaded", () => {
     dinner.checked = true;
   }
 
-
-
   const storedBranches = JSON.parse(localStorage.getItem("branches"));
 
   storedBranches.forEach((branch) => {
@@ -132,11 +123,10 @@ document.addEventListener("DOMContentLoaded", () => {
 
   let selectedBranch;
   location.addEventListener("onChange",async function (e) {
-    selectedBranch = branches.find((branch) => branch.branch_id === e.detail.value);
+    selectedBranch = storedBranches.find((branch) => branch.branch_id === e.detail.value);
 
-    RemoveChildren(roomType);
-    RemoveChildren(numberOfRooms);
-
+    removeChildren(roomType);
+    removeChildren(numberOfRooms);
 
     selectedBranch.rooms.forEach((room) => {
       const roomTypeOption = document.createElement("option");
@@ -148,7 +138,6 @@ document.addEventListener("DOMContentLoaded", () => {
     function myPromise(){
       return new Promise((resolve, reject) => {
         setTimeout(() => {
-          // if(roomTypeParam){
             const selectRoomTypeParam = roomType.children[1];
             const selectRoomTypeChildren = selectRoomTypeParam.children;
             Array.from(selectRoomTypeChildren).forEach((child) => {
@@ -157,7 +146,6 @@ document.addEventListener("DOMContentLoaded", () => {
                 roomType.dispatchEvent(new CustomEvent("onChange", { detail: { value: child.value } }));
               }
             });
-          // }
           resolve("done");
         }, 0);
       })
@@ -167,36 +155,13 @@ document.addEventListener("DOMContentLoaded", () => {
       const str = await myPromise();
       console.log(str);
     }
-
-    // const myPromise = new Promise((resolve, reject) => {
-    //   setTimeout(() => {
-    //     // if(roomTypeParam){
-    //       const selectRoomTypeParam = roomType.children[1];
-    //       const selectRoomTypeChildren = selectRoomTypeParam.children;
-    //       Array.from(selectRoomTypeChildren).forEach((child) => {
-    //         if(child.value === roomTypeParam){
-    //           child.selected = true;
-    //           roomType.dispatchEvent(new CustomEvent("onChange", { detail: { value: child.value } }));
-    //         }
-    //       });
-    //     // }
-    //     resolve("done");
-    //   }, 0);
-    // })
-
-    // if(roomTypeParam){
-    //   const str = await myPromise;
-    //   console.log(str);
-    // }
-
   });
-
 
   roomType.addEventListener("onChange", async function (e) {
     const selectedRoomType = selectedBranch.rooms.find(
       (room) => room.type === e.detail.value
     );
-    RemoveChildren(numberOfRooms);
+    removeChildren(numberOfRooms);
     numberOfRooms.label = `Number of Rooms <span>( ${selectedRoomType.count} available )</span>`
     for(let i = 1; i <= selectedRoomType.count; i++){
       const numberOfRoomOption = document.createElement("option");
@@ -227,8 +192,6 @@ document.addEventListener("DOMContentLoaded", () => {
     }
   });
 
-
-
   form.addEventListener("submit", function (e) {
     e.preventDefault();
     const resBranchId = location.value;
@@ -247,50 +210,40 @@ document.addEventListener("DOMContentLoaded", () => {
       resName,
       resPhoneNumber
     }
-    // const errP = document.querySelector(".error-message");
+
     if (!resBranchId || !resNumberOfRooms || !resCheckInDate || !resCheckOutDate || !fName.value || !lName.value || !resPhoneNumber) {
-      // errP.style.display = "block";
       console.log("wrong fields");
       console.log(`resBranchId: ${resBranchId}, resRoomType: ${resRoomType}, resNumberOfRooms: ${resNumberOfRooms}, resMeals: ${resMeals}, resCheckInDate: ${resCheckInDate}, resCheckOutDate: ${resCheckOutDate}, guestInfo: ${guestInfo}`);
     } else {
-      // errP.style.display = "none";
       console.log("correct fields");
       console.log(`resBranchId: ${resBranchId}, resRoomType: ${resRoomType}, resNumberOfRooms: ${resNumberOfRooms}, resMeals: ${resMeals}, resCheckInDate: ${resCheckInDate}, resCheckOutDate: ${resCheckOutDate}, guestInfo: ${guestInfo}`);
       reservation(resBranchId, resRoomType, resNumberOfRooms, resMeals, resCheckInDate, resCheckOutDate, guestInfo);
       setTimeout(() => {
-        navigate("/");
+        if(window.location.pathname == "/reservation/reservation.html"){
+          navigate("/");
+        }
       }, 4000);
     }
   });
-});
 
-function RemoveChildren(selectMenu) {
-  const customchildren = selectMenu.children;
-  const select = customchildren[1];
-  const childrenDelete = select.children;
-  Array.from(childrenDelete).forEach((child) => {
-    select.removeChild(child);
-  });
+  function removeChildren(selectMenu) {
+    const customchildren = selectMenu.children;
+    const select = customchildren[1];
+    const childrenDelete = select.children;
+    Array.from(childrenDelete).forEach((child) => {
+      select.removeChild(child);
+    });
+  }
 }
 
+if (document.readyState == "interactive" || document.readyState == "complete") {
+  reservationEventHandler()
+} else {
+  document.addEventListener("DOMContentLoaded", reservationEventHandler);
+}
 
+// document.addEventListener("DOMContentLoaded", reservationEventHandler);
 
+// module.exports = { reservationEventHandler };
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+export default reservationEventHandler;
