@@ -7,7 +7,7 @@
     padding: 1rem 1.1875rem;
     background-color: hsl(var(--white));
     position: fixed;
-    z-index: 1000000;
+    z-index: 1000;
 }
 
 .nav-bar .nav-logo {
