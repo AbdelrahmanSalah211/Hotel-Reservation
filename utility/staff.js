@@ -2,11 +2,11 @@
 
 
 
-function addStaff(email, password) {
+function addStaff(email, name,password,gender) {
 
-    let data = localStorage.getItem('staff');
+    let data = JSON.parse(localStorage.getItem('staff'));
 
-    let staff = data.staff.find(data => data.email === email);
+    let staff = data.find(data => data.email === email);
 
     if (staff) {
         console.log("this staff is already added");
@@ -17,11 +17,13 @@ function addStaff(email, password) {
     let newStaff =
     {
         email: email,
+        name:name,
         password: password,
-        isAdmin: false
+        isAdmin: false,
+        gender:gender
     }
 
-    data.staff.push(newStaff);
+    data.push(newStaff);
 
     localStorage.setItem("staff", JSON.stringify(data));
 
@@ -29,36 +31,33 @@ function addStaff(email, password) {
 
 
 function editStaff(email, newData) {
-
-    let data = localStorage.getItem('staff');
-
-
-    let staffIndex = data.staff.findIndex(data => data.email === email);
-    if (staff === -1) {
-        console.log("no staff with this email");
-        return;
+    let data = JSON.parse(localStorage.getItem('staff')) || [];
+    
+    let staffIndex = data.findIndex(staff => staff.email === email);
+    
+    if (staffIndex === -1) {
+        console.log("No staff found with this email");
+        return false;
     }
-
-
-    data.staff[staffIndex] = {
-        ...data.staff[staffIndex],
+    
+    data[staffIndex] = {
+        ...data[staffIndex],
         ...newData
     };
-
-
-
-    localStorage.setItem("staff", data);
-
-    console.log("Staff member updated successfully.");
-
-
+    
+    console.log("Updated staff data:", data);
+    
+    localStorage.setItem("staff", JSON.stringify(data));
+    
+    return true;
 }
 
 function deleteStaff(email) {
-    let data = localStorage.getItem('staff');
+    let data = JSON.parse(localStorage.getItem('staff'));
 
 
-    let staffIndex = data.staff.findIndex(data => data.email === email);
+
+    let staffIndex = data.findIndex(data => data.email === email);
 
 
     if (staffIndex === -1) {
@@ -66,7 +65,7 @@ function deleteStaff(email) {
         return;
     }
 
-    data.staff.splice(staffIndex, 1);
+    data.splice(staffIndex, 1);
 
     localStorage.setItem("staff", JSON.stringify(data));
 
@@ -80,14 +79,18 @@ function deleteStaff(email) {
 
 }
 
+function getStaff() {
+    return JSON.parse(localStorage.getItem('staff'));
+    
+}
 
 
 function isAdmin(email) {
-    let data = localStorage.getItem('staff');
+    let data = JSON.parse(localStorage.getItem('staff'));
 
-    let staffIndex = data.staff.findIndex(data => data.email == email);
+    let staffIndex = data.findIndex(data => data.email == email);
 
-    data.staff[staffIndex].isAdmin = !data.staff[staffIndex].isAdmin;
+    data[staffIndex].isAdmin = !data[staffIndex].isAdmin;
 
     localStorage.setItem('staff', JSON.stringify(data));
 
@@ -98,10 +101,10 @@ function isAdmin(email) {
 
 
 
-function signInStaff(email,password){
-    const data = localStorage.getItem('staff');
-    const staff = data.staff.find(data => data.email === email && data.password === password);
-    if(staff){
+function signInStaff(email, password) {
+    const data = JSON.parse(localStorage.getItem('staff'));
+    const staff = data.find(data => data.email === email && data.password === password);
+    if (staff) {
         return true;
     }
 
@@ -114,6 +117,7 @@ export {
     editStaff,
     deleteStaff,
     isAdmin,
-    signInStaff
+    signInStaff,
+    getStaff
 }
 
