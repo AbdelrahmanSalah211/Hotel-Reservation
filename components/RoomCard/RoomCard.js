@@ -1,12 +1,15 @@
 //TODO: function that detects currenet directory
-class RoomCard extends HTMLElement {
-    constructor(){
+class RoomCard extends HTMLElement 
+{
+    constructor()
+    {
         super();
 
         this.bookBtn = null;
     }
 
-    connectedCallback(){
+    connectedCallback()
+    {
         this.innerHTML  = `
             <div class="cntnr card">
                 <div class="imgCntnr">
@@ -22,8 +25,8 @@ class RoomCard extends HTMLElement {
         `;
 
         //* initial styling
-        if(!document.getElementById("Room-card-style")){
-
+        if(!document.getElementById("Room-card-style"))
+        {
             const style     = document.createElement("link")
             style.href      = "/components/RoomCard/RoomCard.css";
             style.rel       = "stylesheet";
@@ -41,22 +44,19 @@ class RoomCard extends HTMLElement {
     //! control children adoption to my custom element
         
         //! the callback function to embed children nodes within
-        const embed = function(mutationList, observer){
-            //console.log(this);
-
+        const embed = function(mutationList, observer)
+        {
             //* get every mutation record
-            for(const mutation of mutationList){
-                
+            for(const mutation of mutationList)
+            {    
                 //* is there added nodes?
-                if (mutation.addedNodes.length > 0){
-                    
+                if (mutation.addedNodes.length > 0)
+                {    
                     //* catch the added node (child)
-                    mutation.addedNodes.forEach(
-
-
-                        (node) =>{
-
-                            // console.log(node);
+                    mutation.addedNodes.forEach
+                    (
+                        (node) =>
+                        {
                             //* disconnect the user-added node (child)
                             node.remove();
 
@@ -64,26 +64,20 @@ class RoomCard extends HTMLElement {
                             if (node instanceof HTMLElement){
 
                                 //* if the node is image override the image
-                                if (node.tagName === 'IMG') {
-                                        // imgE.src = node.src;
-                                        // imgE.alt = node.alt;
-                        
+                                if (node.tagName === 'IMG')
+                                {
                                     imgE.remove();
                                     imgCntnr.appendChild(node);
-
-                                }else{
-
+                                }
+                                else
+                                {
                                     textBodyAdopted.appendChild(node);
                                 }
                             }
-
                         }
-
                     )
                 }
-
             }
-
         }
             
         //! create observer 
@@ -100,15 +94,13 @@ class RoomCard extends HTMLElement {
         //* when to fire event logic
         this.bookBtn.addEventListener (
             "click",
-            () =>{
-                console.log("clicked");
+            () =>
+            {
                 // let roomCard fire the book event
-                if(this.onBook instanceof Function){
-
+                if(this.onBook instanceof Function)
+                {
                     this.dispatchEvent(new Event("book"));
                 }
-                
-                
             }
         );
 
@@ -118,17 +110,21 @@ class RoomCard extends HTMLElement {
         //* default book event listener
         this.addEventListener(
             "book", 
-            ()=>{
-                this.onBook();
-            },
+            ()=>this.onBook()
         );
-
     }
 
     disconnectedCallback(){}
 
 }
-customElements.define('room-card', RoomCard);
+try 
+{
+    customElements.define('room-card', RoomCard);
+} 
+catch (error) 
+{
+    console.error("`room-card` custom elemnt maybe already Defined 😉")    
+}
 
 // for dev
 // onload = function(){
