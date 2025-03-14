@@ -1,12 +1,4 @@
-# Hotel-Reservation
-## Pages
-- domain/login
-- domain/signup/step1
-- domain/signup/step2
-- domain/
-- domain/reservation
-
-<div style="text-align:center">
+<div align="center">
 
   # Hotel Booking Website
   ![GitHub contributors](https://img.shields.io/github/contributors/AbdelrahmanSalah211/Hotel-Reservation?style=plastic&labelColor=blue&color=red)
