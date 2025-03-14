@@ -59,6 +59,7 @@ const reservationEventHandler = async function () {
   const toast = document.createElement("custom-toast");
   toast.type = "success";
   toast.message = "Reservation successful!";
+  toast.setAttribute("data-dynamic", "");
   document.body.appendChild(toast);
 
   const logoutBtn = document.querySelector("#logout");
