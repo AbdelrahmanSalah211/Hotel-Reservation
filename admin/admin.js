@@ -80,7 +80,7 @@ function router() {
     manageResources(route);
 }
 
-function navigate(event) {
+function innerNavigate(event) {
     event.preventDefault();
     const url = event.target.getAttribute("href");
     history.pushState(null, "", url);
@@ -89,7 +89,7 @@ function navigate(event) {
 
 function main(){
     const anchors = document.querySelectorAll("a[data-link]");
-    anchors.forEach(anchor => anchor.addEventListener("click", navigate));
+    anchors.forEach(anchor => anchor.addEventListener("click", innerNavigate));
     window.addEventListener("popstate", router);
     window.addEventListener("load", router)
 }
