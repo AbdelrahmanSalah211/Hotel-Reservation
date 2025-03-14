@@ -1,6 +1,6 @@
 // import { logout } from "/utility/logout.js";
 
-import { router } from "../admin";
+import { router } from '/admin/admin.js';
 
 //* globals
 var parent = document.getElementById("reservation-subpage"); // to attach tables to
