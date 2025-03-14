@@ -20,7 +20,7 @@ A hotel reservation website that allows users to book rooms online across differ
 
 ## Contributors
 
-- [**Abdelrahman Mohamed Emabay**](https://github.com/AbdelrahmanEmbaby)
+- [**Abdelrahman Mohamed Embaby**](https://github.com/AbdelrahmanEmbaby)
 - [**Abdelrahman Salah Ebrahim**](https://github.com/AbdelrahmanSalah211)
 - [**Amr Elsayed Ahmed**](https://github.com/amr-essayyed)
 - [**Omar Mohamed Sayed**](https://github.com/OmarMohammedFoad)
