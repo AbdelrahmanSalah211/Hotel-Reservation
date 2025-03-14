@@ -1,5 +1,7 @@
 // import { logout } from "/utility/logout.js";
 
+import { router } from "../admin";
+
 //* globals
 var parent = document.getElementById("reservation-subpage"); // to attach tables to
 var addBtn = document.getElementsByClassName("add-btn")[0];
@@ -143,8 +145,9 @@ addEventListener("successfulSubmit", // change event to "success" dispatched by 
         const table = document.getElementById(tableId)
 
         //add record
-        addReservationRecord(record,table)
-        dialog.close();
+        //addReservationRecord(record,table)
+        //dialog.close();
+        router();
     }
 )
 
