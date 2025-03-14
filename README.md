@@ -1,5 +1,5 @@
-[![Watch the the Demo]()](./assets/videos/Demo.mp4)
-<div align="center">
+[[![Watch the the Demo]()](./assets/videos/Demo.mp4)
+](https://github.com/AbdelrahmanSalah211/Hotel-Reservation/blob/master/assets/videos/Demo.mp4)<div align="center">
 
   # Hotel Booking Website
   ![GitHub contributors](https://img.shields.io/github/contributors/AbdelrahmanSalah211/Hotel-Reservation?style=plastic&labelColor=blue&color=red)
