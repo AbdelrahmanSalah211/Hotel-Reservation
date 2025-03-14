@@ -1,3 +1,5 @@
+// import { logout } from "/utility/logout.js";
+
 //* globals
 var parent = document.getElementById("reservation-subpage"); // to attach tables to
 var addBtn = document.getElementsByClassName("add-btn")[0];
@@ -138,15 +140,17 @@ addEventListener("successfulSubmit", // change event to "success" dispatched by 
     function(event){
         const record = event.detail.record
         const tableId = event.detail.record.branch_id;
+        const table = document.getElementById(tableId)
 
         //add record
-        addReservationRecord(record,tableId)
+        addReservationRecord(record,table)
         dialog.close();
     }
 )
 
 //! show record details
-document.querySelector(".reservation-table").addEventListener("click", function (event) {
+document.querySelectorAll(".record-link").forEach((link)=>{
+link.addEventListener("click", function (event) {
     let row = event.target.closest("tr"); // Find the closest <tr> element
 
     if (row && row.classList.contains("reservation-record")) {
@@ -188,7 +192,7 @@ document.querySelector(".reservation-table").addEventListener("click", function 
         recordModal.showModal();
     }
 });
-
+})
 
 
 //* utilities
@@ -218,7 +222,7 @@ function createReservationTables()
     tableHeader.innerHTML = 
     `
     <tr>
-        <th>#</th>
+        <th>Request ID</th>
         <th>Check-in</th>
         <th>Check-out</th>
         <th>Name</th>
@@ -270,7 +274,7 @@ function addReservationRecord(record, table)
     // 🆔
     const id = document.createElement("td");
     id.classList.add("record-id");
-    id.innerText = record.reservation_id;
+    id.innerHTML = `<span class="record-link">${record.reservation_id}</span>`;
     reservatioRecord.appendChild(id);
         //! create checkin field
     reservatioRecord.appendChild(createChkInField(record.check_in));
@@ -298,7 +302,7 @@ function createChkInField(chkInDate)
     // <div class="chk-in-icon icon"></div>
     const icon = document.createElement("div");
     icon.classList.add("chk-in-icon", "icon");
-    field.appendChild(icon);
+    // field.appendChild(icon);
 
     // <span class="chk-in-txt">2025-03-05</span>
     const txt = document.createElement("span");
@@ -316,7 +320,7 @@ function createChkOutField(chkOutDate)
     field.classList.add("chk-out"); field.title="check out date";
     const icon = document.createElement("div");
     icon.classList.add("chk-out-icon", "icon");
-    field.appendChild(icon);
+    // field.appendChild(icon);
 
     // <span class="chk-out-txt">2025-03-05</span>
     const txt = document.createElement("span");
@@ -334,7 +338,7 @@ function createGuestNameField(guestName)
     field.classList.add("guest-name"); field.title="guest name";
     const icon = document.createElement("div");
     icon.classList.add("guest-name-icon", "icon");
-    field.appendChild(icon);
+    // field.appendChild(icon);
 
     // <span class="chk-out-txt">2025-03-05</span>
     const txt = document.createElement("span");
@@ -352,12 +356,12 @@ function createRoomTypeField(roomType, nOfRooms)
     field.classList.add("rooms"); field.title="reserved room type";
     const icon = document.createElement("div");
     icon.classList.add("rooms-icon", "icon");
-    field.appendChild(icon);
+    // field.appendChild(icon);
 
     // <span class="chk-out-txt">2025-03-05</span>
     const txt = document.createElement("span");
     txt.classList.add("rooms-txt");
-    txt.innerText = roomType +" *"+nOfRooms;
+    txt.innerText = roomType //+" *"+nOfRooms;
     field.appendChild(txt);
 
     return field;

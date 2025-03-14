@@ -2,7 +2,7 @@
 /* **** page styles */
 #reservation-subpage {
     flex-direction: column;
-    padding: 2.5rem;
+    /* padding: 2.5rem; */
 }
 
 #reservation-subpage hr {
@@ -176,9 +176,11 @@ tr.reservation-record td:nth-child(5),  .reservation-th tr th:nth-child(5){
 }
 
 .reservation-record td:first-child, .reservation-table th:first-child {
-    padding-left: 1rem;
-    width: 1.1em;
+    /* padding-left: 1rem; */
+    /* width: 1.1em; */
+    text-align: center;
 }
+
 
 .reservation-record td:not(:nth-child(5)), .reservation-table th:not(:last-child) {
     padding-right: 1rem;
@@ -189,11 +191,12 @@ tr.reservation-record td:nth-child(5),  .reservation-th tr th:nth-child(5){
     background-color: hsl(170, 69%, 76%);
 }
 
-.record-id {
+.record-link {
     /* width: 1.1em; */
     text-decoration: underline;
 
     color: hsl(var(--turquoise-100));
+    cursor: pointer;
     /* border-radius: 2rem; */
     /* padding-left: 1rem; */
     /* border-color:  hsl(var(--gray-200)); */
