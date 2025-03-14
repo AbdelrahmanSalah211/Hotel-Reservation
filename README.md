@@ -16,7 +16,7 @@ https://github.com/user-attachments/assets/df63301f-2e73-444d-945c-cfeb9683beec
 
 ## Description
 
-A Project that allows users to reserve rooms in any branch of the hotel with various room types and services.
+A hotel reservation website that allows users to book rooms online across different branches, offering various room types and services.
 
 ## Contributors
 
