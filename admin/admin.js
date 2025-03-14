@@ -75,7 +75,7 @@ function manageResources(route) {
     }
 }
 
-function router() {
+export function router() {
     const route = window.location.pathname;
     manageResources(route);
 }
