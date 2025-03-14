@@ -2,7 +2,7 @@
 /* **** page styles */
 #reservation-subpage {
     flex-direction: column;
-    /* padding: 2.5rem; */
+    padding: 2.5rem 0;
 }
 
 #reservation-subpage hr {
@@ -16,6 +16,10 @@
     justify-content: space-between;
 }
 
+.page-header h1 {
+    font-size: var(--font-size-500);
+}
+
 .add-btn {
     /* mask-image: url(/assets/images/icons/add-svgrepo-com.svg); */
     align-self: flex-end;
@@ -27,11 +31,10 @@
 }
 
 dialog {
-    
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-    padding: 0;
+    padding: 0 0 4rem 0;
     border: none;
     border-radius: var(--radius-200);
     outline: 0;

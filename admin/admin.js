@@ -80,14 +80,37 @@ function router() {
     manageResources(route);
 }
 
+function switchSelected(clickedAnchor) {
+    const allLinks = document.querySelectorAll("a[data-link]");
+    allLinks.forEach(link => link.removeAttribute("selected"));
+    clickedAnchor.setAttribute("selected", "");
+}
+
+
 function innerNavigate(event) {
     event.preventDefault();
-    const url = event.target.getAttribute("href");
+    const clickedAnchor = event.currentTarget;
+    const url = clickedAnchor.getAttribute("href");
+
+    switchSelected(clickedAnchor);
     history.pushState(null, "", url);
     router();
 }
 
+function toggleSidebarCollapse() {
+    const sidebar = document.getElementById("sidebar");
+
+    if (sidebar.hasAttribute("colapsed")) {
+        sidebar.removeAttribute("colapsed");
+    } else {
+        sidebar.setAttribute("colapsed", "");
+    }
+}
+
 function main(){
+    const toggleSidebar = document.getElementById("toggle-sidebar")
+    toggleSidebar.addEventListener("click", toggleSidebarCollapse);
+    
     const anchors = document.querySelectorAll("a[data-link]");
     anchors.forEach(anchor => anchor.addEventListener("click", innerNavigate));
     window.addEventListener("popstate", router);
