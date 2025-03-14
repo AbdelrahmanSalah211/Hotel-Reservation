@@ -1,4 +1,4 @@
-https://github.com/AbdelrahmanSalah211/Hotel-Reservation/blob/master/assets/videos/Demo.mp4
+![demo](https://github.com/AbdelrahmanSalah211/Hotel-Reservation/blob/master/assets/videos/Demo.mp4)
 <div align="center">
 
   # Hotel Booking Website
