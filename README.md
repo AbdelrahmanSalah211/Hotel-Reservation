@@ -1,3 +1,4 @@
+[![Watch the the Demo]()](./assets/videos/Demo.mp4)
 <div align="center">
 
   # Hotel Booking Website
